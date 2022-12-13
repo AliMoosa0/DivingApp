@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FC2F19E29486B4E006DCFCE /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2F19D29486B4E006DCFCE /* Trip.swift */; };
 		3FD2ABA729477EA6001D293A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2ABA629477EA6001D293A /* AppDelegate.swift */; };
 		3FD2ABA929477EA6001D293A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2ABA829477EA6001D293A /* SceneDelegate.swift */; };
 		3FD2ABAB29477EA6001D293A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2ABAA29477EA6001D293A /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3FC2F19D29486B4E006DCFCE /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		3FD2ABA329477EA6001D293A /* DivingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DivingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD2ABA629477EA6001D293A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD2ABA829477EA6001D293A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				3FD2ABA829477EA6001D293A /* SceneDelegate.swift */,
 				3FD2ABAA29477EA6001D293A /* ViewController.swift */,
 				3FD2ABAC29477EA6001D293A /* Main.storyboard */,
+				3FC2F19D29486B4E006DCFCE /* Trip.swift */,
 				3FD2ABAF29477EA8001D293A /* Assets.xcassets */,
 				3FD2ABB129477EA8001D293A /* LaunchScreen.storyboard */,
 				3FD2ABB429477EA8001D293A /* Info.plist */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC2F19E29486B4E006DCFCE /* Trip.swift in Sources */,
 				3FD2ABAB29477EA6001D293A /* ViewController.swift in Sources */,
 				3FD2ABA729477EA6001D293A /* AppDelegate.swift in Sources */,
 				3FD2ABA929477EA6001D293A /* SceneDelegate.swift in Sources */,
@@ -304,7 +308,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -332,7 +336,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
