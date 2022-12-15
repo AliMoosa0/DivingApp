@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F5B3826294B89B600E2B78E /* TheTrips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B3825294B89B600E2B78E /* TheTrips.storyboard */; };
+		3F5B3829294B89E300E2B78E /* TheDives.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B3827294B89E300E2B78E /* TheDives.storyboard */; };
 		3FB1C236294B015700C706F1 /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB1C235294B015700C706F1 /* Trips.swift */; };
 		3FB1C23C294B0D5B00C706F1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FB1C23A294B0D5B00C706F1 /* Home.storyboard */; };
 		3FC2F19E29486B4E006DCFCE /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2F19D29486B4E006DCFCE /* Trip.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F5B3825294B89B600E2B78E /* TheTrips.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TheTrips.storyboard; sourceTree = "<group>"; };
+		3F5B3828294B89E300E2B78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DivingApp/Base.lproj/TheDives.storyboard; sourceTree = "<group>"; };
 		3FB1C235294B015700C706F1 /* Trips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
 		3FB1C23B294B0D5B00C706F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DivingApp/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		3FC2F19D29486B4E006DCFCE /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 				3FB1C235294B015700C706F1 /* Trips.swift */,
 				3FD2ABAC29477EA6001D293A /* Main.storyboard */,
 				3FB1C23A294B0D5B00C706F1 /* Home.storyboard */,
+				3F5B3825294B89B600E2B78E /* TheTrips.storyboard */,
+				3F5B3827294B89E300E2B78E /* TheDives.storyboard */,
 				3FC2F19D29486B4E006DCFCE /* Trip.swift */,
 				3FD2ABAF29477EA8001D293A /* Assets.xcassets */,
 				3FD2ABB129477EA8001D293A /* LaunchScreen.storyboard */,
@@ -136,7 +142,9 @@
 			files = (
 				3FD2ABB329477EA8001D293A /* LaunchScreen.storyboard in Resources */,
 				3FD2ABB029477EA8001D293A /* Assets.xcassets in Resources */,
+				3F5B3829294B89E300E2B78E /* TheDives.storyboard in Resources */,
 				3FD2ABAE29477EA6001D293A /* Main.storyboard in Resources */,
+				3F5B3826294B89B600E2B78E /* TheTrips.storyboard in Resources */,
 				3FB1C23C294B0D5B00C706F1 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +167,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		3F5B3827294B89E300E2B78E /* TheDives.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F5B3828294B89E300E2B78E /* Base */,
+			);
+			name = TheDives.storyboard;
+			sourceTree = "<group>";
+		};
 		3FB1C23A294B0D5B00C706F1 /* Home.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
