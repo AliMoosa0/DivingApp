@@ -3,10 +3,108 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Home-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DivingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aNs-mJ-LT0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vw5-cl-D6l">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="384.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personal photo" translatesAutoresizingMaskIntoConstraints="NO" id="dzh-GQ-FyG">
+                                                <rect key="frame" x="0.0" y="60" width="414" height="264.5"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="dzh-GQ-FyG" firstAttribute="top" secondItem="vw5-cl-D6l" secondAttribute="top" constant="60" id="Ngh-Sa-9QQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="dzh-GQ-FyG" secondAttribute="bottom" constant="60" id="bNk-ZE-li8"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ER3-JJ-QBS">
+                                        <rect key="frame" x="0.0" y="384.5" width="414" height="384.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="24U-0I-5u3">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Trips" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAp-IV-Rtd">
+                                                        <rect key="frame" x="0.0" y="54" width="207" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of dives" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qC-27-sO3">
+                                                        <rect key="frame" x="207" y="54" width="207" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OAf-ds-TET">
+                                                <rect key="frame" x="0.0" y="128" width="414" height="128.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max depth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxu-AH-3ba">
+                                                        <rect key="frame" x="0.0" y="54" width="207" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlU-Oq-Tli">
+                                                        <rect key="frame" x="207" y="54" width="207" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="th6-u1-7ER">
+                                                <rect key="frame" x="0.0" y="256.5" width="414" height="128"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVG dives per trip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmT-A8-Pce">
+                                                        <rect key="frame" x="0.0" y="53.5" width="207" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avg Oxygen lvl" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEA-MV-hKZ">
+                                                        <rect key="frame" x="207" y="53.5" width="207" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aNs-mJ-LT0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="37T-Ed-h2f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aNs-mJ-LT0" secondAttribute="bottom" id="iRg-ap-0t3"/>
+                            <constraint firstItem="aNs-mJ-LT0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sk5-v1-mS0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aNs-mJ-LT0" secondAttribute="trailing" id="tqe-r2-11M"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house" id="ob0-cL-63X"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-730.43478260869574" y="-378.34821428571428"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="moq-ir-hFJ">
             <objects>
@@ -17,7 +115,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="PfQ-hz-B1e" kind="relationship" relationship="viewControllers" id="VMz-eX-T9N"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="VMz-eX-T9N"/>
                         <segue destination="bIJ-jG-12Z" kind="relationship" relationship="viewControllers" id="gY9-rC-ISN"/>
                         <segue destination="3wr-Sh-acj" kind="relationship" relationship="viewControllers" id="lX8-0W-lK0"/>
                     </connections>
@@ -53,7 +151,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Trips" id="Zjn-M2-42m">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="Kw8-QU-lx8"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="XMx-43-0AF">
                             <connections>
                                 <segue destination="M01-HP-RjF" kind="presentation" id="JdO-yL-WKn"/>
@@ -123,7 +220,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Dives" id="we2-vc-UsI">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="HXq-w9-BR1"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="XQe-hK-b6d">
                             <connections>
                                 <segue destination="yvL-BY-HBp" kind="presentation" id="NY6-LG-eOH"/>
@@ -279,20 +375,13 @@
             </objects>
             <point key="canvasLocation" x="-2146" y="-1307"/>
         </scene>
-        <!--Home-->
-        <scene sceneID="Fud-nd-AzZ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="PfQ-hz-B1e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="6DM-2W-EOx"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fla-NF-4L0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-730.43478260869574" y="-378.34821428571428"/>
-        </scene>
     </scenes>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="personal photo" width="860" height="901"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
