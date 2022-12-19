@@ -9,11 +9,7 @@ import UIKit
 
 class TripsTableViewController: UITableViewController {
 
-    @IBOutlet weak var tripName: UILabel!
-    
-    @IBOutlet weak var location: UILabel!
-    
-    @IBOutlet weak var tripDate: UILabel!
+
     
     
     
