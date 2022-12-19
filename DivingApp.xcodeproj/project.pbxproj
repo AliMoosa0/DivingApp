@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1AEE25294E432F004C24F7 /* TripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */; };
 		3F5B3826294B89B600E2B78E /* TheTrips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B3825294B89B600E2B78E /* TheTrips.storyboard */; };
 		3F5B3829294B89E300E2B78E /* TheDives.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B3827294B89E300E2B78E /* TheDives.storyboard */; };
 		3F5B382B294B8BC900E2B78E /* UserSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B382A294B8BC900E2B78E /* UserSettings.storyboard */; };
@@ -15,7 +16,6 @@
 		3F5B383B294B92F900E2B78E /* ViewTheDives.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B3839294B92F900E2B78E /* ViewTheDives.storyboard */; };
 		3FB1C236294B015700C706F1 /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB1C235294B015700C706F1 /* Trips.swift */; };
 		3FB1C23C294B0D5B00C706F1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FB1C23A294B0D5B00C706F1 /* Home.storyboard */; };
-		3FC2F19E29486B4E006DCFCE /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2F19D29486B4E006DCFCE /* Trip.swift */; };
 		3FD2ABA729477EA6001D293A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2ABA629477EA6001D293A /* AppDelegate.swift */; };
 		3FD2ABA929477EA6001D293A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2ABA829477EA6001D293A /* SceneDelegate.swift */; };
 		3FD2ABAB29477EA6001D293A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2ABAA29477EA6001D293A /* ViewController.swift */; };
@@ -25,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewController.swift; sourceTree = "<group>"; };
 		3F5B3825294B89B600E2B78E /* TheTrips.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TheTrips.storyboard; sourceTree = "<group>"; };
 		3F5B3828294B89E300E2B78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DivingApp/Base.lproj/TheDives.storyboard; sourceTree = "<group>"; };
 		3F5B382A294B8BC900E2B78E /* UserSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserSettings.storyboard; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		3F5B383A294B92F900E2B78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DivingApp/DivingApp/DivingApp/Base.lproj/ViewTheDives.storyboard; sourceTree = "<group>"; };
 		3FB1C235294B015700C706F1 /* Trips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
 		3FB1C23B294B0D5B00C706F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DivingApp/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
-		3FC2F19D29486B4E006DCFCE /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		3FD2ABA329477EA6001D293A /* DivingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DivingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD2ABA629477EA6001D293A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD2ABA829477EA6001D293A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,13 +80,13 @@
 				3FB1C235294B015700C706F1 /* Trips.swift */,
 				3FD2ABAC29477EA6001D293A /* Main.storyboard */,
 				3FB1C23A294B0D5B00C706F1 /* Home.storyboard */,
+				3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */,
 				3F5B3825294B89B600E2B78E /* TheTrips.storyboard */,
 				3F5B3831294B8F6100E2B78E /* AddEditTheTrips.storyboard */,
 				3F5B3827294B89E300E2B78E /* TheDives.storyboard */,
 				3F5B3834294B8F8D00E2B78E /* AddEditTheDives.storyboard */,
 				3F5B3839294B92F900E2B78E /* ViewTheDives.storyboard */,
 				3F5B382A294B8BC900E2B78E /* UserSettings.storyboard */,
-				3FC2F19D29486B4E006DCFCE /* Trip.swift */,
 				3FD2ABAF29477EA8001D293A /* Assets.xcassets */,
 				3FD2ABB129477EA8001D293A /* LaunchScreen.storyboard */,
 				3FD2ABB429477EA8001D293A /* Info.plist */,
@@ -173,8 +173,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FB1C236294B015700C706F1 /* Trips.swift in Sources */,
-				3FC2F19E29486B4E006DCFCE /* Trip.swift in Sources */,
 				3FD2ABAB29477EA6001D293A /* ViewController.swift in Sources */,
+				3F1AEE25294E432F004C24F7 /* TripsTableViewController.swift in Sources */,
 				3FD2ABA729477EA6001D293A /* AppDelegate.swift in Sources */,
 				3FD2ABA929477EA6001D293A /* SceneDelegate.swift in Sources */,
 			);
