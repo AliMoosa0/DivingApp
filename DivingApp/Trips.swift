@@ -35,7 +35,7 @@ struct Trip: Equatable, Codable{
         return try? propertListDecoder.decode(Array<Trip>.self, from: codedTrips)
     }
     
-    static func saveToDos(_ trips: [Trip]){
+    static func saveTrips(_ trips: [Trip]){
         let propertyListEncoder = PropertyListEncoder()
         let codedtrips = try? propertyListEncoder.encode(trips)
         try? codedtrips?.write(to: archiveURL, options: .noFileProtection)
