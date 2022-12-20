@@ -81,7 +81,6 @@
 				3FD2ABAA29477EA6001D293A /* ViewController.swift */,
 				3FB1C235294B015700C706F1 /* Trips.swift */,
 				3FD2ABAC29477EA6001D293A /* Main.storyboard */,
-				3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */,
 				3FFCC8BA2950F44000A1B21A /* Safa Features */,
 				3FFCC8B92950F3A200A1B21A /* Ali Features */,
 				3FFCC8BB2950F45A00A1B21A /* Hussain features */,
@@ -95,9 +94,9 @@
 		3FFCC8B92950F3A200A1B21A /* Ali Features */ = {
 			isa = PBXGroup;
 			children = (
+				3F020F972951A6BD00BC4291 /* AddEditTableViewController.swift */,
 				3FB1C23A294B0D5B00C706F1 /* Home.storyboard */,
 				3F5B3831294B8F6100E2B78E /* AddEditTheTrips.storyboard */,
-				3F020F972951A6BD00BC4291 /* AddEditTableViewController.swift */,
 				3F5B3834294B8F8D00E2B78E /* AddEditTheDives.storyboard */,
 			);
 			path = "Ali Features";
@@ -106,6 +105,7 @@
 		3FFCC8BA2950F44000A1B21A /* Safa Features */ = {
 			isa = PBXGroup;
 			children = (
+				3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */,
 				3F5B3825294B89B600E2B78E /* TheTrips.storyboard */,
 				3F5B3827294B89E300E2B78E /* TheDives.storyboard */,
 			);
