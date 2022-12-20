@@ -21,12 +21,26 @@ class TripsTableViewController: UITableViewController {
         }else{
             trips = Trip.loadSampleLoad()
         }
+        
+        navigationItem.leftBarButtonItem = editButtonItem
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    @IBAction func unwindToTripList(segue: UIStoryboardSegue){
+            guard segue.identifier == "saveUnwind" else {return}
+            let sourceViewController = segue.source as! AddEditTableViewController
+            
+        if let trip = sourceViewController.trip{
+            let newIndexPath = IndexPath(row: trips.count, section: 0)
+            
+            trips.append(trip)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
 
     // MARK: - Table view data source
 /*
@@ -58,25 +72,26 @@ class TripsTableViewController: UITableViewController {
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            trips.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
