@@ -40,6 +40,7 @@ class TripsTableViewController: UITableViewController {
             trips.append(trip)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+        Trip.saveTrips(trips)
         }
 
     // MARK: - Table view data source
