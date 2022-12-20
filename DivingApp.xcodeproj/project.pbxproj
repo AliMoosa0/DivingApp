@@ -95,9 +95,9 @@
 		3FFCC8B92950F3A200A1B21A /* Ali Features */ = {
 			isa = PBXGroup;
 			children = (
+				3F020F972951A6BD00BC4291 /* AddEditTableViewController.swift */,
 				3FB1C23A294B0D5B00C706F1 /* Home.storyboard */,
 				3F5B3831294B8F6100E2B78E /* AddEditTheTrips.storyboard */,
-				3F020F972951A6BD00BC4291 /* AddEditTableViewController.swift */,
 				3F5B3834294B8F8D00E2B78E /* AddEditTheDives.storyboard */,
 			);
 			path = "Ali Features";
