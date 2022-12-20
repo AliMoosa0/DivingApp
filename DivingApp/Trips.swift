@@ -27,7 +27,7 @@ struct Trip: Equatable, Codable{
     
     static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     
-    static let archiveURL = documentsDirectory.appendingPathComponent("Trips").appendingPathExtension("Tlist")
+    static let archiveURL = documentsDirectory.appendingPathComponent("Trips").appendingPathExtension("plist")
     
     static func loadTrips() -> [Trip]? {
         guard let codedTrips = try? Data(contentsOf: archiveURL) else {return nil}

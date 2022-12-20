@@ -17,23 +17,54 @@ class AddEditTableViewController: UITableViewController {
     
     @IBOutlet weak var locationTextField: UITextField!
     
+    @IBOutlet weak var theDateLabel: UILabel!
+    
+    
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     
     // MARK: - Save Button funcs
-    
+    var trip : Trip?
     func updateSaveButtonState(){
         let nameTxt = nameTextField.text ?? ""
         let locationTxt = locationTextField.text ?? ""
-        let datePic = datePicker.date
         
         saveButton.isEnabled = !nameTxt.isEmpty && !locationTxt.isEmpty
     }
     
+    func updateTheDateLabel (date: Date){
+        theDateLabel.text = date.formatted(.dateTime.month(.defaultDigits).day().year(.twoDigits).hour().minute())
+    }
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        updateTheDateLabel(date: sender.date)
+    }
     
-    
+    @IBAction func textEditingChanged(_ sender: UITextField) {
+         updateSaveButtonState()
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "saveUnwind" else {return}
+        
+        let name = nameTextField.text ?? ""
+        let location = locationTextField.text ?? ""
+        let date = datePicker.date
+        
+        
+        if trip != nil {
+            trip?.title = name
+            trip?.location = location
+            trip?.tripDate = date
+            
+        }else{
+        
+        trip = Trip(title: name, location: location, tripDate: date)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateSaveButtonState()
+        updateTheDateLabel(date: datePicker.date)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
