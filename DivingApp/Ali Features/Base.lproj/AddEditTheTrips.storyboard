@@ -10,7 +10,7 @@
         <!--Adding a trip-->
         <scene sceneID="RhE-Jq-qgk">
             <objects>
-                <tableViewController id="87t-mq-Zhz" sceneMemberID="viewController">
+                <tableViewController id="87t-mq-Zhz" customClass="AddEditTableViewController" customModule="DivingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Mqc-fa-gAv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,6 +99,12 @@
                         <barButtonItem key="rightBarButtonItem" title="Save" id="ShK-v5-u6I"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="datePicker" destination="wSm-78-KVI" id="GsI-w0-sB5"/>
+                        <outlet property="locationTextField" destination="5tD-Rw-iD6" id="g7A-vs-jYR"/>
+                        <outlet property="nameTextField" destination="Gkw-ch-9wH" id="Qrx-Xa-Ug4"/>
+                        <outlet property="saveButton" destination="ShK-v5-u6I" id="okW-lw-3gc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pH1-B6-gu6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
