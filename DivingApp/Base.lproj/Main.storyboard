@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,7 +30,11 @@
         <scene sceneID="Fud-nd-AzZ">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" id="PfQ-hz-B1e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="6DM-2W-EOx"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="6DM-2W-EOx">
+                        <imageReference key="image" image="house" catalog="system" symbolScale="default"/>
+                        <imageReference key="selectedImage" image="house.fill" catalog="system" symbolScale="default"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="20"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fla-NF-4L0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,29 +44,33 @@
         <scene sceneID="ZCW-1w-Syg">
             <objects>
                 <viewControllerPlaceholder storyboardName="TheTrips" id="pR1-T6-t7b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="dTC-Vs-b6g"/>
+                    <tabBarItem key="tabBarItem" title="LogBook" id="dTC-Vs-b6g">
+                        <imageReference key="image" image="book" catalog="system" symbolScale="default"/>
+                        <imageReference key="selectedImage" image="book.fill" catalog="system" symbolScale="default"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="20"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJY-kA-nDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2146" y="-1307"/>
         </scene>
-        <!--UINavigationController-h5c-Lw-kB9-->
-        <scene sceneID="rMR-Nf-cHm">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="UINavigationController-h5c-Lw-kB9" storyboardName="TheDives" referencedIdentifier="UINavigationController-h5c-Lw-kB9" id="fpY-N1-iEc" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dHG-fa-j2j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="235" y="-2014"/>
-        </scene>
         <!--UserSettings-->
         <scene sceneID="z2w-Uv-3RX">
             <objects>
                 <viewControllerPlaceholder storyboardName="UserSettings" id="39X-Bf-NSH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="sWw-ay-6NY"/>
+                    <tabBarItem key="tabBarItem" title="UserSettings" image="gearshape" catalog="system" selectedImage="gearshape.fill" id="sWw-ay-6NY"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nq7-dk-vR3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2146" y="534"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="book" catalog="system" width="128" height="99"/>
+        <image name="book.fill" catalog="system" width="128" height="95"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+    </resources>
 </document>
