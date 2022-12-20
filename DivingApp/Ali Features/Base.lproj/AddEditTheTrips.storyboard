@@ -102,7 +102,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="wSm-78-KVI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="216.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
                                                     <connections>
                                                         <action selector="datePickerChanged:" destination="87t-mq-Zhz" eventType="valueChanged" id="E04-em-r13"/>
                                                     </connections>
@@ -126,8 +126,16 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Adding a trip" id="FDS-Im-GMO">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="sgZ-an-mwv"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="ShK-v5-u6I"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="sgZ-an-mwv">
+                            <connections>
+                                <segue destination="xpJ-eY-1da" kind="unwind" unwindAction="unwindToTripListWithSegue:" id="GaL-eV-hoP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="ShK-v5-u6I">
+                            <connections>
+                                <segue destination="xpJ-eY-1da" kind="unwind" identifier="saveUnwind" unwindAction="unwindToTripListWithSegue:" id="YsF-V0-bK6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -139,6 +147,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pH1-B6-gu6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="xpJ-eY-1da" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1260.8695652173915" y="-1307.1428571428571"/>
         </scene>
