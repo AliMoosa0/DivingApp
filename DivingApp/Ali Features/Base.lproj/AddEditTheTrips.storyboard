@@ -101,8 +101,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="216.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="wSm-78-KVI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="wSm-78-KVI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="216.5"/>
                                                     <connections>
                                                         <action selector="datePickerChanged:" destination="87t-mq-Zhz" eventType="valueChanged" id="E04-em-r13"/>
                                                     </connections>
