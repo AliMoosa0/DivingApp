@@ -97,10 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				3F020F972951A6BD00BC4291 /* AddEditTableViewController.swift */,
+				3F0C06A52952F06C00D4F178 /* AddEditDivesTableViewController.swift */,
 				3FB1C23A294B0D5B00C706F1 /* Home.storyboard */,
 				3F5B3831294B8F6100E2B78E /* AddEditTheTrips.storyboard */,
 				3F5B3834294B8F8D00E2B78E /* AddEditTheDives.storyboard */,
-				3F0C06A52952F06C00D4F178 /* AddEditDivesTableViewController.swift */,
 			);
 			path = "Ali Features";
 			sourceTree = "<group>";
