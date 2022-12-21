@@ -58,7 +58,7 @@ class AddEditTableViewController: UITableViewController {
             
         }else{
         
-            trip = Trip(title: name, location: location, tripDate: date, dives: [Dive])
+            trip = Trip(title: name, location: location, tripDate: date, dives: [])
         }
     }
     
