@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F020F982951A6BD00BC4291 /* AddEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F020F972951A6BD00BC4291 /* AddEditTableViewController.swift */; };
+		3F0C06A62952F06C00D4F178 /* AddEditDivesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0C06A52952F06C00D4F178 /* AddEditDivesTableViewController.swift */; };
 		3F1AEE25294E432F004C24F7 /* TripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */; };
 		3F5B3826294B89B600E2B78E /* TheTrips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B3825294B89B600E2B78E /* TheTrips.storyboard */; };
 		3F5B3829294B89E300E2B78E /* TheDives.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B3827294B89E300E2B78E /* TheDives.storyboard */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		3F020F972951A6BD00BC4291 /* AddEditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTableViewController.swift; sourceTree = "<group>"; };
+		3F0C06A52952F06C00D4F178 /* AddEditDivesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditDivesTableViewController.swift; sourceTree = "<group>"; };
 		3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewController.swift; sourceTree = "<group>"; };
 		3F5B3825294B89B600E2B78E /* TheTrips.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TheTrips.storyboard; sourceTree = "<group>"; };
 		3F5B3828294B89E300E2B78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DivingApp/Base.lproj/TheDives.storyboard; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				3FB1C23A294B0D5B00C706F1 /* Home.storyboard */,
 				3F5B3831294B8F6100E2B78E /* AddEditTheTrips.storyboard */,
 				3F5B3834294B8F8D00E2B78E /* AddEditTheDives.storyboard */,
+				3F0C06A52952F06C00D4F178 /* AddEditDivesTableViewController.swift */,
 			);
 			path = "Ali Features";
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				3FD2ABAB29477EA6001D293A /* ViewController.swift in Sources */,
 				3F1AEE25294E432F004C24F7 /* TripsTableViewController.swift in Sources */,
 				3FD2ABA729477EA6001D293A /* AppDelegate.swift in Sources */,
+				3F0C06A62952F06C00D4F178 /* AddEditDivesTableViewController.swift in Sources */,
 				3FD2ABA929477EA6001D293A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
