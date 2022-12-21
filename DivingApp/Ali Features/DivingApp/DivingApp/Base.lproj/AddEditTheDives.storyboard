@@ -218,7 +218,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Tank" id="7bS-yB-lHs">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Aluminium" id="lDs-DN-Hak" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Aluminium" id="lDs-DN-Hak" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="618.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lDs-DN-Hak" id="bYW-20-mTa">
@@ -253,7 +253,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Steel" id="JMs-3O-HRG" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Steel" id="JMs-3O-HRG" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="662.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JMs-3O-HRG" id="CQn-ID-sph">
@@ -292,7 +292,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Tank Capacity" id="fV0-sR-5PS">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="10" id="7XX-1g-YNF" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="10" id="7XX-1g-YNF" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="773.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7XX-1g-YNF" id="6sf-m1-MLD">
@@ -327,7 +327,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="12" id="QBb-ap-Fns" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="12" id="QBb-ap-Fns" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="817.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QBb-ap-Fns" id="4Sv-u7-VtY">
@@ -362,7 +362,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="MCy-YL-G7S" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="MCy-YL-G7S" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="861" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MCy-YL-G7S" id="NQh-ki-CT4">
@@ -447,7 +447,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Suite Type" id="c01-N2-ZqS">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="10" id="7hD-pg-Iz2" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="10" id="7hD-pg-Iz2" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1123.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7hD-pg-Iz2" id="ihy-EO-rR9">
@@ -482,7 +482,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="12" id="A85-1r-7R0" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="12" id="A85-1r-7R0" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1167" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A85-1r-7R0" id="gWo-1E-nDf">
@@ -517,7 +517,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="kTf-Pu-jZm" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="kTf-Pu-jZm" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1210.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kTf-Pu-jZm" id="rT4-Ty-Ffl">
@@ -552,7 +552,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="6Rx-xo-EaR" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="6Rx-xo-EaR" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1254" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Rx-xo-EaR" id="pE9-Eu-JUz">
@@ -587,7 +587,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="DZv-oD-Elh" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="DZv-oD-Elh" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1297.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DZv-oD-Elh" id="CZS-Mw-xea">
@@ -675,7 +675,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="34.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gas Mix:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Odt-p1-uut">
+                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gas Mix:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Odt-p1-uut">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="34.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -696,7 +696,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="34.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Computer:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XW0-J4-LMj">
+                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Computer:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XW0-J4-LMj">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="34.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -735,7 +735,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Weather Condition:" id="BGk-H1-aoE">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="10" id="p9x-ci-Ppz" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="10" id="p9x-ci-Ppz" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1647.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p9x-ci-Ppz" id="F61-pX-ZI1">
@@ -770,7 +770,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="12" id="WQn-HL-hhl" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="12" id="WQn-HL-hhl" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1691" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WQn-HL-hhl" id="5hg-dh-J1g">
@@ -805,7 +805,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="k2A-LV-Ry6" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="k2A-LV-Ry6" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1734.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k2A-LV-Ry6" id="I6I-1Z-FpU">
@@ -840,7 +840,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="cf3-DQ-kCt" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="cf3-DQ-kCt" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1778" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cf3-DQ-kCt" id="igr-yb-7lZ">
@@ -879,7 +879,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Swelling lvl:" id="fwi-pf-dNf">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="10" id="3rJ-Ab-4Tq" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="10" id="3rJ-Ab-4Tq" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1888.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3rJ-Ab-4Tq" id="Lg2-Kf-dp5">
@@ -914,7 +914,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="12" id="4Ux-Ko-fwd" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="12" id="4Ux-Ko-fwd" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1932" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Ux-Ko-fwd" id="v84-YA-up2">
@@ -949,7 +949,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="WHW-IR-fnW" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="15" id="WHW-IR-fnW" customClass="ToDoCell" customModule="DivingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1975.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WHW-IR-fnW" id="jqi-jS-HUZ">
@@ -1090,6 +1090,46 @@
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Ovf-sa-FUA"/>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="9qk-BE-mch"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="airInTF" destination="HCf-6g-lZq" id="PoR-o8-vTc"/>
+                        <outlet property="airOutTF" destination="zLg-e6-r1r" id="V4m-cG-zVU"/>
+                        <outlet property="airTempTF" destination="Q3O-FC-ccg" id="jSb-OZ-c57"/>
+                        <outlet property="aluminiumButton" destination="ojA-QL-FCI" id="n7U-Ku-pvu"/>
+                        <outlet property="avgDepthTF" destination="eoG-oO-KVd" id="aCd-re-OIU"/>
+                        <outlet property="bottomTimeTF" destination="asS-nm-Gao" id="6eb-GF-eov"/>
+                        <outlet property="cameraTF" destination="cdW-F3-t0d" id="68d-Jc-ETo"/>
+                        <outlet property="clowdyButton" destination="GnN-Hd-ytY" id="upf-50-GR5"/>
+                        <outlet property="computerTF" destination="XW0-J4-LMj" id="q5K-Rm-kwb"/>
+                        <outlet property="drySuiteButton" destination="y3X-Rv-3yH" id="Tjj-Id-lIn"/>
+                        <outlet property="fifteenButton" destination="1lJ-9w-Lhc" id="dAy-vq-f32"/>
+                        <outlet property="gassMixTF" destination="Odt-p1-uut" id="y93-jO-3X6"/>
+                        <outlet property="macDepthTF" destination="a3C-kk-8Fs" id="cXo-oI-dQ7"/>
+                        <outlet property="moderateSwellButton" destination="08W-nn-vPL" id="F5j-04-DKV"/>
+                        <outlet property="noSwellButton" destination="wN9-ks-7Sp" id="KbO-Lm-TTX"/>
+                        <outlet property="notesTF" destination="6C9-Pm-gAJ" id="sHl-KS-QKG"/>
+                        <outlet property="numOfDivesLabel" destination="v3x-ZL-crh" id="516-ZX-ffw"/>
+                        <outlet property="onePieceButton" destination="jmb-Eu-TMF" id="n82-aq-1Yc"/>
+                        <outlet property="overcastButton" destination="rou-qp-Wqx" id="kOR-GZ-T3d"/>
+                        <outlet property="semiDryButton" destination="dqO-Px-szc" id="UOm-3N-kGa"/>
+                        <outlet property="shortieButton" destination="yjI-4r-1gD" id="4kr-48-vQa"/>
+                        <outlet property="steelButton" destination="chQ-gv-nbd" id="q17-rQ-rk6"/>
+                        <outlet property="strongSwellButton" destination="T9X-Lb-S6d" id="nz9-Tu-9bv"/>
+                        <outlet property="sunnyButton" destination="OtX-z8-y5W" id="eSX-Jf-ktC"/>
+                        <outlet property="surfaceIntervalLabel" destination="96u-cP-W3g" id="wjt-DF-4Nb"/>
+                        <outlet property="surfaceIntervalPicker" destination="3Hv-7G-15n" id="Fga-r9-rqL"/>
+                        <outlet property="tenButton" destination="AMZ-WO-dcN" id="YJK-bn-NSk"/>
+                        <outlet property="thicknessTF" destination="IX7-JS-g1g" id="lLN-av-qcx"/>
+                        <outlet property="timeInLabel" destination="TFB-ir-6QS" id="HlH-8c-flK"/>
+                        <outlet property="timeInPicker" destination="zEp-gC-DLJ" id="nh8-2C-yiX"/>
+                        <outlet property="timeOutLabel" destination="E7C-jO-jMr" id="xaU-2D-LJH"/>
+                        <outlet property="timeOutPicker" destination="mZT-BI-VcV" id="7Lf-Q6-EPk"/>
+                        <outlet property="twelveButton" destination="8UM-Bi-Q01" id="UlO-4m-Wf3"/>
+                        <outlet property="twoPieceButton" destination="cqc-lc-wSw" id="ffc-tR-lt3"/>
+                        <outlet property="visibilityTF" destination="pCs-gl-TFc" id="Lay-yK-Luz"/>
+                        <outlet property="waterTempTF" destination="VH5-NO-bih" id="qVU-kU-o4U"/>
+                        <outlet property="wieghtTF" destination="jRS-KZ-7jh" id="Pab-LT-OjH"/>
+                        <outlet property="windyButton" destination="fpr-VA-muA" id="S9O-0f-2XL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtS-iM-xP8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

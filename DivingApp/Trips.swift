@@ -46,6 +46,9 @@ struct Trip: Equatable, Codable{
     static func loadSampleLoad() -> [Trip]{
         let trip1 = Trip(title: "trip1", location: "malkia", tripDate: Date(), dives: [Dive(diveNumber: 1, surfaceInterval: 75.7, timeIn: Date.now, timeOut: Date.now, maxDepth: 60.6, avgDepth: 30, buttomTime: 90, isAluminium: true, isSteel: false, is10mm: true, is12mm: false, is15mm: false, airIn: 50, airOut: 10, isShortie: true, is1Piece: false, is2Piece: false, isSemiDry: false, isDrySuite: false, thickness: 8, wieght: 20, gasMix: 70, computer: "mac", camera: "cannon", isSunny: true, isClowdy: false, isWindy: false, isOvercast: false, isNoSwell: false, isModerateSwell: true, isStrongSwell: false, airTemp: 25, waterTemp: 18, visibility: 60, notes: "nice")])
         
+        
+        
+        
         let trip2 = Trip(title: "trip2", location: "manama", tripDate: Date(), dives: [Dive(diveNumber: 2, surfaceInterval: 75.7, timeIn: Date.now, timeOut: Date.now, maxDepth: 60.6, avgDepth: 30, buttomTime: 90, isAluminium: true, isSteel: false, is10mm: true, is12mm: false, is15mm: false, airIn: 50, airOut: 10, isShortie: true, is1Piece: false, is2Piece: false, isSemiDry: false, isDrySuite: false, thickness: 8, wieght: 20, gasMix: 70, computer: "mac", camera: "cannon", isSunny: true, isClowdy: false, isWindy: false, isOvercast: false, isNoSwell: false, isModerateSwell: true, isStrongSwell: false, airTemp: 25, waterTemp: 18, visibility: 60, notes: "nice")])
        
         
