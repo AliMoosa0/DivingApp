@@ -217,6 +217,11 @@ class AddEditDivesTableViewController: UITableViewController {
         
         
         if dive != nil{
+            dive?.diveNumber = Int(noOfDives) ?? 0
+            
+            dive?.surfaceInterval =
+            dive?.timeIn =
+            
             
             
             
