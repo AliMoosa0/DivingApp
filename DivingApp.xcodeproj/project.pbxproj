@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0645EF8D2953887200BB53DF /* ViewDivesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645EF8C2953887200BB53DF /* ViewDivesTVC.swift */; };
 		3F020F982951A6BD00BC4291 /* AddEditTripTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F020F972951A6BD00BC4291 /* AddEditTripTVC.swift */; };
 		3F0C06A62952F06C00D4F178 /* AddEditDivesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0C06A52952F06C00D4F178 /* AddEditDivesTVC.swift */; };
 		3F1AEE25294E432F004C24F7 /* TripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0645EF8C2953887200BB53DF /* ViewDivesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDivesTVC.swift; sourceTree = "<group>"; };
 		3F020F972951A6BD00BC4291 /* AddEditTripTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTripTVC.swift; sourceTree = "<group>"; };
 		3F0C06A52952F06C00D4F178 /* AddEditDivesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditDivesTVC.swift; sourceTree = "<group>"; };
 		3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */,
+				0645EF8C2953887200BB53DF /* ViewDivesTVC.swift */,
 				3F5B3825294B89B600E2B78E /* TheTrips.storyboard */,
 				3F5B3827294B89E300E2B78E /* TheDives.storyboard */,
 			);
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0645EF8D2953887200BB53DF /* ViewDivesTVC.swift in Sources */,
 				3F020F982951A6BD00BC4291 /* AddEditTripTVC.swift in Sources */,
 				3FB1C236294B015700C706F1 /* Trips.swift in Sources */,
 				3FD2ABAB29477EA6001D293A /* ViewController.swift in Sources */,
