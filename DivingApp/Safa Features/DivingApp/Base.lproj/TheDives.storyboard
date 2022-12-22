@@ -64,7 +64,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vPT-J7-RNr" kind="relationship" relationship="rootViewController" id="yEh-dK-Ros"/>
+                        <segue destination="vPT-J7-RNr" kind="relationship" relationship="rootViewController" destinationCreationSelector="sendDives:sender:" id="yEh-dK-Ros"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXb-oH-yGc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

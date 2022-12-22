@@ -10,7 +10,7 @@ import UIKit
 class ViewDivesTVC: UITableViewController {
 
     
-    let dives: [Dive]? = []
+    var dives: [Dive]? = []
     
  
     override func viewDidLoad() {
@@ -28,12 +28,17 @@ class ViewDivesTVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dives!.count
+        //return dives!.count
+        if let dives = dives {
+            return dives.count
+        }else{
+            return 0
+        }
     }
 
     

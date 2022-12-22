@@ -17,12 +17,16 @@ class TripsTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.delegate = self
         
+        trips = Trip.loadSampleLoad()
+        
+        /*
         if let savedTrips = Trip.loadTrips(){
             trips = savedTrips
         }else{
             trips = Trip.loadSampleLoad()
         }
-        
+        */
+         
         navigationItem.leftBarButtonItem = editButtonItem
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -45,6 +49,7 @@ class TripsTableViewController: UITableViewController {
         }
     
     
+
 
     // MARK: - Table view data source
 /*
@@ -96,15 +101,6 @@ class TripsTableViewController: UITableViewController {
         }    
     }
     
-    /*
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let trip = trips[indexPath.row]
-        
-        let vc = ViewDivesTVC(dives: trip.dives!)
-        
-    }
-    */
     
     /*
     // Override to support rearranging the table view.
@@ -121,14 +117,25 @@ class TripsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "viewDives" else {return}
         // Get the new view controller using segue.destination.
+        let nav = segue.destination as! UINavigationController
+        let viewDivesTVC = nav.topViewController as! ViewDivesTVC
         // Pass the selected object to the new view controller.
-    }
-    */
+        let cell = sender as? UITableViewCell
+        let indexPath = tableView.indexPath(for: cell!)
+        
+        tableView.deselectRow(at: indexPath!, animated: true)
+        
+        let trip = trips[indexPath!.row]
+        viewDivesTVC.dives = trip.dives
 
+    }
+    
+    
 }
