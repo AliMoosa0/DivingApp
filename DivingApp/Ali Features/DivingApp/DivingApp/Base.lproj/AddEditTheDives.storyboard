@@ -1072,8 +1072,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Adding A Dive" id="7td-30-vff">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Ovf-sa-FUA"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="9qk-BE-mch"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Ovf-sa-FUA">
+                            <connections>
+                                <segue destination="CbN-qx-Wwz" kind="unwind" unwindAction="unwindToDivesListWithSegue:" id="jxG-vT-QZF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="9qk-BE-mch">
+                            <connections>
+                                <segue destination="CbN-qx-Wwz" kind="unwind" identifier="saveDiveUnwind" unwindAction="unwindToDivesListWithSegue:" id="CrK-X9-OqX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="airInTF" destination="HCf-6g-lZq" id="PoR-o8-vTc"/>
@@ -1116,6 +1124,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtS-iM-xP8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="CbN-qx-Wwz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3150.7246376811595" y="-2014.2857142857142"/>
         </scene>
