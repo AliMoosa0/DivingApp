@@ -106,7 +106,7 @@ struct Dive : Equatable, Codable{
     
     var airTemp : Double
     var waterTemp : Double
-    var visibility : Int
+    var visibility : Double
     
     
     var notes : String

@@ -14,9 +14,9 @@ class AddEditDivesTableViewController: UITableViewController {
     
     
     
-    @IBOutlet weak var surfaceIntervalLabel: UILabel!
+    @IBOutlet weak var surfaceIntervalTF: UITextField!
     
-    @IBOutlet weak var surfaceIntervalPicker: UIDatePicker!
+    
     
     @IBOutlet weak var timeInLabel: UILabel!
     
@@ -144,28 +144,26 @@ class AddEditDivesTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "saveDiveUnwind" else {return}
         
-        let noOfDives = surfaceIntervalLabel.text ?? ""
+        let noOfDives = numOfDivesLabel.text ?? ""
         
         
         
         
-        let surfaceIntreval = surfaceIntervalPicker.date
-        let timeIn = timeInLabel.text ?? ""
+        let surfaceIntreval = surfaceIntervalTF.text ?? ""
         let timeInThePicker = timeInPicker.date
-        let timeOut = timeOutLabel.text ?? ""
         let timeOutThePicker = timeOutPicker.date
         let maxDepth = macDepthTF.text ?? ""
         let avgDepth = avgDepthTF.text ?? ""
         let buttomTime = bottomTimeTF.text ?? ""
         
     
-        let aluminium = aluminiumButton.isEnabled
-        let steel = steelButton.isEnabled
+        let aluminium = aluminiumButton.isSelected
+        let steel = steelButton.isSelected
         
         
-        let ten = tenButton.isEnabled
-        let twelve = twelveButton.isEnabled
-        let fifteen = fifteenButton.isEnabled
+        let ten = tenButton.isSelected
+        let twelve = twelveButton.isSelected
+        let fifteen = fifteenButton.isSelected
         
         
         let airIn = airInTF.text ?? ""
@@ -173,11 +171,11 @@ class AddEditDivesTableViewController: UITableViewController {
         
         
         
-        let shortie = shortieButton.isEnabled
-        let onePiece = onePieceButton.isEnabled
-        let twoPiece = twoPieceButton.isEnabled
-        let semiDry = semiDryButton.isEnabled
-        let drySuite = drySuiteButton.isEnabled
+        let shortie = shortieButton.isSelected
+        let onePiece = onePieceButton.isSelected
+        let twoPiece = twoPieceButton.isSelected
+        let semiDry = semiDryButton.isSelected
+        let drySuite = drySuiteButton.isSelected
         let thickness = thicknessTF.text ?? ""
         
         
@@ -192,21 +190,21 @@ class AddEditDivesTableViewController: UITableViewController {
         
         
         
-        let sunny = sunnyButton.isEnabled
-        let clowdy = clowdyButton.isEnabled
-        let windy = windyButton.isEnabled
-        let overcast = overcastButton.isEnabled
+        let sunny = sunnyButton.isSelected
+        let clowdy = clowdyButton.isSelected
+        let windy = windyButton.isSelected
+        let overcast = overcastButton.isSelected
         
         
         
-        let noSwell = noSwellButton.isEnabled
-        let moderateSwell = moderateSwellButton.isEnabled
-        let strongSwell = strongSwellButton.isEnabled
+        let noSwell = noSwellButton.isSelected
+        let moderateSwell = moderateSwellButton.isSelected
+        let strongSwell = strongSwellButton.isSelected
         
         
-        let airTemp = airTempTF.isEnabled
-        let WaterTemp = waterTempTF.isEnabled
-        let Visibility = visibilityTF.isEnabled
+        let airTemp = airTempTF.text ?? ""
+        let WaterTemp = waterTempTF.text ?? ""
+        let Visibility = visibilityTF.text ?? ""
         
         
         let notes = notesTF.text ?? ""
@@ -217,14 +215,80 @@ class AddEditDivesTableViewController: UITableViewController {
         
         
         if dive != nil{
-            dive?.diveNumber = Int(noOfDives) ?? 0
-            
-            dive?.surfaceInterval =
-            dive?.timeIn =
+            //var diveNumberInt = Int(noOfDives)
+            dive?.diveNumber = Int(noOfDives)!
             
             
             
+            dive?.surfaceInterval = Double(surfaceIntreval)!
+            dive?.timeIn = timeInThePicker
+            dive?.timeOut = timeOutThePicker
+            dive?.maxDepth = Double(maxDepth)!
+            dive?.avgDepth = Double(avgDepth)!
+            dive?.buttomTime = Double(buttomTime)!
             
+            
+            
+            dive?.isAluminium = aluminium
+            dive?.isSteel = steel
+            
+            
+            dive?.is10mm = ten
+            dive?.is12mm = twelve
+            dive?.is15mm = fifteen
+            
+            
+            dive?.airIn = Double(airIn)!
+            dive?.airOut = Double(airOut)!
+            
+            
+            
+            
+            
+            dive?.isShortie = shortie
+            dive?.is1Piece = onePiece
+            dive?.is2Piece = twoPiece
+            dive?.isSemiDry = semiDry
+            dive?.isDrySuite = drySuite
+            dive?.thickness = Int(thickness)!
+            
+            
+            
+            dive?.wieght = Double(wieght)!
+            dive?.gasMix = Double(gasMix)!
+            dive?.computer = computer
+            dive?.camera = camera
+            
+            
+            
+            dive?.isSunny = sunny
+            dive?.isClowdy = clowdy
+            dive?.isWindy = windy
+            dive?.isOvercast = overcast
+            
+            
+            
+            dive?.isNoSwell = noSwell
+            dive?.isModerateSwell = moderateSwell
+            dive?.isStrongSwell = strongSwell
+            
+            
+            dive?.airTemp = Double(airTemp)!
+            dive?.waterTemp = Double(WaterTemp)!
+            dive?.visibility = Double(Visibility)!
+            
+            
+            dive?.notes = notes
+            
+            
+            
+            
+            
+            
+        }else{
+            
+            dive = Dive(diveNumber: Int(noOfDives)!, surfaceInterval: Double(surfaceIntreval)!, timeIn: timeInThePicker, timeOut: timeOutThePicker, maxDepth: Double(maxDepth)!
+, avgDepth: Double(avgDepth)!, buttomTime: Double(buttomTime)!, isAluminium: aluminium, isSteel: steel, is10mm: ten, is12mm: twelve, is15mm: fifteen, airIn: Double(airIn)!, airOut: Double(airOut)!, isShortie: shortie, is1Piece: onePiece, is2Piece: twoPiece, isSemiDry: semiDry, isDrySuite: drySuite, thickness: Int(thickness)!, wieght: Double(wieght)!, gasMix: Double(gasMix)!, computer: computer, camera: camera, isSunny: sunny, isClowdy: clowdy, isWindy: windy, isOvercast: overcast, isNoSwell: noSwell, isModerateSwell: moderateSwell, isStrongSwell: strongSwell, airTemp: Double(airTemp)!, waterTemp: Double(WaterTemp)!, visibility: Double(Visibility)!, notes: notes)
         }
         
     }
