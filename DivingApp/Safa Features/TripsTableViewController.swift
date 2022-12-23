@@ -83,13 +83,13 @@ class TripsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tripCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tripCell", for: indexPath) as! TripCell
         
         let trip = trips[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = trip.title
-        content.secondaryText = "\(trip.location) - \(trip.tripDate)"
-        cell.contentConfiguration = content
+        //var content = cell.defaultContentConfiguration()
+        cell.tripNameLabel.text = trip.title
+        cell.descriptionLabel.text = "\(trip.location) - \(trip.tripDate)"
+        //cell.contentConfiguration = content
         
 
         // Configure the cell...
