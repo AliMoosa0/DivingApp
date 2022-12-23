@@ -25,9 +25,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="kd1-ft-vGw">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripCell" textLabel="fRN-1h-Enk" detailTextLabel="OX5-Pn-VhZ" style="IBUITableViewCellStyleSubtitle" id="KHd-2R-1eP">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="88.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KHd-2R-1eP" id="fBs-C7-lhJ">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -50,7 +55,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Lmo-sz-Jap" kind="show" identifier="viewDives" id="YpZ-vI-9pJ"/>
+                                    <segue destination="Lmo-sz-Jap" kind="show" identifier="viewDives" id="m97-wW-qBq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
