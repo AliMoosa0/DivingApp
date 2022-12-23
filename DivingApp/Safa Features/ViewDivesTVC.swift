@@ -77,13 +77,14 @@ class ViewDivesTVC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "divesCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "divesCell", for: indexPath) as! DiveCell
 
         // Configure the cell...
         let dive = dives![indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = "Dive number \(dive.diveNumber)"
-        cell.contentConfiguration = content
+        //var content = cell.defaultContentConfiguration()
+        cell.diveNumberLabel.text = "Dive number \(dive.diveNumber)"
+        cell.descriptionLabel.text = "Max depth: \(dive.maxDepth)"
+        //cell.contentConfiguration = content
         return cell
     }
     

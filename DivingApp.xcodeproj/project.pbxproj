@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0645EF8D2953887200BB53DF /* ViewDivesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645EF8C2953887200BB53DF /* ViewDivesTVC.swift */; };
 		0645EFAF29561A3700BB53DF /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645EFAE29561A3700BB53DF /* TripCell.swift */; };
+		0645EFB1295620A100BB53DF /* DiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645EFB0295620A100BB53DF /* DiveCell.swift */; };
 		3F020F982951A6BD00BC4291 /* AddEditTripTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F020F972951A6BD00BC4291 /* AddEditTripTVC.swift */; };
 		3F0C06A62952F06C00D4F178 /* AddEditDivesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0C06A52952F06C00D4F178 /* AddEditDivesTVC.swift */; };
 		3F1AEE25294E432F004C24F7 /* TripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		0645EF8C2953887200BB53DF /* ViewDivesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDivesTVC.swift; sourceTree = "<group>"; };
 		0645EFAE29561A3700BB53DF /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
+		0645EFB0295620A100BB53DF /* DiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiveCell.swift; sourceTree = "<group>"; };
 		3F020F972951A6BD00BC4291 /* AddEditTripTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTripTVC.swift; sourceTree = "<group>"; };
 		3F0C06A52952F06C00D4F178 /* AddEditDivesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditDivesTVC.swift; sourceTree = "<group>"; };
 		3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				3F1AEE24294E432F004C24F7 /* TripsTableViewController.swift */,
 				0645EF8C2953887200BB53DF /* ViewDivesTVC.swift */,
 				3F5B3825294B89B600E2B78E /* TheTrips.storyboard */,
+				0645EFB0295620A100BB53DF /* DiveCell.swift */,
 				0645EFAE29561A3700BB53DF /* TripCell.swift */,
 				3F5B3827294B89E300E2B78E /* TheDives.storyboard */,
 			);
@@ -217,6 +220,7 @@
 				3F0C06A62952F06C00D4F178 /* AddEditDivesTVC.swift in Sources */,
 				0645EFAF29561A3700BB53DF /* TripCell.swift in Sources */,
 				3FD2ABA929477EA6001D293A /* SceneDelegate.swift in Sources */,
+				0645EFB1295620A100BB53DF /* DiveCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
