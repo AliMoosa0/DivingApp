@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddEditTableViewController: UITableViewController {
+class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - Form Outlits
     
     
@@ -24,9 +24,11 @@ class AddEditTableViewController: UITableViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     // MARK: - Save Button funcs
+    
     var trip : Trip?
     func updateSaveButtonState(){
         let nameTxt = nameTextField.text ?? ""
+        
         let locationTxt = locationTextField.text ?? ""
         
         saveButton.isEnabled = !nameTxt.isEmpty && !locationTxt.isEmpty
@@ -64,6 +66,7 @@ class AddEditTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextField.becomeFirstResponder()
         updateSaveButtonState()
         updateTheDateLabel(date: datePicker.date)
 
@@ -72,8 +75,20 @@ class AddEditTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+        
     }
-
+    //to hide the heyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    // to show the keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return(true)
+    }
+    
     // MARK: - Table view data source
 /*
     override func numberOfSections(in tableView: UITableView) -> Int {

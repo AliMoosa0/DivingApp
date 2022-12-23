@@ -61,55 +61,55 @@ struct Trip: Equatable, Codable{
 struct Dive : Equatable, Codable{
     var diveNumber : Int
     
-    var surfaceInterval : Double
-    var timeIn : Date
-    var timeOut : Date
+    var surfaceInterval : Double?
+    var timeIn : Date?
+    var timeOut : Date?
     
-    var maxDepth : Double
-    var avgDepth : Double
-    var buttomTime : Double
+    var maxDepth : Double?
+    var avgDepth : Double?
+    var buttomTime : Double?
     
-    var isAluminium : Bool
-    var isSteel : Bool
+    var isAluminium : Bool?
+    var isSteel : Bool?
     
-    var is10mm : Bool
-    var is12mm : Bool
-    var is15mm : Bool
+    var is10mm : Bool?
+    var is12mm : Bool?
+    var is15mm : Bool?
     
-    var airIn : Double
-    var airOut : Double
-    
-    
-    var isShortie : Bool
-    var is1Piece : Bool
-    var is2Piece : Bool
-    var isSemiDry : Bool
-    var isDrySuite : Bool
-    var thickness : Int
-    
-    var wieght : Double
-    var gasMix : Double
-    var computer : String
-    var camera : String
+    var airIn : Double?
+    var airOut : Double?
     
     
-    var isSunny : Bool
-    var isClowdy : Bool
-    var isWindy : Bool
-    var isOvercast : Bool
+    var isShortie : Bool?
+    var is1Piece : Bool?
+    var is2Piece : Bool?
+    var isSemiDry : Bool?
+    var isDrySuite : Bool?
+    var thickness : Int?
+    
+    var wieght : Double?
+    var gasMix : Double?
+    var computer : String?
+    var camera : String?
     
     
-    var isNoSwell : Bool
-    var isModerateSwell : Bool
-    var isStrongSwell : Bool
+    var isSunny : Bool?
+    var isClowdy : Bool?
+    var isWindy : Bool?
+    var isOvercast : Bool?
     
     
-    var airTemp : Double
-    var waterTemp : Double
-    var visibility : Double
+    var isNoSwell : Bool?
+    var isModerateSwell : Bool?
+    var isStrongSwell : Bool?
     
     
-    var notes : String
+    var airTemp : Double?
+    var waterTemp : Double?
+    var visibility : Double?
+    
+    
+    var notes : String?
     
     
     

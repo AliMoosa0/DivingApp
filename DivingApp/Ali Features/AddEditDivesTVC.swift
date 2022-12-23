@@ -146,7 +146,7 @@ class AddEditDivesTableViewController: UITableViewController {
         
         let noOfDives = numOfDivesLabel.text ?? ""
         
-        
+        numOfDivesLabel.becomeFirstResponder()
         
         
         let surfaceIntreval = surfaceIntervalTF.text ?? ""
@@ -297,7 +297,9 @@ class AddEditDivesTableViewController: UITableViewController {
     
     
     
-    
+    @IBAction func kjb(){
+        
+    }
     
     
     
