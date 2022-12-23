@@ -37,6 +37,24 @@ class ViewDivesTVC: UITableViewController {
             }
             
         }
+    
+    //Delete function
+    func presentDeleteAlert(indexPath: IndexPath){
+        let alert = UIAlertController(title: "Delete Dive", message: "Are you sure you want to delete this dive?", preferredStyle: .alert)
+        
+        //delete action
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {ACTION in self.dives?.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        })
+        
+        //cancel action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
 
     // MARK: - Table view data source
 
@@ -70,25 +88,25 @@ class ViewDivesTVC: UITableViewController {
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            presentDeleteAlert(indexPath: indexPath)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

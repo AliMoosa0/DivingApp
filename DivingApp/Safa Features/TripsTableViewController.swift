@@ -53,7 +53,7 @@ class TripsTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Delete Trip", message: "Are you sure you want to delete this trip?", preferredStyle: .alert)
         
         //delete action
-        let deleteAction = UIAlertAction(title: "Delete", style: .default, handler: {ACTION in self.trips.remove(at: indexPath.row)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {ACTION in self.trips.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         })
         
