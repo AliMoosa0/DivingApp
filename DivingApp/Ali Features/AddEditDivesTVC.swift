@@ -6,13 +6,19 @@
 //
 
 import UIKit
+protocol AddEditDivesTableViewControllerDelegate: AnyObject {
+    func diveDetailTableViewController(_ controller: AddEditDivesTableViewController, didSave dive: Dive)
+}
 
 class AddEditDivesTableViewController: UITableViewController,
-                                       SelectTankCapTVCDelegate{
-    func selectTankCapTVC(_ controller: SelectTankCapTVC, didSelect tankType: Tanks) {
-        self.tankType = tankType
-        updateTankType()
-    }
+                                       SelectTankCapTVCDelegate, SelectSwellTVCDelegate, SelectTankTypeTVCDelegate, SelectWeatherConditionTVCDelegate, SelectSuiteTypeTVCDelegate{
+   
+    
+    
+    weak var delegate: AddEditDivesTableViewControllerDelegate?
+    
+    
+    
     
     // MARK: - Form Outlits
     
@@ -96,9 +102,12 @@ class AddEditDivesTableViewController: UITableViewController,
     
     @IBOutlet weak var weatherCondition: UILabel!
     
+    @IBOutlet weak var weatherTempTF: UITextField!
     
+    @IBOutlet weak var airTempTF: UITextField!
     
-   
+    @IBOutlet weak var visibilyTF: UITextField!
+    
     
     //MARK: -
 
@@ -114,11 +123,7 @@ class AddEditDivesTableViewController: UITableViewController,
     
     
     
-    @IBOutlet weak var airTempTF: UITextField!
-    
-    @IBOutlet weak var waterTempTF: UITextField!
-    
-    @IBOutlet weak var visibilityTF: UITextField!
+  
     
     
     
@@ -129,7 +134,12 @@ class AddEditDivesTableViewController: UITableViewController,
     
     
     // MARK: - functions and methods
-    
+    var tankTypel : TankType?
+    var tankcapl :TankCap?
+    var suiteTypel : SuiteType?
+    var weatherl : Weather?
+    var swellLvll : Swell?
+
     
     var dive: Dive?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -148,56 +158,38 @@ class AddEditDivesTableViewController: UITableViewController,
         let buttomTime = bottomTimeTF.text ?? ""
         
         //MARK: -
-
+        let tankTypeP = tankTypel!
         
-        //MARK: -
-
-        
-        guard let tankType = tankType else{return}
+    
+        let tankcapP = tankcapl!
         
         let airIn = airInTF.text ?? ""
         let airOut = airOutTF.text ?? ""
         
-        
-        //MARK: -
 
-        
-        
-        //MARK: -
+        let suiteTypeP = suiteTypel!
 
+    
+        let weatherP = weatherl!
         
-        
-       
-        
-        
-        
-        //MARK: -
-
-        
-        
-        //MARK: -
-
-       
-        
-        //MARK: -
-
+        let swellLvlP = swellLvll!
+  
         let airTemp = airTempTF.text ?? ""
-        let WaterTemp = waterTempTF.text ?? ""
-        let Visibility = visibilityTF.text ?? ""
+        let WaterTemp = weatherTempTF.text ?? ""
+        let Visibility = visibilyTF.text ?? ""
         
         
         let notes = notesTF.text ?? ""
         
         
-        
-        
-        
-        
         if dive != nil{
             //var diveNumberInt = Int(noOfDives)
             dive?.diveNumber = Int(noOfDives)!
-            
-            
+            dive?.tankType = tankTypeP
+            dive?.tankCap = tankcapP
+            dive?.suiteType = suiteTypeP
+            dive?.wetherType = weatherP
+            dive?.swell = swellLvlP
             
             dive?.surfaceInterval = Double(surfaceIntreval)!
             dive?.timeIn = timeInThePicker
@@ -205,61 +197,9 @@ class AddEditDivesTableViewController: UITableViewController,
             dive?.maxDepth = Double(maxDepth)!
             dive?.avgDepth = Double(avgDepth)!
             dive?.buttomTime = Double(buttomTime)!
-            
-            //MARK: -
-
-            
-            dive?.isAluminium = aluminium
-            dive?.isSteel = steel
-            
-            
-            //MARK: -
-
-            
-            dive?.tankCap = Int("\(tankType)")
-            
-            
-            //MARK: -
 
             dive?.airIn = Double(airIn)!
             dive?.airOut = Double(airOut)!
-            //MARK: -
-
-            
-            
-            
-            
-            dive?.isShortie = shortie
-            dive?.is1Piece = onePiece
-            dive?.is2Piece = twoPiece
-            dive?.isSemiDry = semiDry
-            dive?.isDrySuite = drySuite
-            dive?.thickness = Int(thickness)!
-            //MARK: -
-
-            
-            
-            dive?.wieght = Double(wieght)!
-            dive?.gasMix = Double(gasMix)!
-            dive?.computer = computer
-            dive?.camera = camera
-            
-            //MARK: -
-
-            
-            dive?.isSunny = sunny
-            dive?.isClowdy = clowdy
-            dive?.isWindy = windy
-            dive?.isOvercast = overcast
-            
-            //MARK: -
-
-            
-            dive?.isNoSwell = noSwell
-            dive?.isModerateSwell = moderateSwell
-            dive?.isStrongSwell = strongSwell
-            
-            //MARK: -
 
             dive?.airTemp = Double(airTemp)!
             dive?.waterTemp = Double(WaterTemp)!
@@ -277,28 +217,14 @@ class AddEditDivesTableViewController: UITableViewController,
             
         }else{
             
-            dive = Dive(diveNumber: Int(noOfDives)!, surfaceInterval: Double(surfaceIntreval)!, timeIn: timeInThePicker, timeOut: timeOutThePicker, maxDepth: Double(maxDepth)!
-, avgDepth: Double(avgDepth)!, buttomTime: Double(buttomTime)!, isAluminium: aluminium, isSteel: steel, tankCap: Int("\(tankType)"), airIn: Double(airIn)!, airOut: Double(airOut)!, isShortie: shortie, is1Piece: onePiece, is2Piece: twoPiece, isSemiDry: semiDry, isDrySuite: drySuite, thickness: Int(thickness)!, wieght: Double(wieght)!, gasMix: Double(gasMix)!, computer: computer, camera: camera, isSunny: sunny, isClowdy: clowdy, isWindy: windy, isOvercast: overcast, isNoSwell: noSwell, isModerateSwell: moderateSwell, isStrongSwell: strongSwell, airTemp: Double(airTemp)!, waterTemp: Double(WaterTemp)!, visibility: Double(Visibility)!, notes: notes)
+           
         }
         
     }
-    var tankType : Tanks?
     
-    
-    func selectTankType(_ controller: SelectTankCapTVC, didSelect tankType: Tanks) {
-        self.tankType = tankType
-        updateTankType()
-    }
     
     
    
-    func updateTankType(){
-        if let tankType = tankType {
-            tankCapLabel.text = "\(tankType.tankcap)"
-        }else{
-            tankCapLabel.text = "  NOT SET  "
-        }
-    }
 /*
   @IBAction func selectTankType(_ coder: NSCoder) -> SelectTankCapTVC? {//
         let selectTankTypeController = DivingApp.SelectTankCapTVC(coder: coder)
@@ -325,70 +251,69 @@ class AddEditDivesTableViewController: UITableViewController,
     }
 
     // MARK: - Table view data source
-/*
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    @IBSegueAction func showWeatherCondition(_ coder: NSCoder) -> SelectWeatherConditionTVC?{
+        let typeController = SelectWeatherConditionTVC(coder: coder)
+        typeController?.delegate = self
+        
+        return typeController
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    @IBSegueAction func showTankType(_ coder: NSCoder) -> SelectTankTypeTVC?{
+        let typeController = SelectTankTypeTVC(coder: coder)
+        typeController?.delegate = self
+        
+        return typeController
     }
-*/
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    @IBSegueAction func showTankCap(_ coder: NSCoder) -> SelectTankCapTVC?{
+        let typeController = SelectTankCapTVC(coder: coder)
+        typeController?.delegate = self
+        
+        return typeController
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    @IBSegueAction func showSuiteType(_ coder: NSCoder) -> SelectSuiteTypeTVC?{
+        let typeController = SelectSuiteTypeTVC(coder: coder)
+        typeController?.delegate = self
+        
+        return typeController
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    @IBSegueAction func showSwell(_ coder: NSCoder) -> SelectSwellTVC?{
+        let typeController = SelectSwellTVC(coder: coder)
+        typeController?.delegate = self
+        
+        return typeController
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    
+    
+    
+    func selectWeatherConditionTVC(_ controller: SelectWeatherConditionTVC, didSelect weather: Weather) {
+        self.weatherl = weather
+        weatherCondition.textColor = .black
+        weatherCondition.text = weather.description
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func selectSuiteTypeTVC(_ controller: SelectSuiteTypeTVC, didSelect suiteTypel: SuiteType) {
+        self.suiteTypel = suiteTypel
+        suiteType.textColor = .black
+        suiteType.text = suiteTypel.description
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func selectTankCapTVC(_ controller: SelectTankCapTVC, didSelect tankCapl: TankCap) {
+        self.tankcapl = tankCapl
+        tankCapLabel.textColor = .black
+        tankCapLabel.text = tankCapl.description
     }
-    */
-
+    func selectSwellTVC(_ controller: SelectSwellTVC, didSelect swell: Swell) {
+        self.swellLvll = swell
+        swellingLvl.textColor = .black
+        swellingLvl.text = swell.description
+    }
+    func selectTankTypeTVC(_ controller: SelectTankTypeTVC, didSelect tankTypel: TankType) {
+        self.tankTypel = tankTypel
+        tankType.textColor = .black
+        tankType.text = tankTypel.description
+    }
+    
 }
