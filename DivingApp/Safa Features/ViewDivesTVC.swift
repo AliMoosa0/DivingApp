@@ -16,6 +16,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     var searching = false
     
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     
  
     override func viewDidLoad() {
@@ -61,6 +62,26 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         present(alert, animated: true, completion: nil)
     }
 
+    
+    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
+        if var dives = dives {
+            switch sortSegmentedControl.selectedSegmentIndex{
+            case 0:
+                dives.sort(by: {$0.diveNumber == $1.diveNumber})
+            case 1:
+                dives.sort(by: {$0.diveNumber > $1.diveNumber})
+            case 2:
+                dives.sort(by: {$0.diveNumber < $1.diveNumber})
+            case 3:
+                dives.sort(by: {$0.maxDepth > $1.maxDepth})
+            default:
+                print("this default is just to fix the error")
+            }
+            tableView.reloadData()
+        }
+    }
+    
+    
     // MARK: - Table view data source
 
     /*
