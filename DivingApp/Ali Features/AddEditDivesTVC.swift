@@ -42,20 +42,22 @@ class AddEditDivesTableViewController: UITableViewController,
     
     
     
-    @IBOutlet weak var aluminiumButton: UIButton!
-    
-    @IBOutlet weak var steelButton: UIButton!
-    
+//MARK: -
+    @IBOutlet weak var tankType: UILabel!
     
     
+
     
     
+    
+    
+    //MARK: -
     
    
     @IBOutlet weak var tankCapLabel: UILabel!
     
     
-    
+    //MARK: -
     
     
     
@@ -66,23 +68,15 @@ class AddEditDivesTableViewController: UITableViewController,
     
     @IBOutlet weak var airOutTF: UITextField!
     
+    //MARK: -
+    
+    @IBOutlet weak var suiteType: UILabel!
     
     
     
+   
     
-    @IBOutlet weak var shortieButton: UIButton!
-    
-    @IBOutlet weak var onePieceButton: UIButton!
-    
-    @IBOutlet weak var twoPieceButton: UIButton!
-    
-    @IBOutlet weak var semiDryButton: UIButton!
-    
-    @IBOutlet weak var drySuiteButton: UIButton!
-    
-    @IBOutlet weak var thicknessTF: UITextField!
-    
-    
+    //MARK: -
     
     
     
@@ -97,32 +91,26 @@ class AddEditDivesTableViewController: UITableViewController,
     
     @IBOutlet weak var cameraTF: UITextField!
     
+    //MARK: -
+
+    
+    @IBOutlet weak var weatherCondition: UILabel!
     
     
     
+   
+    
+    //MARK: -
+
     
     
-    @IBOutlet weak var sunnyButton: UIButton!
-    
-    @IBOutlet weak var clowdyButton: UIButton!
-    
-    @IBOutlet weak var windyButton: UIButton!
-    
-    @IBOutlet weak var overcastButton: UIButton!
+    @IBOutlet weak var swellingLvl: UILabel!
     
     
+   
     
-    
-    
-    
-    @IBOutlet weak var noSwellButton: UIButton!
-    
-    @IBOutlet weak var moderateSwellButton: UIButton!
-    
-    @IBOutlet weak var strongSwellButton: UIButton!
-    
-    
-    
+    //MARK: -
+
     
     
     
@@ -134,7 +122,8 @@ class AddEditDivesTableViewController: UITableViewController,
     
     
     
-    
+    //MARK: -
+
     
     @IBOutlet weak var notesTF: UITextView!
     
@@ -158,10 +147,11 @@ class AddEditDivesTableViewController: UITableViewController,
         let avgDepth = avgDepthTF.text ?? ""
         let buttomTime = bottomTimeTF.text ?? ""
         
-    
-        let aluminium = aluminiumButton.isSelected
-        let steel = steelButton.isSelected
+        //MARK: -
+
         
+        //MARK: -
+
         
         guard let tankType = tankType else{return}
         
@@ -169,38 +159,28 @@ class AddEditDivesTableViewController: UITableViewController,
         let airOut = airOutTF.text ?? ""
         
         
-        
-        let shortie = shortieButton.isSelected
-        let onePiece = onePieceButton.isSelected
-        let twoPiece = twoPieceButton.isSelected
-        let semiDry = semiDryButton.isSelected
-        let drySuite = drySuiteButton.isSelected
-        let thickness = thicknessTF.text ?? ""
-        
-        
-        
-        
-        let wieght = wieghtTF.text ?? ""
-        let gasMix = gassMixTF.text ?? ""
-        let computer = computerTF.text ?? ""
-        let camera = cameraTF.text ?? ""
+        //MARK: -
 
         
         
+        //MARK: -
+
         
         
-        let sunny = sunnyButton.isSelected
-        let clowdy = clowdyButton.isSelected
-        let windy = windyButton.isSelected
-        let overcast = overcastButton.isSelected
+       
         
         
         
-        let noSwell = noSwellButton.isSelected
-        let moderateSwell = moderateSwellButton.isSelected
-        let strongSwell = strongSwellButton.isSelected
+        //MARK: -
+
         
         
+        //MARK: -
+
+       
+        
+        //MARK: -
+
         let airTemp = airTempTF.text ?? ""
         let WaterTemp = waterTempTF.text ?? ""
         let Visibility = visibilityTF.text ?? ""
@@ -226,17 +206,25 @@ class AddEditDivesTableViewController: UITableViewController,
             dive?.avgDepth = Double(avgDepth)!
             dive?.buttomTime = Double(buttomTime)!
             
-            
+            //MARK: -
+
             
             dive?.isAluminium = aluminium
             dive?.isSteel = steel
             
             
+            //MARK: -
+
+            
             dive?.tankCap = Int("\(tankType)")
             
+            
+            //MARK: -
+
             dive?.airIn = Double(airIn)!
             dive?.airOut = Double(airOut)!
-            
+            //MARK: -
+
             
             
             
@@ -247,7 +235,8 @@ class AddEditDivesTableViewController: UITableViewController,
             dive?.isSemiDry = semiDry
             dive?.isDrySuite = drySuite
             dive?.thickness = Int(thickness)!
-            
+            //MARK: -
+
             
             
             dive?.wieght = Double(wieght)!
@@ -255,28 +244,33 @@ class AddEditDivesTableViewController: UITableViewController,
             dive?.computer = computer
             dive?.camera = camera
             
-            
+            //MARK: -
+
             
             dive?.isSunny = sunny
             dive?.isClowdy = clowdy
             dive?.isWindy = windy
             dive?.isOvercast = overcast
             
-            
+            //MARK: -
+
             
             dive?.isNoSwell = noSwell
             dive?.isModerateSwell = moderateSwell
             dive?.isStrongSwell = strongSwell
             
-            
+            //MARK: -
+
             dive?.airTemp = Double(airTemp)!
             dive?.waterTemp = Double(WaterTemp)!
             dive?.visibility = Double(Visibility)!
             
-            
+            //MARK: -
+
             dive?.notes = notes
             
-            
+            //MARK: -
+
             
             
             

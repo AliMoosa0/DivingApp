@@ -18,6 +18,7 @@
 		3F5B3833294B8F6100E2B78E /* AddEditTheTrips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B3831294B8F6100E2B78E /* AddEditTheTrips.storyboard */; };
 		3F5B3836294B8F8D00E2B78E /* AddEditTheDives.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B3834294B8F8D00E2B78E /* AddEditTheDives.storyboard */; };
 		3F5B383B294B92F900E2B78E /* ViewTheDives.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B3839294B92F900E2B78E /* ViewTheDives.storyboard */; };
+		3F5DFA9C29576AAC00D482DB /* Dives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DFA9B29576AAC00D482DB /* Dives.swift */; };
 		3FB1C236294B015700C706F1 /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB1C235294B015700C706F1 /* Trips.swift */; };
 		3FB1C23C294B0D5B00C706F1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FB1C23A294B0D5B00C706F1 /* Home.storyboard */; };
 		3FB2446F29560C8A00CF45A6 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2446E29560C8A00CF45A6 /* HomeVC.swift */; };
@@ -42,6 +43,7 @@
 		3F5B3832294B8F6100E2B78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AddEditTheTrips.storyboard; sourceTree = "<group>"; };
 		3F5B3835294B8F8D00E2B78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DivingApp/DivingApp/Base.lproj/AddEditTheDives.storyboard; sourceTree = "<group>"; };
 		3F5B383A294B92F900E2B78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DivingApp/DivingApp/DivingApp/Base.lproj/ViewTheDives.storyboard; sourceTree = "<group>"; };
+		3F5DFA9B29576AAC00D482DB /* Dives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dives.swift; sourceTree = "<group>"; };
 		3FB1C235294B015700C706F1 /* Trips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
 		3FB1C23B294B0D5B00C706F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DivingApp/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		3FB2446E29560C8A00CF45A6 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				3FD2ABA829477EA6001D293A /* SceneDelegate.swift */,
 				3FD2ABAA29477EA6001D293A /* ViewController.swift */,
 				3FB1C235294B015700C706F1 /* Trips.swift */,
+				3F5DFA9B29576AAC00D482DB /* Dives.swift */,
 				3FD2ABAC29477EA6001D293A /* Main.storyboard */,
 				3FFCC8BA2950F44000A1B21A /* Safa Features */,
 				3FFCC8B92950F3A200A1B21A /* Ali Features */,
@@ -219,6 +222,7 @@
 				3F020F982951A6BD00BC4291 /* AddEditTripTVC.swift in Sources */,
 				3FB1C236294B015700C706F1 /* Trips.swift in Sources */,
 				3FB2446F29560C8A00CF45A6 /* HomeVC.swift in Sources */,
+				3F5DFA9C29576AAC00D482DB /* Dives.swift in Sources */,
 				3FD2ABAB29477EA6001D293A /* ViewController.swift in Sources */,
 				3F3D11B2295735380064872A /* TankCap.swift in Sources */,
 				3F1AEE25294E432F004C24F7 /* TripsTableViewController.swift in Sources */,
