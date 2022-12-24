@@ -7,7 +7,13 @@
 
 import UIKit
 
-class AddEditDivesTableViewController: UITableViewController {
+class AddEditDivesTableViewController: UITableViewController,
+                                       SelectTankCapTVCDelegate{
+    func selectTankCapTVC(_ controller: SelectTankCapTVC, didSelect tankType: Tanks) {
+        self.tankType = tankType
+        updateTankType()
+    }
+    
     // MARK: - Form Outlits
     
     @IBOutlet weak var numOfDivesLabel: UITextField!
@@ -45,12 +51,8 @@ class AddEditDivesTableViewController: UITableViewController {
     
     
     
-    @IBOutlet weak var tenButton: UIButton!
-    
-    @IBOutlet weak var twelveButton: UIButton!
-    
-    @IBOutlet weak var fifteenButton: UIButton!
-    
+   
+    @IBOutlet weak var tankCapLabel: UILabel!
     
     
     
@@ -161,10 +163,7 @@ class AddEditDivesTableViewController: UITableViewController {
         let steel = steelButton.isSelected
         
         
-        let ten = tenButton.isSelected
-        let twelve = twelveButton.isSelected
-        let fifteen = fifteenButton.isSelected
-        
+        guard let tankType = tankType else{return}
         
         let airIn = airInTF.text ?? ""
         let airOut = airOutTF.text ?? ""
@@ -233,10 +232,7 @@ class AddEditDivesTableViewController: UITableViewController {
             dive?.isSteel = steel
             
             
-            dive?.is10mm = ten
-            dive?.is12mm = twelve
-            dive?.is15mm = fifteen
-            
+            dive?.tankCap = Int("\(tankType)")
             
             dive?.airIn = Double(airIn)!
             dive?.airOut = Double(airOut)!
@@ -288,23 +284,40 @@ class AddEditDivesTableViewController: UITableViewController {
         }else{
             
             dive = Dive(diveNumber: Int(noOfDives)!, surfaceInterval: Double(surfaceIntreval)!, timeIn: timeInThePicker, timeOut: timeOutThePicker, maxDepth: Double(maxDepth)!
-, avgDepth: Double(avgDepth)!, buttomTime: Double(buttomTime)!, isAluminium: aluminium, isSteel: steel, is10mm: ten, is12mm: twelve, is15mm: fifteen, airIn: Double(airIn)!, airOut: Double(airOut)!, isShortie: shortie, is1Piece: onePiece, is2Piece: twoPiece, isSemiDry: semiDry, isDrySuite: drySuite, thickness: Int(thickness)!, wieght: Double(wieght)!, gasMix: Double(gasMix)!, computer: computer, camera: camera, isSunny: sunny, isClowdy: clowdy, isWindy: windy, isOvercast: overcast, isNoSwell: noSwell, isModerateSwell: moderateSwell, isStrongSwell: strongSwell, airTemp: Double(airTemp)!, waterTemp: Double(WaterTemp)!, visibility: Double(Visibility)!, notes: notes)
+, avgDepth: Double(avgDepth)!, buttomTime: Double(buttomTime)!, isAluminium: aluminium, isSteel: steel, tankCap: Int("\(tankType)"), airIn: Double(airIn)!, airOut: Double(airOut)!, isShortie: shortie, is1Piece: onePiece, is2Piece: twoPiece, isSemiDry: semiDry, isDrySuite: drySuite, thickness: Int(thickness)!, wieght: Double(wieght)!, gasMix: Double(gasMix)!, computer: computer, camera: camera, isSunny: sunny, isClowdy: clowdy, isWindy: windy, isOvercast: overcast, isNoSwell: noSwell, isModerateSwell: moderateSwell, isStrongSwell: strongSwell, airTemp: Double(airTemp)!, waterTemp: Double(WaterTemp)!, visibility: Double(Visibility)!, notes: notes)
         }
         
     }
+    var tankType : Tanks?
     
     
-    
-    
-    
-    @IBAction func kjb(){
-        
+    func selectTankType(_ controller: SelectTankCapTVC, didSelect tankType: Tanks) {
+        self.tankType = tankType
+        updateTankType()
     }
     
     
+   
+    func updateTankType(){
+        if let tankType = tankType {
+            tankCapLabel.text = "\(tankType.tankcap)"
+        }else{
+            tankCapLabel.text = "  NOT SET  "
+        }
+    }
+/*
+  @IBAction func selectTankType(_ coder: NSCoder) -> SelectTankCapTVC? {//
+        let selectTankTypeController = DivingApp.SelectTankCapTVC(coder: coder)
+        
+        
+        selectTankTypeController?.delegate = self
+        selectTankTypeController?.tankType = tankType
+        
+        
+        return selectTankTypeController
     
-    
-    
+    }
+    */
     
     
     override func viewDidLoad() {
