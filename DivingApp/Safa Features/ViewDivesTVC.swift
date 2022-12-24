@@ -7,16 +7,21 @@
 
 import UIKit
 
-class ViewDivesTVC: UITableViewController {
+class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
 
     
     var dives: [Dive]? = []
+    
+    var searchDive: [Dive]? = []
+    var searching = false
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
  
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        
+        searchBar.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -69,7 +74,11 @@ class ViewDivesTVC: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         //return dives!.count
         if let dives = dives {
-            return dives.count
+            if searching{
+                return searchDive!.count
+            }else{
+                return dives.count
+            }
         }else{
             return 0
         }
@@ -80,11 +89,18 @@ class ViewDivesTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "divesCell", for: indexPath) as! DiveCell
 
         // Configure the cell...
-        let dive = dives![indexPath.row]
-        //var content = cell.defaultContentConfiguration()
-        cell.diveNumberLabel.text = "Dive number \(dive.diveNumber)"
-        cell.descriptionLabel.text = "Max depth: \(dive.maxDepth)"
-        //cell.contentConfiguration = content
+        
+        if searching{
+            let dive = searchDive![indexPath.row]
+            cell.diveNumberLabel.text = "Dive number \(dive.diveNumber)"
+            cell.descriptionLabel.text = "Max depth: \(dive.maxDepth)"
+        }else{
+            let dive = dives![indexPath.row]
+            cell.diveNumberLabel.text = "Dive number \(dive.diveNumber)"
+            cell.descriptionLabel.text = "Max depth: \(dive.maxDepth)"
+        }
+       
+        // Return cell
         return cell
     }
     
@@ -133,5 +149,19 @@ class ViewDivesTVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // search bar functions
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchDive = dives?.filter({String($0.diveNumber) == searchText})
+        searching = true
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        tableView.reloadData()
+    }
 
 }
