@@ -15,6 +15,7 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
     var searching = false
     
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     
     
     override func viewDidLoad() {
@@ -68,6 +69,24 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
+        switch sortSegmentedControl.selectedSegmentIndex{
+        case 0:
+            trips.sort(by: {$0.title == $1.title})
+        case 1:
+            trips.sort(by: {$0.title < $1.title})
+        case 2:
+            trips.sort(by: {$0.location < $1.location})
+        case 3:
+            trips.sort(by: {$0.tripDate < $1.tripDate})
+        case 4:
+            trips.sort(by: {$0.tripDate > $1.tripDate})
+        default:
+            print("this default is just to fix the error")
+        }
+        tableView.reloadData()
     }
     
 
