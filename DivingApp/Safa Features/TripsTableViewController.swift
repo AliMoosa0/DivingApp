@@ -7,16 +7,20 @@
 
 import UIKit
 
-class TripsTableViewController: UITableViewController {
+class TripsTableViewController: UITableViewController, UISearchBarDelegate {
 
     var trips = [Trip]()
     
+    var searchTrip = [Trip]()
+    var searching = false
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        
+        searchBar.delegate = self
         trips = Trip.loadSampleLoad()
         
         /*
@@ -78,22 +82,30 @@ class TripsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return trips.count
+        if searching{
+            return searchTrip.count
+        }else{
+            return trips.count
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripCell", for: indexPath) as! TripCell
-        
-        let trip = trips[indexPath.row]
-        //var content = cell.defaultContentConfiguration()
-        cell.tripNameLabel.text = trip.title
-        cell.descriptionLabel.text = "\(trip.location) - \(trip.tripDate)"
-        //cell.contentConfiguration = content
-        
-
+       
         // Configure the cell...
-
+        
+        if searching {
+            let trip = searchTrip[indexPath.row]
+            cell.tripNameLabel.text = trip.title
+            cell.descriptionLabel.text = "\(trip.location) - \(trip.tripDate)"
+        }else{
+            let trip = trips[indexPath.row]
+            cell.tripNameLabel.text = trip.title
+            cell.descriptionLabel.text = "\(trip.location) - \(trip.tripDate)"
+        }
+        
+        // Return the cell
         return cell
     }
     
@@ -153,5 +165,18 @@ class TripsTableViewController: UITableViewController {
 
     }
     
+    //search bar functions
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchTrip = trips.filter({$0.title.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searching = true
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        tableView.reloadData()
+    }
     
 }
