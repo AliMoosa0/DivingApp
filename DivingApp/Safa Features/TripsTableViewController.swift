@@ -7,16 +7,21 @@
 
 import UIKit
 
-class TripsTableViewController: UITableViewController {
+class TripsTableViewController: UITableViewController, UISearchBarDelegate {
 
     var trips = [Trip]()
     
+    var searchTrip = [Trip]()
+    var searching = false
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        
+        searchBar.delegate = self
         trips = Trip.loadSampleLoad()
         
         /*
@@ -48,6 +53,41 @@ class TripsTableViewController: UITableViewController {
         Trip.saveTrips(trips)
         }
     
+    //Delete function
+    func presentDeleteAlert(indexPath: IndexPath){
+        let alert = UIAlertController(title: "Delete Trip", message: "Are you sure you want to delete this trip?", preferredStyle: .alert)
+        
+        //delete action
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {ACTION in self.trips.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        })
+        
+        //cancel action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
+        switch sortSegmentedControl.selectedSegmentIndex{
+        case 0:
+            trips.sort(by: {$0.title == $1.title})
+        case 1:
+            trips.sort(by: {$0.title < $1.title})
+        case 2:
+            trips.sort(by: {$0.location < $1.location})
+        case 3:
+            trips.sort(by: {$0.tripDate < $1.tripDate})
+        case 4:
+            trips.sort(by: {$0.tripDate > $1.tripDate})
+        default:
+            print("this default is just to fix the error")
+        }
+        tableView.reloadData()
+    }
     
 
 
@@ -61,22 +101,30 @@ class TripsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return trips.count
+        if searching{
+            return searchTrip.count
+        }else{
+            return trips.count
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tripCell", for: indexPath)
-        
-        let trip = trips[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = trip.title
-        content.secondaryText = "\(trip.location) - \(trip.tripDate)"
-        cell.contentConfiguration = content
-        
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tripCell", for: indexPath) as! TripCell
+       
         // Configure the cell...
-
+        
+        if searching {
+            let trip = searchTrip[indexPath.row]
+            cell.tripNameLabel.text = trip.title
+            cell.descriptionLabel.text = "\(trip.location) - \(trip.tripDate)"
+        }else{
+            let trip = trips[indexPath.row]
+            cell.tripNameLabel.text = trip.title
+            cell.descriptionLabel.text = "\(trip.location) - \(trip.tripDate)"
+        }
+        
+        // Return the cell
         return cell
     }
     
@@ -94,8 +142,7 @@ class TripsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            trips.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            presentDeleteAlert(indexPath: indexPath)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -137,5 +184,18 @@ class TripsTableViewController: UITableViewController {
 
     }
     
+    //search bar functions
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchTrip = trips.filter({$0.title.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searching = true
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        tableView.reloadData()
+    }
     
 }
