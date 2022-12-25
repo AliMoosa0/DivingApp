@@ -73,7 +73,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
             case 2:
                 dives.sort(by: {$0.diveNumber < $1.diveNumber})
             case 3:
-                dives.sort(by: {$0.maxDepth > $1.maxDepth})
+                dives.sort(by: {$0.maxDepth! > $1.maxDepth!})
             default:
                 print("this default is just to fix the error")
             }
