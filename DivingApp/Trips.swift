@@ -44,13 +44,13 @@ struct Trip: Equatable, Codable{
     }
     
     static func loadSampleLoad() -> [Trip]{
-        let trip1 = Trip(title: "trip1", location: "malkia", tripDate: Date(), dives: [Dive(diveNumber: 1, surfaceInterval: 75.7, timeIn: Date.now, timeOut: Date.now, maxDepth: 60.6, avgDepth: 30, buttomTime: 90, isAluminium: true, isSteel: false, is10mm: true, is12mm: false, is15mm: false, airIn: 50, airOut: 10, isShortie: true, is1Piece: false, is2Piece: false, isSemiDry: false, isDrySuite: false, thickness: 8, wieght: 20, gasMix: 70, computer: "mac", camera: "cannon", isSunny: true, isClowdy: false, isWindy: false, isOvercast: false, isNoSwell: false, isModerateSwell: true, isStrongSwell: false, airTemp: 25, waterTemp: 18, visibility: 60, notes: "nice")])
+        let trip1 = Trip(title: "trip1", location: "malkia", tripDate: Date(), dives: [Dive(diveNumber: 1, surfaceInterval: 11.11, timeIn: Date.now, timeOut: Date.now, maxDepth: 50.00, avgDepth: 60.00, buttomTime: 11.11, tankType: .steel, tankCap: .twelve, airIn: 11.11, airOut: 11.11, suiteType: .onePiece, wieght: 11.11, gasMix: 11.11, computer: "Mac", camera: "canon", wetherType: .sunny, swell: .noSwell, airTemp: 11.11, waterTemp: 11.11, visibility: 1.11, notes: "arigato")])
         
         
         
         
-        let trip2 = Trip(title: "trip2", location: "manama", tripDate: Date(), dives: [Dive(diveNumber: 2, surfaceInterval: 75.7, timeIn: Date.now, timeOut: Date.now, maxDepth: 60.6, avgDepth: 30, buttomTime: 90, isAluminium: true, isSteel: false, is10mm: true, is12mm: false, is15mm: false, airIn: 50, airOut: 10, isShortie: true, is1Piece: false, is2Piece: false, isSemiDry: false, isDrySuite: false, thickness: 8, wieght: 20, gasMix: 70, computer: "mac", camera: "cannon", isSunny: true, isClowdy: false, isWindy: false, isOvercast: false, isNoSwell: false, isModerateSwell: true, isStrongSwell: false, airTemp: 25, waterTemp: 18, visibility: 60, notes: "nice")])
-       
+        let trip2 = Trip(title: "trip2", location: "manama", tripDate: Date(), dives: [Dive(diveNumber: 1, surfaceInterval: 11.11, timeIn: Date.now, timeOut: Date.now, maxDepth: 50.00, avgDepth: 60.00, buttomTime: 11.11, tankType: .steel, tankCap: .twelve, airIn: 11.11, airOut: 11.11, suiteType: .onePiece, wieght: 11.11, gasMix: 11.11, computer: "Mac", camera: "canon", wetherType: .sunny, swell: .noSwell, airTemp: 11.11, waterTemp: 11.11, visibility: 1.11, notes: "arigato")])
+        
         
         
         return [trip1, trip2]
@@ -58,61 +58,3 @@ struct Trip: Equatable, Codable{
     
 }
 
-struct Dive : Equatable, Codable{
-    var diveNumber : Int
-    
-    var surfaceInterval : Double
-    var timeIn : Date
-    var timeOut : Date
-    
-    var maxDepth : Double
-    var avgDepth : Double
-    var buttomTime : Double
-    
-    var isAluminium : Bool
-    var isSteel : Bool
-    
-    var is10mm : Bool
-    var is12mm : Bool
-    var is15mm : Bool
-    
-    var airIn : Double
-    var airOut : Double
-    
-    
-    var isShortie : Bool
-    var is1Piece : Bool
-    var is2Piece : Bool
-    var isSemiDry : Bool
-    var isDrySuite : Bool
-    var thickness : Int
-    
-    var wieght : Double
-    var gasMix : Double
-    var computer : String
-    var camera : String
-    
-    
-    var isSunny : Bool
-    var isClowdy : Bool
-    var isWindy : Bool
-    var isOvercast : Bool
-    
-    
-    var isNoSwell : Bool
-    var isModerateSwell : Bool
-    var isStrongSwell : Bool
-    
-    
-    var airTemp : Double
-    var waterTemp : Double
-    var visibility : Double
-    
-    
-    var notes : String
-    
-    
-    
-    
-    
-}

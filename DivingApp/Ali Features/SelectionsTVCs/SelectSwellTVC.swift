@@ -1,91 +1,71 @@
 //
-//  AddEditTableViewController.swift
+//  SelectSwellTVC.swift
 //  DivingApp
 //
-//  Created by ALI MOOSA on 20/12/2022.
+//  Created by ALI MOOSA on 24/12/2022.
 //
 
 import UIKit
 
-class AddEditTableViewController: UITableViewController {
-    // MARK: - Form Outlits
-    
-    
-    @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    @IBOutlet weak var nameTextField: UITextField!
-    
-    @IBOutlet weak var locationTextField: UITextField!
-    
-    @IBOutlet weak var theDateLabel: UILabel!
-    
-    
-    
-    @IBOutlet weak var datePicker: UIDatePicker!
-    
-    // MARK: - Save Button funcs
-    var trip : Trip?
-    func updateSaveButtonState(){
-        let nameTxt = nameTextField.text ?? ""
-        let locationTxt = locationTextField.text ?? ""
-        
-        saveButton.isEnabled = !nameTxt.isEmpty && !locationTxt.isEmpty
-    }
-    
-    func updateTheDateLabel (date: Date){
-        theDateLabel.text = date.formatted(.dateTime.month(.defaultDigits).day().year(.twoDigits).hour().minute())
-    }
-    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
-        updateTheDateLabel(date: sender.date)
-    }
-    
-    @IBAction func textEditingChanged(_ sender: UITextField) {
-         updateSaveButtonState()
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "saveUnwind" else {return}
-        
-        let name = nameTextField.text ?? ""
-        let location = locationTextField.text ?? ""
-        let date = datePicker.date
-        
-        
-        if trip != nil {
-            trip?.title = name
-            trip?.location = location
-            trip?.tripDate = date
-        
-            
-        }else{
-        
-            trip = Trip(title: name, location: location, tripDate: date, dives: [])
-        }
-    }
+protocol  SelectSwellTVCDelegate: AnyObject{
+    func selectSwellTVC(_ controller: SelectSwellTVC, didSelect swell: Swell )
+}
+
+class SelectSwellTVC: UITableViewController {
+
+    var delegate: SelectSwellTVCDelegate?
+
+    var swell :Swell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateSaveButtonState()
-        updateTheDateLabel(date: datePicker.date)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //    SwellCell
     }
 
     // MARK: - Table view data source
-/*
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Swell.allCases.count
     }
-*/
+    
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SwellCell", for: indexPath)
+        
+        let type = Swell.allCases[indexPath.row]
+        cell.textLabel?.text = type.description
+
+        if swell == type {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let type = Swell.allCases[indexPath.row]
+        self.swell = type
+        delegate?.selectSwellTVC(self, didSelect: type)
+        tableView.reloadData()
+    }
+    
+
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
