@@ -75,13 +75,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F54FB55295793A100F580CA /* AddEdit */ = {
+			isa = PBXGroup;
+			children = (
+				3F020F972951A6BD00BC4291 /* AddEditTripTVC.swift */,
+				3F0C06A52952F06C00D4F178 /* AddEditDivesTVC.swift */,
+			);
+			path = AddEdit;
+			sourceTree = "<group>";
+		};
 		3F5DFA9D2957777200D482DB /* SelectionsTVCs */ = {
 			isa = PBXGroup;
 			children = (
-				3F5DFAA329577BDA00D482DB /* SelectWeatherConditionTVC.swift */,
 				3F5DFA9F2957781500D482DB /* SelectTankTypeTVC.swift */,
 				3FC8F191295733AB008C3BEB /* SelectTankCapTVC.swift */,
 				3F5DFAA129577A0000D482DB /* SelectSuiteTypeTVC.swift */,
+				3F5DFAA329577BDA00D482DB /* SelectWeatherConditionTVC.swift */,
 				3F5DFAA529577D8500D482DB /* SelectSwellTVC.swift */,
 			);
 			path = SelectionsTVCs;
@@ -125,10 +134,9 @@
 		3FFCC8B92950F3A200A1B21A /* Ali Features */ = {
 			isa = PBXGroup;
 			children = (
-				3F5DFA9D2957777200D482DB /* SelectionsTVCs */,
-				3F020F972951A6BD00BC4291 /* AddEditTripTVC.swift */,
-				3F0C06A52952F06C00D4F178 /* AddEditDivesTVC.swift */,
 				3FB2446E29560C8A00CF45A6 /* HomeVC.swift */,
+				3F5DFA9D2957777200D482DB /* SelectionsTVCs */,
+				3F54FB55295793A100F580CA /* AddEdit */,
 				3FB1C23A294B0D5B00C706F1 /* Home.storyboard */,
 				3F5B3831294B8F6100E2B78E /* AddEditTheTrips.storyboard */,
 				3F5B3834294B8F8D00E2B78E /* AddEditTheDives.storyboard */,

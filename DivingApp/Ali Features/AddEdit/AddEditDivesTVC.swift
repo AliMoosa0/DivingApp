@@ -10,8 +10,7 @@ protocol AddEditDivesTableViewControllerDelegate: AnyObject {
     func diveDetailTableViewController(_ controller: AddEditDivesTableViewController, didSave dive: Dive)
 }
 
-class AddEditDivesTableViewController: UITableViewController,
-                                       SelectTankCapTVCDelegate, SelectSwellTVCDelegate, SelectTankTypeTVCDelegate, SelectWeatherConditionTVCDelegate, SelectSuiteTypeTVCDelegate{
+class AddEditDivesTableViewController: UITableViewController,SelectTankCapTVCDelegate, SelectSwellTVCDelegate, SelectTankTypeTVCDelegate, SelectWeatherConditionTVCDelegate, SelectSuiteTypeTVCDelegate{
    
     
     
@@ -169,6 +168,14 @@ class AddEditDivesTableViewController: UITableViewController,
 
         let suiteTypeP = suiteTypel!
 
+        
+        let wieght = wieghtTF.text ?? ""
+        let gasMix = gassMixTF.text ?? ""
+        let computer  = computerTF.text ?? ""
+        let camera  = cameraTF.text ?? ""
+        
+        
+        
     
         let weatherP = weatherl!
         
@@ -188,6 +195,12 @@ class AddEditDivesTableViewController: UITableViewController,
             dive?.tankType = tankTypeP
             dive?.tankCap = tankcapP
             dive?.suiteType = suiteTypeP
+            
+            dive?.wieght = Double(wieght)
+            dive?.gasMix = Double(gasMix)
+            dive?.computer = computer
+            dive?.camera = camera
+            
             dive?.wetherType = weatherP
             dive?.swell = swellLvlP
             
@@ -216,7 +229,28 @@ class AddEditDivesTableViewController: UITableViewController,
             
             
         }else{
-            
+            dive = Dive(diveNumber: Int(noOfDives)!,
+                        surfaceInterval: Double(surfaceIntreval)!,
+                        timeIn: timeOutThePicker,
+                        timeOut: timeOutThePicker,
+                        maxDepth: Double(maxDepth),
+                        avgDepth: Double(avgDepth),
+                        buttomTime: Double(buttomTime),
+                        tankType: tankTypel,
+                        tankCap: tankcapl,
+                        airIn: Double(airIn),
+                        airOut: Double(airOut),
+                        suiteType: suiteTypel,
+                        wieght: Double(wieght),
+                        gasMix: Double(gasMix),
+                        computer: computer,
+                        camera: camera,
+                        wetherType: weatherl,
+                        swell: swellLvll,
+                        airTemp: Double(airTemp),
+                        waterTemp: Double(WaterTemp),
+                        visibility: Double(Visibility),
+                        notes: notes)
            
         }
         
