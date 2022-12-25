@@ -10,7 +10,7 @@ protocol AddEditDivesTableViewControllerDelegate: AnyObject {
     func diveDetailTableViewController(_ controller: AddEditDivesTableViewController, didSave dive: Dive)
 }
 
-class AddEditDivesTableViewController: UITableViewController,SelectTankCapTVCDelegate, SelectSwellTVCDelegate, SelectTankTypeTVCDelegate, SelectWeatherConditionTVCDelegate, SelectSuiteTypeTVCDelegate{
+class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDelegate, SelectSwellTVCDelegate, SelectTankCapTVCDelegate, SelectWeatherConditionTVCDelegate, SelectSuiteTypeTVCDelegate{
    
     
     
@@ -48,7 +48,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankCapTVCDel
     
     
 //MARK: -
-    @IBOutlet weak var tankType: UILabel!
+    @IBOutlet weak var tankTypeLabel: UILabel!
     
     
 
@@ -75,7 +75,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankCapTVCDel
     
     //MARK: -
     
-    @IBOutlet weak var suiteType: UILabel!
+    @IBOutlet weak var suiteTypeLabel: UILabel!
     
     
     
@@ -99,7 +99,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankCapTVCDel
     //MARK: -
 
     
-    @IBOutlet weak var weatherCondition: UILabel!
+    @IBOutlet weak var weatherConditionLabel: UILabel!
     
     @IBOutlet weak var weatherTempTF: UITextField!
     
@@ -112,7 +112,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankCapTVCDel
 
     
     
-    @IBOutlet weak var swellingLvl: UILabel!
+    @IBOutlet weak var swellingLvlLabel: UILabel!
     
     
    
@@ -256,8 +256,85 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankCapTVCDel
         
     }
     
+    func updatetankType(){
+        if let tankType = tankTypel{
+            tankTypeLabel.text = tankType.description
+        }else{
+            tankTypeLabel.text = "not set"
+        }
+    }
+    
+    func selectTankTypeTVC(_ controller: SelectTankTypeTVC, didSelect tanktype: TankType ){
+        self.tankTypel = tanktype
+        updatetankType()
+        
+    }
     
     
+    
+    
+    
+    func updatetankCap(){
+        if let tankcap = tankcapl{
+            tankCapLabel.text = tankcap.description
+        }else{
+            tankCapLabel.text = "not set"
+        }
+    }
+    func selectTankCapTVC(_ controller: SelectTankCapTVC, didSelect tankCap: TankCap) {
+        self.tankcapl = tankCap
+        updatetankCap()
+        
+    }
+    
+    
+    
+    
+    
+    func updateSuiteType(){
+        if let suiteType = suiteTypel{
+            suiteTypeLabel.text = suiteType.description
+        }else{
+            suiteTypeLabel.text = "not set"
+        }
+    }
+    func selectSuiteTypeTVC(_ controller: SelectSuiteTypeTVC, didSelect suiteType: SuiteType) {
+        self.suiteTypel = suiteType
+        updateSuiteType()
+    }
+    
+    
+    
+    
+    
+    
+    func updateWeather(){
+        if let weather = weatherl{
+            weatherConditionLabel.text = weather.description
+        }else{
+            weatherConditionLabel.text = "not set"
+        }
+    }
+    func selectWeatherConditionTVC(_ controller: SelectWeatherConditionTVC, didSelect weather: Weather) {
+        self.weatherl = weather
+        updateWeather()
+    }
+    
+    
+    
+    
+    func updateSwell(){
+        if let swell = swellLvll{
+            swellingLvlLabel.text = swell.description
+        }else{
+            swellingLvlLabel.text = "not set"
+        }
+    }
+    
+    func selectSwellTVC(_ controller: SelectSwellTVC, didSelect swell: Swell) {
+        self.swellLvll = swell
+        updateSwell()
+    }
    
 /*
   @IBAction func selectTankType(_ coder: NSCoder) -> SelectTankCapTVC? {//
@@ -276,7 +353,11 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankCapTVCDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updatetankType()
+        updatetankCap()
+        updateWeather()
+        updateSwell()
+        updateSuiteType()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -285,34 +366,39 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankCapTVCDel
     }
 
     // MARK: - Table view data source
-    @IBSegueAction func showWeatherCondition(_ coder: NSCoder) -> SelectWeatherConditionTVC?{
-        let typeController = SelectWeatherConditionTVC(coder: coder)
-        typeController?.delegate = self
-        
-        return typeController
-    }
     
-    @IBSegueAction func showTankType(_ coder: NSCoder) -> SelectTankTypeTVC?{
+    
+    @IBSegueAction func showTankTypeS(_ coder: NSCoder) -> SelectTankTypeTVC? {
         let typeController = SelectTankTypeTVC(coder: coder)
         typeController?.delegate = self
-        
+        typeController?.tanktype = tankTypel
         return typeController
     }
     
-    @IBSegueAction func showTankCap(_ coder: NSCoder) -> SelectTankCapTVC?{
+    @IBSegueAction func showTankCapS(_ coder: NSCoder) -> SelectTankCapTVC? {
         let typeController = SelectTankCapTVC(coder: coder)
         typeController?.delegate = self
         
         return typeController
     }
     
-    @IBSegueAction func showSuiteType(_ coder: NSCoder) -> SelectSuiteTypeTVC?{
+    
+    @IBSegueAction func showSuiteTypeS(_ coder: NSCoder) -> SelectSuiteTypeTVC? {
         let typeController = SelectSuiteTypeTVC(coder: coder)
         typeController?.delegate = self
         
         return typeController
     }
-    @IBSegueAction func showSwell(_ coder: NSCoder) -> SelectSwellTVC?{
+    
+    @IBSegueAction func showWeatherConditionS(_ coder: NSCoder) -> SelectWeatherConditionTVC? {
+        let typeController = SelectWeatherConditionTVC(coder: coder)
+        typeController?.delegate = self
+        
+        return typeController
+    }
+   
+
+    @IBSegueAction func showSwellS(_ coder: NSCoder) -> SelectSwellTVC? {
         let typeController = SelectSwellTVC(coder: coder)
         typeController?.delegate = self
         
@@ -322,32 +408,11 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankCapTVCDel
     
     
     
-    func selectWeatherConditionTVC(_ controller: SelectWeatherConditionTVC, didSelect weather: Weather) {
-        self.weatherl = weather
-        weatherCondition.textColor = .black
-        weatherCondition.text = weather.description
-    }
     
-    func selectSuiteTypeTVC(_ controller: SelectSuiteTypeTVC, didSelect suiteTypel: SuiteType) {
-        self.suiteTypel = suiteTypel
-        suiteType.textColor = .black
-        suiteType.text = suiteTypel.description
-    }
     
-    func selectTankCapTVC(_ controller: SelectTankCapTVC, didSelect tankCapl: TankCap) {
-        self.tankcapl = tankCapl
-        tankCapLabel.textColor = .black
-        tankCapLabel.text = tankCapl.description
-    }
-    func selectSwellTVC(_ controller: SelectSwellTVC, didSelect swell: Swell) {
-        self.swellLvll = swell
-        swellingLvl.textColor = .black
-        swellingLvl.text = swell.description
-    }
-    func selectTankTypeTVC(_ controller: SelectTankTypeTVC, didSelect tankTypel: TankType) {
-        self.tankTypel = tankTypel
-        tankType.textColor = .black
-        tankType.text = tankTypel.description
-    }
     
+    
+   
+    
+   
 }

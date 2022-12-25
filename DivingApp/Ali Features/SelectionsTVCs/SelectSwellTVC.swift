@@ -58,8 +58,9 @@ class SelectSwellTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let type = Swell.allCases[indexPath.row]
-        swell = type
+        self.swell = type
         delegate?.selectSwellTVC(self, didSelect: type)
         tableView.reloadData()
     }

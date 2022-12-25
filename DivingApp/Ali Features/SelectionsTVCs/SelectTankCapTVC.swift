@@ -14,7 +14,7 @@ protocol  SelectTankCapTVCDelegate: AnyObject{
 
 class SelectTankCapTVC: UITableViewController {
 
-    var delegate: SelectTankCapTVCDelegate?
+    weak var delegate: SelectTankCapTVCDelegate?
 
     var tankCap :TankCap?
     
