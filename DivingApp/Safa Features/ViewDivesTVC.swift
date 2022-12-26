@@ -11,6 +11,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
 
     
     var dives: [Dive]? = []
+    var trip = Trip(title: "", location: "", tripDate: Date(), dives: [])
     
     var searchDive: [Dive]? = []
     var searching = false
@@ -18,7 +19,8 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     
- 
+    @IBOutlet weak var editTripButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -79,6 +81,22 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
             }
             tableView.reloadData()
         }
+    }
+    
+    
+    //EDITING A TRIP
+    
+    @IBSegueAction func editTrip(_ coder: NSCoder, sender: Any?) -> AddEditTableViewController? {
+        let editTripController = AddEditTableViewController(coder: coder)
+        
+        if (sender as? UIButton === editTripButton){
+            editTripController?.trip = trip
+            return editTripController
+        }else{
+            return editTripController
+        }
+        
+        //return <#AddEditTableViewController(coder: coder)#>
     }
     
     
