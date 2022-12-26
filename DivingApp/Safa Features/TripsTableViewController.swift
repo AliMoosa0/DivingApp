@@ -45,13 +45,26 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
             let sourceViewController = segue.source as! AddEditTableViewController
             
         if let trip = sourceViewController.trip{
+            if let indexOfExistingTrips = trips.firstIndex(of: trip){
+                trips[indexOfExistingTrips] = trip
+                tableView.reloadRows(at: [IndexPath(row: indexOfExistingTrips, section: 0)], with: .automatic)
+                
+                
+            
+            
+        }else{
+            
             let newIndexPath = IndexPath(row: trips.count, section: 0)
             
             trips.append(trip)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
-            }
+            
+        
         Trip.saveTrips(trips)
-        }
+    }
+}
+    
+    }
     
     //Delete function
     func presentDeleteAlert(indexPath: IndexPath){
