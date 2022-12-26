@@ -180,6 +180,7 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
         tableView.deselectRow(at: indexPath!, animated: true)
         
         let trip = trips[indexPath!.row]
+        viewDivesTVC.trip = trip
         viewDivesTVC.dives = trip.dives
 
     }

@@ -160,7 +160,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="87t-mq-Zhz" kind="relationship" relationship="rootViewController" id="D0q-L0-zXx"/>
+                        <segue destination="87t-mq-Zhz" kind="relationship" relationship="rootViewController" destinationCreationSelector="editTrip:sender:" id="D0q-L0-zXx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxa-VR-ePe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
