@@ -78,6 +78,15 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
         
         
         
+        
+        if let trip = trip {
+            navigationItem.title = "Editing a Trip"
+            nameTextField.text = trip.title
+            locationTextField.text = trip.location
+            theDateLabel.text = String("\(trip.tripDate)")
+            
+        }
+        
     }
     //to hide the heyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
