@@ -33,12 +33,14 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
         
         saveButton.isEnabled = !nameTxt.isEmpty && !locationTxt.isEmpty
     }
-    
+    //MARK: - Update the date
     func updateTheDateLabel (date: Date){
-        theDateLabel.text = date.formatted(.dateTime.month(.defaultDigits).day().year(.twoDigits).hour().minute())
+        theDateLabel.text = date.formatted(.dateTime.month(.defaultDigits).day().year(.defaultDigits))
     }
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        //updateDateViews()
         updateTheDateLabel(date: sender.date)
+        
     }
     
     @IBAction func textEditingChanged(_ sender: UITextField) {
@@ -69,6 +71,7 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
         nameTextField.becomeFirstResponder()
         updateSaveButtonState()
         updateTheDateLabel(date: datePicker.date)
+       
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -98,4 +101,27 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
         return(true)
     }
     
+    /*
+    func updateDateViews() {
+      let date = Date()
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "MMMM d, yyyy"
+      let formattedDate = dateFormatter.string(from: date)
+      theDateLabel.text = formattedDate
+    }
+*/
+     
+    /*
+    let now = Date()
+    
+    func updateDateViews(date: now) {
+       
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "MMMM d, yyyy"
+        
+      let formattedDate = dateFormatter.string(from: date)
+        
+      theDateLabel.text = formattedDate
+    }
+     */
 }

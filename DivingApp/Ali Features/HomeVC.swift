@@ -14,7 +14,7 @@ var trips = [Trip]()
     @IBOutlet weak var noOfDives: UILabel!
     func numberOfTrips(trips :[Trip]){
         
-       var tripCount = trips.count
+       let tripCount = trips.count
         
         noOfTrips.text = "Number of trips:\n\(String(tripCount))"
     }
@@ -41,19 +41,7 @@ var trips = [Trip]()
     
     
     
-    
-    /*
-    func maxDepthDives(trips: [[Dive]]) -> [Dive] {
-        let dives = trips.flatMap { trip in
-            trip
-        }
-        let maxDepth = dives.max { a, b in
-            a.maxDepth ?? 0.00< b.maxDepth ?? 0.00
-        }
-        return maxDepth.map { [$0] } ?? []
-    }
-
-*/
+   
     
     
     override func viewDidLoad() {
@@ -67,14 +55,5 @@ var trips = [Trip]()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
