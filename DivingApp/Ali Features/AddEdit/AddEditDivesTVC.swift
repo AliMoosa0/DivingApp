@@ -117,7 +117,9 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     
    
     
-    //MARK: -
+    //MARK: - time pickers
+    
+    
 
     
     
@@ -363,6 +365,35 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        if let dive = dive {
+            navigationItem.title = "Editing a Dive"
+            numOfDivesLabel.text = String(" \(dive.diveNumber)")
+            surfaceIntervalTF.text = String(" \(dive.surfaceInterval)")
+            timeInLabel.text = String("\(dive.timeIn)")
+            timeOutLabel.text = String("\(dive.timeOut)")
+            macDepthTF.text = String("\(dive.maxDepth)")
+            avgDepthTF.text = String("\(dive.avgDepth)")
+            bottomTimeTF.text = String("\(dive.buttomTime)")
+            tankTypeLabel.text = String("\(dive.tankType)")
+            tankCapLabel.text = String("\(dive.tankCap)")
+            airInTF.text = String("\(dive.airIn)")
+            airOutTF.text = String("\(dive.airOut)")
+            suiteTypeLabel.text = String("\(dive.suiteType)")
+            wieghtTF.text = String("\(dive.wieght)")
+            gassMixTF.text = String("\(dive.gasMix)")
+            computerTF.text = String("\(dive.computer)")
+            cameraTF.text = String("\(dive.camera)")
+            weatherConditionLabel.text = String("\(dive.wetherType)")
+            airTempTF.text = String("\(dive.airTemp)")
+            visibilyTF.text = String("\(dive.visibility)")
+            swellingLvlLabel.text = String("\(dive.swell)")
+            notesTF.text = String("\(dive.notes)")
+            
+        }
+        
+       
+       
     }
 
     // MARK: - Table view data source

@@ -53,20 +53,20 @@
                         </stackView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripCell" id="KHd-2R-1eP" customClass="TripCell" customModule="DivingApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="143.5" width="414" height="44.5"/>
+                                <rect key="frame" x="0.0" y="143.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KHd-2R-1eP" id="fBs-C7-lhJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🚤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0D-sP-LfA">
-                                            <rect key="frame" x="20" y="5" width="27" height="30"/>
+                                            <rect key="frame" x="20" y="5" width="27" height="29.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tripName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gy-Xa-4tN">
-                                            <rect key="frame" x="58" y="5" width="180" height="20"/>
+                                            <rect key="frame" x="58" y="5" width="180" height="19.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="180" id="pb0-Ay-jnv"/>
                                             </constraints>
@@ -75,7 +75,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euB-hM-pnF">
-                                            <rect key="frame" x="58" y="27" width="200" height="13"/>
+                                            <rect key="frame" x="58" y="26.5" width="200" height="13"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="200" id="pj0-nl-D4z"/>
                                             </constraints>
@@ -83,32 +83,21 @@
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0D-yG-XQc">
-                                            <rect key="frame" x="305" y="8" width="46" height="29"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="gray" title="Edit">
-                                                <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
-                                            </buttonConfiguration>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="h0D-sP-LfA" firstAttribute="top" secondItem="fBs-C7-lhJ" secondAttribute="top" constant="5" id="0Pg-Af-QKw"/>
-                                        <constraint firstAttribute="trailing" secondItem="i0D-yG-XQc" secondAttribute="trailing" constant="63" id="1AS-mW-CDS"/>
                                         <constraint firstAttribute="bottom" secondItem="euB-hM-pnF" secondAttribute="bottom" constant="4.5" id="5s9-7N-8X3"/>
-                                        <constraint firstAttribute="bottom" secondItem="i0D-yG-XQc" secondAttribute="bottom" constant="7.5" id="JpU-VV-JgG"/>
                                         <constraint firstItem="h0D-sP-LfA" firstAttribute="leading" secondItem="fBs-C7-lhJ" secondAttribute="leading" constant="20" symbolic="YES" id="KfL-gR-5UJ"/>
                                         <constraint firstItem="euB-hM-pnF" firstAttribute="leading" secondItem="h0D-sP-LfA" secondAttribute="trailing" constant="11" id="LP4-Ox-q7I"/>
                                         <constraint firstItem="5gy-Xa-4tN" firstAttribute="leading" secondItem="h0D-sP-LfA" secondAttribute="trailing" constant="11" id="j57-VE-nl3"/>
                                         <constraint firstItem="5gy-Xa-4tN" firstAttribute="top" secondItem="fBs-C7-lhJ" secondAttribute="top" constant="5" id="sSs-Tm-W7e"/>
                                         <constraint firstAttribute="bottom" secondItem="5gy-Xa-4tN" secondAttribute="bottom" constant="19.5" id="tKE-6Y-pKV"/>
-                                        <constraint firstItem="i0D-yG-XQc" firstAttribute="top" secondItem="fBs-C7-lhJ" secondAttribute="top" constant="8" id="uDN-b4-1zd"/>
                                         <constraint firstAttribute="bottom" secondItem="h0D-sP-LfA" secondAttribute="bottom" constant="9.5" id="vOU-Kg-ghZ"/>
                                         <constraint firstItem="euB-hM-pnF" firstAttribute="top" secondItem="5gy-Xa-4tN" secondAttribute="bottom" constant="2" id="wmk-OF-EDH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="euB-hM-pnF" id="5Eb-dQ-3I1"/>
-                                    <outlet property="editButton" destination="i0D-yG-XQc" id="DB5-eW-mR5"/>
                                     <outlet property="tripNameLabel" destination="5gy-Xa-4tN" id="go7-jp-PiE"/>
                                     <segue destination="Lmo-sz-Jap" kind="show" identifier="viewDives" id="m97-wW-qBq"/>
                                 </connections>

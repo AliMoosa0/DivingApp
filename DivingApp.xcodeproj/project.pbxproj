@@ -24,6 +24,7 @@
 		3F5DFAA229577A0000D482DB /* SelectSuiteTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DFAA129577A0000D482DB /* SelectSuiteTypeTVC.swift */; };
 		3F5DFAA429577BDA00D482DB /* SelectWeatherConditionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DFAA329577BDA00D482DB /* SelectWeatherConditionTVC.swift */; };
 		3F5DFAA629577D8500D482DB /* SelectSwellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DFAA529577D8500D482DB /* SelectSwellTVC.swift */; };
+		3F9AACC2295B0F4500593E72 /* ViewTheDivesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9AACC1295B0F4500593E72 /* ViewTheDivesTVC.swift */; };
 		3FB1C236294B015700C706F1 /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB1C235294B015700C706F1 /* Trips.swift */; };
 		3FB1C23C294B0D5B00C706F1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FB1C23A294B0D5B00C706F1 /* Home.storyboard */; };
 		3FB2446F29560C8A00CF45A6 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2446E29560C8A00CF45A6 /* HomeVC.swift */; };
@@ -54,6 +55,7 @@
 		3F5DFAA129577A0000D482DB /* SelectSuiteTypeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSuiteTypeTVC.swift; sourceTree = "<group>"; };
 		3F5DFAA329577BDA00D482DB /* SelectWeatherConditionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWeatherConditionTVC.swift; sourceTree = "<group>"; };
 		3F5DFAA529577D8500D482DB /* SelectSwellTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSwellTVC.swift; sourceTree = "<group>"; };
+		3F9AACC1295B0F4500593E72 /* ViewTheDivesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTheDivesTVC.swift; sourceTree = "<group>"; };
 		3FB1C235294B015700C706F1 /* Trips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
 		3FB1C23B294B0D5B00C706F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DivingApp/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		3FB2446E29560C8A00CF45A6 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				3F5B3839294B92F900E2B78E /* ViewTheDives.storyboard */,
+				3F9AACC1295B0F4500593E72 /* ViewTheDivesTVC.swift */,
 				3F5B382A294B8BC900E2B78E /* UserSettings.storyboard */,
 			);
 			path = "Hussain features";
@@ -258,6 +261,7 @@
 				3F5DFAA02957781500D482DB /* SelectTankTypeTVC.swift in Sources */,
 				3F5DFA9C29576AAC00D482DB /* Dives.swift in Sources */,
 				3F5DFAA429577BDA00D482DB /* SelectWeatherConditionTVC.swift in Sources */,
+				3F9AACC2295B0F4500593E72 /* ViewTheDivesTVC.swift in Sources */,
 				3FD2ABAB29477EA6001D293A /* ViewController.swift in Sources */,
 				3F1AEE25294E432F004C24F7 /* TripsTableViewController.swift in Sources */,
 				3FD2ABA729477EA6001D293A /* AppDelegate.swift in Sources */,
