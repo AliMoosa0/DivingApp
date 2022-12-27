@@ -188,8 +188,15 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         {return}
         // Get the new view controller using segue.destination.
         let nav = segue.destination as! UINavigationController
-        //let viewDiveDetails = nav.topViewController as! 
+        let viewDiveDetails = nav.topViewController as! ViewTheDivesTVC
         // Pass the selected object to the new view controller.
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)
+        
+        tableView.deselectRow(at: indexPath!, animated: true)
+        
+        let dive = dives![indexPath!.row]
+        viewDiveDetails.dive = dive
     }
     
     
