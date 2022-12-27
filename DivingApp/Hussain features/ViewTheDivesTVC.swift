@@ -8,6 +8,13 @@
 import UIKit
 
 class ViewTheDivesTVC: UITableViewController {
+    
+    @IBOutlet weak var editDiveButton: UIButton!
+    
+    
+    
+    
+    
     var dive = Dive(diveNumber: 0, surfaceInterval: nil, timeIn: nil, timeOut: nil, maxDepth: nil, avgDepth: nil, buttomTime: nil, tankType: nil, tankCap: nil, airIn: nil, airOut: nil, suiteType: nil, wieght: nil, gasMix: nil, computer: nil, camera: nil, wetherType: nil, swell: nil, airTemp: nil, waterTemp: nil, visibility: nil, notes: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +26,28 @@ class ViewTheDivesTVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    
+    @IBSegueAction func editDive(_ coder: NSCoder, sender: Any?) -> AddEditDivesTableViewController? {
+        let editDiveController =
+        AddEditDivesTableViewController(coder: coder)
+        
+        if (sender as? UIButton == editDiveButton){
+            editDiveController?.dive = dive
+            return editDiveController
+        }else{
+        
+        
+            return editDiveController
+            
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
     // MARK: - Table view data source
 /*
     override func numberOfSections(in tableView: UITableView) -> Int {
