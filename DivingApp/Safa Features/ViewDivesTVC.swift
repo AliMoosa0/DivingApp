@@ -179,15 +179,19 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "viewDiveDetails" else
+        {return}
         // Get the new view controller using segue.destination.
+        let nav = segue.destination as! UINavigationController
+        //let viewDiveDetails = nav.topViewController as! 
         // Pass the selected object to the new view controller.
     }
-    */
+    
     
     // search bar functions
     

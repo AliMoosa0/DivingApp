@@ -28,7 +28,7 @@
                                     </connections>
                                 </button>
                                 <searchBar contentMode="redraw" placeholder="Search for dive number" showsCancelButton="YES" id="vL0-Z6-t9E">
-                                    <rect key="frame" x="0.0" y="41.5" width="414" height="55.5"/>
+                                    <rect key="frame" x="0.0" y="42" width="414" height="55"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" systemColor="systemBlueColor"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -95,7 +95,7 @@
                                 <connections>
                                     <outlet property="descriptionLabel" destination="MjD-qs-q12" id="6K4-Tx-5RL"/>
                                     <outlet property="diveNumberLabel" destination="l7Y-eF-qyu" id="6DE-sE-taB"/>
-                                    <segue destination="p1s-PP-p2h" kind="show" id="ccX-lp-ty0"/>
+                                    <segue destination="p1s-PP-p2h" kind="show" identifier="viewDiveDetails" id="ccX-lp-ty0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
