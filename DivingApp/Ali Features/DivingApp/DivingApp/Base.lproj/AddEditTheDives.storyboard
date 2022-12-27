@@ -657,9 +657,9 @@
                         <outlet property="swellingLvlLabel" destination="4gP-pm-BfF" id="eXF-Mv-nYB"/>
                         <outlet property="tankCapLabel" destination="Vls-gc-Z4z" id="qTN-aV-8cO"/>
                         <outlet property="tankTypeLabel" destination="wK2-qg-6yj" id="EjV-3e-E8u"/>
-                        <outlet property="timeInLabel" destination="TFB-ir-6QS" id="HlH-8c-flK"/>
+                        <outlet property="timeInLabel" destination="Llh-df-Lkd" id="aVo-ra-7bM"/>
                         <outlet property="timeInPicker" destination="zEp-gC-DLJ" id="nh8-2C-yiX"/>
-                        <outlet property="timeOutLabel" destination="E7C-jO-jMr" id="xaU-2D-LJH"/>
+                        <outlet property="timeOutLabel" destination="w9Y-hL-djO" id="gbT-kz-4nY"/>
                         <outlet property="timeOutPicker" destination="mZT-BI-VcV" id="7Lf-Q6-EPk"/>
                         <outlet property="visibilyTF" destination="CLg-sB-l55" id="Wav-vz-V2P"/>
                         <outlet property="weatherConditionLabel" destination="GtF-Gl-N5p" id="b5Q-cD-elO"/>

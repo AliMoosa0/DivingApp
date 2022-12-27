@@ -43,6 +43,62 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
         
     }
     
+    //MARK: - hide and unhadi picker
+    let theDateLabelCellIndexPath = IndexPath(row: 2, section: 1)
+    let datePickerCellIndexPath = IndexPath(row: 3, section: 1)
+    
+    
+    
+    var isDatePickerVisible : Bool = false{
+    didSet{
+        datePicker.isHidden = !isDatePickerVisible
+        
+    }
+    
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath{
+        case datePickerCellIndexPath where isDatePickerVisible == false :
+            return 0
+            
+        default:
+            return UITableView.automaticDimension
+            
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath{
+            
+        case datePickerCellIndexPath :
+            return 190
+            
+        default:
+            return UITableView.automaticDimension
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath == theDateLabelCellIndexPath && isDatePickerVisible == false {
+            
+            isDatePickerVisible.toggle()
+        }else{
+                return
+            }
+        tableView.beginUpdates()
+        tableView.endUpdates()
+       }
+        
+    
+    
+    
+    
+    
+    
+    //MARK: - save button
+    
     @IBAction func textEditingChanged(_ sender: UITextField) {
          updateSaveButtonState()
     }
