@@ -213,8 +213,8 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
             dive?.avgDepth = Double(avgDepth)!
             dive?.buttomTime = Double(buttomTime)!
 
-            dive?.airIn = Double(airIn)!
-            dive?.airOut = Double(airOut)!
+            dive?.airIn = Double(airIn)
+            dive?.airOut = Double(airOut)
 
             dive?.airTemp = Double(airTemp)!
             dive?.waterTemp = Double(WaterTemp)!
@@ -369,26 +369,27 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
         if let dive = dive {
             navigationItem.title = "Editing a Dive"
             numOfDivesLabel.text = String(" \(dive.diveNumber)")
-            surfaceIntervalTF.text = String(" \(dive.surfaceInterval)")
-            timeInLabel.text = String("\(dive.timeIn)")
-            timeOutLabel.text = String("\(dive.timeOut)")
-            macDepthTF.text = String("\(dive.maxDepth)")
-            avgDepthTF.text = String("\(dive.avgDepth)")
-            bottomTimeTF.text = String("\(dive.buttomTime)")
+            surfaceIntervalTF.text = String(" \(dive.surfaceInterval!)")
+            timeInLabel.text = String("\(dive.timeIn!)")
+            timeOutLabel.text = String("\(dive.timeOut!)")
+            macDepthTF.text = String("\(dive.maxDepth!)")
+            avgDepthTF.text = String("\(dive.avgDepth!)")
+            bottomTimeTF.text = String("\(dive.buttomTime!)")
             tankTypeLabel.text = String("\(dive.tankType)")
             tankCapLabel.text = String("\(dive.tankCap)")
-            airInTF.text = String("\(dive.airIn)")
-            airOutTF.text = String("\(dive.airOut)")
+            airInTF.text = String("\(dive.airIn!)")
+            airOutTF.text = String("\(dive.airOut!)")
             suiteTypeLabel.text = String("\(dive.suiteType)")
-            wieghtTF.text = String("\(dive.wieght)")
-            gassMixTF.text = String("\(dive.gasMix)")
-            computerTF.text = String("\(dive.computer)")
-            cameraTF.text = String("\(dive.camera)")
-            weatherConditionLabel.text = String("\(dive.wetherType)")
-            airTempTF.text = String("\(dive.airTemp)")
-            visibilyTF.text = String("\(dive.visibility)")
-            swellingLvlLabel.text = String("\(dive.swell)")
-            notesTF.text = String("\(dive.notes)")
+            wieghtTF.text = String("\(dive.wieght!)")
+            gassMixTF.text = String("\(dive.gasMix!)")
+            computerTF.text = String("\(dive.computer!)")
+            weatherTempTF.text = String("\(dive.waterTemp!)")
+            cameraTF.text = String("\(dive.camera!)")
+            weatherConditionLabel.text = String("\(dive.wetherType!)")
+            airTempTF.text = String("\(dive.airTemp!)")
+            visibilyTF.text = String("\(dive.visibility!)")
+            swellingLvlLabel.text = String("\(dive.swell!)")
+            notesTF.text = String("\(dive.notes!)")
             
         }
         
