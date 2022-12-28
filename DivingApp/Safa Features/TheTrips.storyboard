@@ -38,10 +38,8 @@
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3T4-0j-RHc">
                                     <rect key="frame" x="0.0" y="64" width="414" height="36"/>
                                     <segments>
-                                        <segment title="Original"/>
                                         <segment title="A-Z Title"/>
                                         <segment title="A-Z Location"/>
-                                        <segment title="Newest"/>
                                         <segment title="Oldest"/>
                                     </segments>
                                     <color key="selectedSegmentTintColor" red="0.74014057010000001" green="0.87086675260000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

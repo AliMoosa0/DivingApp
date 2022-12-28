@@ -23,6 +23,7 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
         tableView.delegate = self
         searchBar.delegate = self
         trips = Trip.loadSampleLoad()
+        self.sortTable()
         
         /*
         if let savedTrips = Trip.loadTrips(){
@@ -84,22 +85,22 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
+    func sortTable(){
         switch sortSegmentedControl.selectedSegmentIndex{
         case 0:
-            trips.sort(by: {$0.title == $1.title})
-        case 1:
             trips.sort(by: {$0.title < $1.title})
-        case 2:
+        case 1:
             trips.sort(by: {$0.location < $1.location})
-        case 3:
+        case 2:
             trips.sort(by: {$0.tripDate < $1.tripDate})
-        case 4:
-            trips.sort(by: {$0.tripDate > $1.tripDate})
         default:
             print("this default is just to fix the error")
         }
         tableView.reloadData()
+    }
+    
+    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
+      sortTable()
     }
     
 

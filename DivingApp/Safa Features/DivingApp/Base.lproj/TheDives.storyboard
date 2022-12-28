@@ -36,7 +36,6 @@
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WWD-Ku-RLS">
                                     <rect key="frame" x="0.0" y="105" width="414" height="36"/>
                                     <segments>
-                                        <segment title="Original"/>
                                         <segment title="Newest"/>
                                         <segment title="Oldest"/>
                                         <segment title="Max depth"/>
