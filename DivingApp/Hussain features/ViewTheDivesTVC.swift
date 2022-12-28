@@ -14,8 +14,8 @@ class ViewTheDivesTVC: UITableViewController {
     
     
     
-    
-    var dive = Dive(diveNumber: 0, surfaceInterval: nil, timeIn: nil, timeOut: nil, maxDepth: nil, avgDepth: nil, buttomTime: nil, tankType: nil, tankCap: nil, airIn: nil, airOut: nil, suiteType: nil, wieght: nil, gasMix: nil, computer: nil, camera: nil, wetherType: nil, swell: nil, airTemp: nil, waterTemp: nil, visibility: nil, notes: nil)
+    var dive = Dive(id: UUID(), diveNumber: 0, surfaceInterval: 0.0, timeIn: Date(), timeOut: Date(), maxDepth: 0.0, avgDepth: 0.0, buttomTime: 0.0, tankType: .none, tankCap: .none, airIn: 0.0, airOut: 0.0, suiteType: .none, wieght: 0.0, gasMix: 0.0, computer: "", camera: "", wetherType: .none, swell: .none, airTemp: 0.0, waterTemp: 0.0, visibility: 0.0, notes: "")
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -198,8 +198,8 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
             dive?.tankCap = tankcapP
             dive?.suiteType = suiteTypeP
             
-            dive?.wieght = Double(wieght)
-            dive?.gasMix = Double(gasMix)
+            dive?.wieght = Double(wieght)!
+            dive?.gasMix = Double(gasMix)!
             dive?.computer = computer
             dive?.camera = camera
             
@@ -213,8 +213,8 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
             dive?.avgDepth = Double(avgDepth)!
             dive?.buttomTime = Double(buttomTime)!
 
-            dive?.airIn = Double(airIn)
-            dive?.airOut = Double(airOut)
+            dive?.airIn = Double(airIn)!
+            dive?.airOut = Double(airOut)!
 
             dive?.airTemp = Double(airTemp)!
             dive?.waterTemp = Double(WaterTemp)!
@@ -375,11 +375,11 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
             macDepthTF.text = String("\(dive.maxDepth!)")
             avgDepthTF.text = String("\(dive.avgDepth!)")
             bottomTimeTF.text = String("\(dive.buttomTime!)")
-            tankTypeLabel.text = String("\(dive.tankType)")
-            tankCapLabel.text = String("\(dive.tankCap)")
+            tankTypeLabel.text = String("\(dive.tankType!)")
+            tankCapLabel.text = String("\(dive.tankCap!)")
             airInTF.text = String("\(dive.airIn!)")
             airOutTF.text = String("\(dive.airOut!)")
-            suiteTypeLabel.text = String("\(dive.suiteType)")
+            suiteTypeLabel.text = String("\(dive.suiteType!)")
             wieghtTF.text = String("\(dive.wieght!)")
             gassMixTF.text = String("\(dive.gasMix!)")
             computerTF.text = String("\(dive.computer!)")
