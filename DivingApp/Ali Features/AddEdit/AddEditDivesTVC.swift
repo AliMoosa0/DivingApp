@@ -258,6 +258,128 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
         
     }
     
+    //MARK: - Update the date
+    func updateDateViews(){
+        timeInPicker.minimumDate = Calendar.current.date(byAdding: .hour, value: 1 , to: timeInPicker.date)
+        
+        
+        
+        timeInLabel.text = timeInPicker.date.formatted(date: .abbreviated, time: .omitted)
+        timeOutLabel.text = timeOutPicker.date.formatted(date: .abbreviated, time: .omitted)
+    }
+    
+    
+    @IBAction func pickerValueChanged(_ sender: Any) {
+        updateDateViews()
+    }
+    
+    // MARK: - hide unhide the pickers
+    
+    
+   
+    
+    
+    
+    let timeInCellIndexPath = IndexPath(row: 1, section: 1)
+    let timeInPickerCellIndexPath = IndexPath(row: 2, section: 1)
+    
+    
+    let timeOutLableCellIndexPath = IndexPath(row: 3, section: 1)
+    let timeoutPickerCellIndexPath = IndexPath(row: 4, section: 1)
+   
+    
+    
+    
+    var isTimeInPickerVisible : Bool = false{
+    didSet{
+        timeInPicker.isHidden = !isTimeInPickerVisible
+        
+    }
+    
+    }
+    
+    
+    var isTimeOutPickerVisible : Bool = false{
+    didSet{
+        timeInPicker.isHidden = !isTimeOutPickerVisible
+        
+    }
+    
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath{
+            
+            
+        case timeInPickerCellIndexPath where isTimeInPickerVisible == false :
+            return 0
+            
+            
+            
+        case timeoutPickerCellIndexPath where isTimeOutPickerVisible == false :
+            return 0
+            
+            
+            
+        default :
+            return UITableView.automaticDimension
+            
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath{
+            
+        case timeInPickerCellIndexPath :
+            return 190
+            
+        case timeoutPickerCellIndexPath :
+            return 190
+            
+        default:
+            return UITableView.automaticDimension
+            
+            
+            
+        }
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        
+        if indexPath == timeInCellIndexPath && isTimeOutPickerVisible == false {
+            // Check In lablel selected , check out picker is not visible, toggle checkout picker
+            isTimeInPickerVisible.toggle()
+            
+       }else if indexPath == timeOutLableCellIndexPath && isTimeInPickerVisible == false {
+            // Check-Out lablel selected , check-In picker is not visible, toggle checkout picker
+            isTimeOutPickerVisible.toggle()
+            
+        }else if  indexPath == timeInCellIndexPath ||
+                    indexPath == timeOutLableCellIndexPath {
+            // eather lable was selected , previos conditions failed meaning at least one picker is visable, toggle both
+            
+            isTimeInPickerVisible.toggle()
+            isTimeOutPickerVisible.toggle()
+        }else{
+            return
+        }
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
+        
+            
+            
+        }
+        
+    
+    
+    
     func updatetankType(){
         if let tankType = tankTypel{
             tankTypeLabel.text = tankType.description
