@@ -43,7 +43,7 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
         
     }
     
-    //MARK: - hide and unhadi picker
+    //MARK: - hide and unhide picker
     let theDateLabelCellIndexPath = IndexPath(row: 2, section: 1)
     let datePickerCellIndexPath = IndexPath(row: 3, section: 1)
     
