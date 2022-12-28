@@ -9,7 +9,7 @@ import Foundation
 struct Dive : Equatable, Codable{
     
     var id = UUID()
-    var diveNumber : Int
+    var diveNumber : Int?
     
     var surfaceInterval : Double?
     var timeIn : Date?

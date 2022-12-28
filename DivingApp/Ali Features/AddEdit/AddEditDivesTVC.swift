@@ -146,116 +146,86 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "saveDiveUnwind" else {return}
         
-        let noOfDives = numOfDivesLabel.text ?? ""
-        
-        numOfDivesLabel.becomeFirstResponder()
-        
-        
-        let surfaceIntreval = surfaceIntervalTF.text ?? ""
-        let timeInThePicker = timeInPicker.date
-        let timeOutThePicker = timeOutPicker.date
-        let maxDepth = macDepthTF.text ?? ""
-        let avgDepth = avgDepthTF.text ?? ""
-        let buttomTime = bottomTimeTF.text ?? ""
-        
-        //MARK: -
-        let tankTypeP = tankTypel!
-        
-    
-        let tankcapP = tankcapl!
-        
-        let airIn = airInTF.text ?? ""
-        let airOut = airOutTF.text ?? ""
-        
-
-        let suiteTypeP = suiteTypel!
-
-        
-        let wieght = wieghtTF.text ?? ""
-        let gasMix = gassMixTF.text ?? ""
-        let computer  = computerTF.text ?? ""
-        let camera  = cameraTF.text ?? ""
-        
-        
-        
-    
-        let weatherP = weatherl!
-        
-        let swellLvlP = swellLvll!
-  
-        let airTemp = airTempTF.text ?? ""
-        let WaterTemp = weatherTempTF.text ?? ""
-        let Visibility = visibilyTF.text ?? ""
-        
-        
-        let notes = notesTF.text ?? ""
-        
-        
-        if dive != nil{
-            //var diveNumberInt = Int(noOfDives)
-            dive?.diveNumber = Int(noOfDives)!
-            dive?.tankType = tankTypeP
-            dive?.tankCap = tankcapP
-            dive?.suiteType = suiteTypeP
+        if dive != nil {
+            // Dive is not nil, so we can safely access its properties and methods
+            let noOfDives = Int(numOfDivesLabel.text ?? "")
+            let surfaceIntreval = Double(surfaceIntervalTF.text ?? "")
+            let timeInThePicker = timeInPicker.date
+            let timeOutThePicker = timeOutPicker.date
+            let maxDepth = Double(macDepthTF.text ?? "")
+            let avgDepth = Double(avgDepthTF.text ?? "")
+            let bottomTime = Double(bottomTimeTF.text ?? "")
+            let tankType = tankTypel
+            let tankCap = tankcapl
+            let airIn = Double(airInTF.text ?? "")
+            let airOut = Double(airOutTF.text ?? "")
+            let suiteType = suiteTypel
+            let weight = Double(wieghtTF.text ?? "")
+            let gasMix = Double(gassMixTF.text ?? "")
+            let computer = computerTF.text ?? ""
+            let camera = cameraTF.text ?? ""
+            let weatherCondition = weatherl
+            let weatherTemp = Double(weatherTempTF.text ?? "")
+            let airTemp = Double(airTempTF.text ?? "")
+            let visibility = Double(visibilyTF.text ?? "")
+            let swellingLvl = swellLvll
+            let notes = notesTF.text ?? ""
             
-            dive?.wieght = Double(wieght)!
-            dive?.gasMix = Double(gasMix)!
-            dive?.computer = computer
-            dive?.camera = camera
-            
-            dive?.wetherType = weatherP
-            dive?.swell = swellLvlP
-            
-            dive?.surfaceInterval = Double(surfaceIntreval)!
+            // Update the dive object with the new values
+            dive?.diveNumber = noOfDives
+            dive?.surfaceInterval = surfaceIntreval
             dive?.timeIn = timeInThePicker
             dive?.timeOut = timeOutThePicker
-            dive?.maxDepth = Double(maxDepth)!
-            dive?.avgDepth = Double(avgDepth)!
-            dive?.buttomTime = Double(buttomTime)!
-
-            dive?.airIn = Double(airIn)!
-            dive?.airOut = Double(airOut)!
-
-            dive?.airTemp = Double(airTemp)!
-            dive?.waterTemp = Double(WaterTemp)!
-            dive?.visibility = Double(Visibility)!
-            
-            //MARK: -
-
+            dive?.maxDepth = maxDepth
+            dive?.avgDepth = avgDepth
+            dive?.buttomTime = bottomTime
+            dive?.tankType = tankType
+            dive?.tankCap = tankCap
+            dive?.airIn = airIn
+            dive?.airOut = airOut
+            dive?.suiteType = suiteType
+            dive?.wieght = weight
+            dive?.gasMix = gasMix
+            dive?.computer = computer
+            dive?.camera = camera
+            dive?.wetherType = weatherCondition
+            dive?.waterTemp = weatherTemp
+            dive?.airTemp = airTemp
+            dive?.visibility = visibility
+            dive?.swell = swellingLvl
             dive?.notes = notes
             
-            //MARK: -
+            // Save the dive object
+           // delegate?.diveDetailTableViewController(self, didSave: dives)
+        } else {
+            // Dive is nil, so we need to create a new dive object
+            
+            let noOfDives = Int(numOfDivesLabel.text ?? "")
+                let surfaceIntreval = Double(surfaceIntervalTF.text ?? "")
+                let timeInThePicker = timeInPicker.date
+                let timeOutThePicker = timeOutPicker.date
+                let maxDepth = Double(macDepthTF.text ?? "")
+                let avgDepth = Double(avgDepthTF.text ?? "")
+                let bottomTime = Double(bottomTimeTF.text ?? "")
+                let tankTypel = self.tankTypel
+                let tankcapl = self.tankcapl
+                let airIn = Double(airInTF.text ?? "")
+                let airOut = Double(airOutTF.text ?? "")
+                let suiteTypel = self.suiteTypel
+                let weight = Double(wieghtTF.text ?? "")
+                let gasMix = Double(gassMixTF.text ?? "")
+                let computer = computerTF.text ?? ""
+                let camera = cameraTF.text ?? ""
+                let weatherl = self.weatherl
+                let weatherTemp = Double(weatherTempTF.text ?? "")
+                let airTemp = Double(airTempTF.text ?? "")
+                let visibility = Double(visibilyTF.text ?? "")
+                let swellLvll = self.swellLvll
+                let notes = notesTF.text ?? ""
 
-            
-            
-            
-            
-        }else{
-            dive = Dive(diveNumber: Int(noOfDives)!,
-                        surfaceInterval: Double(surfaceIntreval)!,
-                        timeIn: timeOutThePicker,
-                        timeOut: timeOutThePicker,
-                        maxDepth: Double(maxDepth),
-                        avgDepth: Double(avgDepth),
-                        buttomTime: Double(buttomTime),
-                        tankType: tankTypel,
-                        tankCap: tankcapl,
-                        airIn: Double(airIn),
-                        airOut: Double(airOut),
-                        suiteType: suiteTypel,
-                        wieght: Double(wieght),
-                        gasMix: Double(gasMix),
-                        computer: computer,
-                        camera: camera,
-                        wetherType: weatherl,
-                        swell: swellLvll,
-                        airTemp: Double(airTemp),
-                        waterTemp: Double(WaterTemp),
-                        visibility: Double(Visibility),
-                        notes: notes)
-           
+            dive = Dive(id: UUID(), diveNumber: noOfDives, surfaceInterval: surfaceIntreval, timeIn: timeInThePicker, timeOut: timeOutThePicker, maxDepth: maxDepth, avgDepth: avgDepth, buttomTime: bottomTime, tankType: tankTypel, tankCap: tankcapl, airIn: airIn, airOut: airOut, suiteType: suiteTypel, wieght: weight, gasMix: gasMix, computer: computer, camera: camera, wetherType: weatherl, swell: swellLvll, airTemp: airTemp, waterTemp: weatherTemp, visibility: visibility, notes: notes)
         }
-        
+
     }
     
     //MARK: - Update the date
