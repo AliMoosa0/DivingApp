@@ -19,7 +19,9 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     
-    @IBOutlet weak var editTripButton: UIButton!
+    
+    @IBOutlet weak var editTripButton: UIBarButtonItem!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +92,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     @IBSegueAction func editTrip(_ coder: NSCoder, sender: Any?) -> AddEditTableViewController? {
         let editTripController = AddEditTableViewController(coder: coder)
         
-        if (sender as? UIButton === editTripButton){
+        if (sender as? UIBarButtonItem === editTripButton){
             editTripController?.trip = trip
             return editTripController
         }else{
