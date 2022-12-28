@@ -41,6 +41,11 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.sortTable()
+    }
+    
     @IBAction func unwindToTripList(segue: UIStoryboardSegue){
             guard segue.identifier == "saveUnwind" else {return}
             let sourceViewController = segue.source as! AddEditTableViewController
@@ -93,6 +98,8 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
             trips.sort(by: {$0.location < $1.location})
         case 2:
             trips.sort(by: {$0.tripDate < $1.tripDate})
+        case 3:
+            trips.sort(by: {$0.tripDate > $1.tripDate})
         default:
             print("this default is just to fix the error")
         }
