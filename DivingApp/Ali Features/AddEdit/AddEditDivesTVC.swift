@@ -260,8 +260,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     
     //MARK: - Update the date
     func updateDateViews(){
-        timeInPicker.minimumDate = Calendar.current.date(byAdding: .hour, value: 1 , to: timeInPicker.date)
-        
+       
         
         
         timeInLabel.text = timeInPicker.date.formatted(date: .abbreviated, time: .omitted)
@@ -352,11 +351,11 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
         
         
         if indexPath == timeInCellIndexPath && isTimeOutPickerVisible == false {
-            // Check In lablel selected , check out picker is not visible, toggle checkout picker
+            // TimeIn lablel selected , timeOut picker is not visible, toggle timeIn picker
             isTimeInPickerVisible.toggle()
             
        }else if indexPath == timeOutLableCellIndexPath && isTimeInPickerVisible == false {
-            // Check-Out lablel selected , check-In picker is not visible, toggle checkout picker
+            // TimeOut lablel selected , TimeIn picker is not visible, toggle timeOut picker
             isTimeOutPickerVisible.toggle()
             
         }else if  indexPath == timeInCellIndexPath ||
