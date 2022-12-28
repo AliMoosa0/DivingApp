@@ -45,10 +45,10 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
     
     //MARK: - 
     // MARK: - hide unhide the pickers
+    let DateLableCellIndexPath = IndexPath(row: 2, section: 0)
+    let DatePickerCellIndexPath = IndexPath(row: 3, section: 0)
 
-    let DatePickerCellIndexPath = IndexPath(row: 3, section: 1)
 
-    let DateLableCellIndexPath = IndexPath(row: 2, section: 1)
 
     var isDatePickerVisible : Bool = false {
         didSet {
