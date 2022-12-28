@@ -43,53 +43,47 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
         
     }
     
-    //MARK: - hide and unhide picker
-    let theDateLabelCellIndexPath = IndexPath(row: 2, section: 1)
-    let datePickerCellIndexPath = IndexPath(row: 3, section: 1)
-    
-    
-    
-    var isDatePickerVisible : Bool = false{
-    didSet{
-        datePicker.isHidden = !isDatePickerVisible
-        
+    //MARK: - 
+    // MARK: - hide unhide the pickers
+
+    let DatePickerCellIndexPath = IndexPath(row: 3, section: 1)
+
+    let DateLableCellIndexPath = IndexPath(row: 2, section: 1)
+
+    var isDatePickerVisible : Bool = false {
+        didSet {
+            datePicker.isHidden = !isDatePickerVisible
+        }
     }
-    
-    }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath{
-        case datePickerCellIndexPath where isDatePickerVisible == false :
+        switch indexPath {
+        case DatePickerCellIndexPath where isDatePickerVisible == false:
             return 0
-            
         default:
             return UITableView.automaticDimension
-            
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath{
-            
-        case datePickerCellIndexPath :
+        switch indexPath {
+        case DatePickerCellIndexPath:
             return 190
-            
         default:
             return UITableView.automaticDimension
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath == theDateLabelCellIndexPath && isDatePickerVisible == false {
-            
+
+        if indexPath == DateLableCellIndexPath {
             isDatePickerVisible.toggle()
-        }else{
-                return
-            }
-        tableView.beginUpdates()
-        tableView.endUpdates()
-       }
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
+    }
+
         
     
     
