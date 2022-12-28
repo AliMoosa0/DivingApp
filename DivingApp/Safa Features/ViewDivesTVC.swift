@@ -25,6 +25,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         tableView.delegate = self
         searchBar.delegate = self
+        self.sortTable()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -65,22 +66,22 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     }
 
     
-    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
-        if var dives = dives {
-            switch sortSegmentedControl.selectedSegmentIndex{
-            case 0:
-                dives.sort(by: {$0.diveNumber == $1.diveNumber})
-            case 1:
-                dives.sort(by: {$0.diveNumber > $1.diveNumber})
-            case 2:
-                dives.sort(by: {$0.diveNumber < $1.diveNumber})
-            case 3:
-                dives.sort(by: {$0.maxDepth! > $1.maxDepth!})
-            default:
-                print("this default is just to fix the error")
-            }
-            tableView.reloadData()
+    func sortTable(){
+        switch sortSegmentedControl.selectedSegmentIndex{
+        case 0:
+            dives!.sort(by: {$0.diveNumber > $1.diveNumber})
+        case 1:
+            dives!.sort(by: {$0.diveNumber < $1.diveNumber})
+        case 2:
+            dives!.sort(by: {$0.maxDepth! > $1.maxDepth!})
+        default:
+            print("this default is just to fix the error")
         }
+    tableView.reloadData()
+    }
+    
+    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
+        sortTable()
     }
     
     
@@ -132,11 +133,11 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         if searching{
             let dive = searchDive![indexPath.row]
             cell.diveNumberLabel.text = "Dive number \(dive.diveNumber)"
-            cell.descriptionLabel.text = "Max depth: \(dive.maxDepth)"
+            cell.descriptionLabel.text = "Max depth: \(dive.maxDepth ?? 0.0)"
         }else{
             let dive = dives![indexPath.row]
             cell.diveNumberLabel.text = "Dive number \(dive.diveNumber)"
-            cell.descriptionLabel.text = "Max depth: \(dive.maxDepth)"
+            cell.descriptionLabel.text = "Max depth: \(dive.maxDepth ?? 0.0)"
         }
        
         // Return cell

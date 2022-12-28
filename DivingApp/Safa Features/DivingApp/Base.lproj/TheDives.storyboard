@@ -28,7 +28,7 @@
                                     </connections>
                                 </button>
                                 <searchBar contentMode="redraw" placeholder="Search for dive number" showsCancelButton="YES" id="vL0-Z6-t9E">
-                                    <rect key="frame" x="0.0" y="42" width="414" height="55"/>
+                                    <rect key="frame" x="0.0" y="41.5" width="414" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" systemColor="systemBlueColor"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -36,7 +36,6 @@
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WWD-Ku-RLS">
                                     <rect key="frame" x="0.0" y="105" width="414" height="36"/>
                                     <segments>
-                                        <segment title="Original"/>
                                         <segment title="Newest"/>
                                         <segment title="Oldest"/>
                                         <segment title="Max depth"/>
@@ -50,33 +49,33 @@
                         </stackView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="divesCell" id="Iwm-3H-eTE" customClass="DiveCell" customModule="DivingApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="184.5" width="414" height="58.5"/>
+                                <rect key="frame" x="0.0" y="184.5" width="414" height="63.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Iwm-3H-eTE" id="QEZ-h9-dLS">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="58.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="63.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hEJ-dy-SdO">
-                                            <rect key="frame" x="20" y="11" width="374" height="36.5"/>
+                                            <rect key="frame" x="20" y="11" width="374" height="41.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="🤿" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9D-oC-bkU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="27" height="36.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="27" height="41.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vQx-cq-1zF">
-                                                    <rect key="frame" x="35" y="0.0" width="339" height="36.5"/>
+                                                    <rect key="frame" x="35" y="0.0" width="339" height="41.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="diveNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7Y-eF-qyu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="18.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="21"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjD-qs-q12">
-                                                            <rect key="frame" x="0.0" y="18.5" width="339" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <rect key="frame" x="0.0" y="21" width="339" height="20.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
