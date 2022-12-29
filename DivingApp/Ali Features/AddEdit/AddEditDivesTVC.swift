@@ -145,34 +145,34 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     var dive: Dive?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "saveDiveUnwind" else {return}
-        
+        let noOfDives = Int(numOfDivesLabel.text!)
+        let surfaceIntreval = Double(surfaceIntervalTF.text!)
+        let timeInThePicker = timeInPicker.date
+        let timeOutThePicker = timeOutPicker.date
+        let maxDepth = Double(macDepthTF.text!)
+        let avgDepth = Double(avgDepthTF.text!)
+        let bottomTime = Double(bottomTimeTF.text!)
+        let tankType = tankTypel
+        let tankCap = tankcapl
+        let airIn = Double(airInTF.text!)
+        let airOut = Double(airOutTF.text!)
+        let suiteType = suiteTypel
+        let weight = Double(wieghtTF.text!)
+        let gasMix = Double(gassMixTF.text!)
+        let computer = computerTF.text
+        let camera = cameraTF.text
+        let weatherCondition = weatherl
+        let weatherTemp = Double(weatherTempTF.text!)
+        let airTemp = Double(airTempTF.text!)
+        let visibility = Double(visibilyTF.text!)
+        let swellingLvl = swellLvll
+        let notes = notesTF.text
         if dive != nil {
             // Dive is not nil, so we can safely access its properties and methods
-            let noOfDives = Int(numOfDivesLabel.text ?? "")
-            let surfaceIntreval = Double(surfaceIntervalTF.text ?? "")
-            let timeInThePicker = timeInPicker.date
-            let timeOutThePicker = timeOutPicker.date
-            let maxDepth = Double(macDepthTF.text ?? "")
-            let avgDepth = Double(avgDepthTF.text ?? "")
-            let bottomTime = Double(bottomTimeTF.text ?? "")
-            let tankType = tankTypel
-            let tankCap = tankcapl
-            let airIn = Double(airInTF.text ?? "")
-            let airOut = Double(airOutTF.text ?? "")
-            let suiteType = suiteTypel
-            let weight = Double(wieghtTF.text ?? "")
-            let gasMix = Double(gassMixTF.text ?? "")
-            let computer = computerTF.text ?? ""
-            let camera = cameraTF.text ?? ""
-            let weatherCondition = weatherl
-            let weatherTemp = Double(weatherTempTF.text ?? "")
-            let airTemp = Double(airTempTF.text ?? "")
-            let visibility = Double(visibilyTF.text ?? "")
-            let swellingLvl = swellLvll
-            let notes = notesTF.text ?? ""
+            
             
             // Update the dive object with the new values
-            dive?.diveNumber = noOfDives
+            dive?.diveNumber = noOfDives!
             dive?.surfaceInterval = surfaceIntreval
             dive?.timeIn = timeInThePicker
             dive?.timeOut = timeOutThePicker
@@ -200,28 +200,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
         } else {
             // Dive is nil, so we need to create a new dive object
             
-            let noOfDives = Int(numOfDivesLabel.text ?? "")
-                let surfaceIntreval = Double(surfaceIntervalTF.text ?? "")
-                let timeInThePicker = timeInPicker.date
-                let timeOutThePicker = timeOutPicker.date
-                let maxDepth = Double(macDepthTF.text ?? "")
-                let avgDepth = Double(avgDepthTF.text ?? "")
-                let bottomTime = Double(bottomTimeTF.text ?? "")
-                let tankTypel = self.tankTypel
-                let tankcapl = self.tankcapl
-                let airIn = Double(airInTF.text ?? "")
-                let airOut = Double(airOutTF.text ?? "")
-                let suiteTypel = self.suiteTypel
-                let weight = Double(wieghtTF.text ?? "")
-                let gasMix = Double(gassMixTF.text ?? "")
-                let computer = computerTF.text ?? ""
-                let camera = cameraTF.text ?? ""
-                let weatherl = self.weatherl
-                let weatherTemp = Double(weatherTempTF.text ?? "")
-                let airTemp = Double(airTempTF.text ?? "")
-                let visibility = Double(visibilyTF.text ?? "")
-                let swellLvll = self.swellLvll
-                let notes = notesTF.text ?? ""
+          
 
             dive = Dive(id: UUID(), diveNumber: noOfDives, surfaceInterval: surfaceIntreval, timeIn: timeInThePicker, timeOut: timeOutThePicker, maxDepth: maxDepth, avgDepth: avgDepth, buttomTime: bottomTime, tankType: tankTypel, tankCap: tankcapl, airIn: airIn, airOut: airOut, suiteType: suiteTypel, wieght: weight, gasMix: gasMix, computer: computer, camera: camera, wetherType: weatherl, swell: swellLvll, airTemp: airTemp, waterTemp: weatherTemp, visibility: visibility, notes: notes)
         }
@@ -527,15 +506,5 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
         
         return typeController
     }
-    
-    
-    
-    
-    
-    
-    
-    
-   
-    
    
 }
