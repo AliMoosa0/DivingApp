@@ -7,17 +7,22 @@
 
 import UIKit
 
-class EquipmentTVC: UITableViewController {
+class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     
     
-
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var searchEquipment = [String]()
+    var searching = false
+    
+    
     let equipment : [String] = ["Regulator","Mask", "Snorkel", "Wetsuit", "Defog", "Fins and booties", "Surface Marker Buoy", "Dive weight", "Dive Computer", "Diving Knife", "Dive Light", "Tank Bangers", "Compass", "Writing Slates", "First Aid Kit", "Dry box", "Underwater Camera"]
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        searchBar.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,6 +40,20 @@ class EquipmentTVC: UITableViewController {
        
     }
     
+    // search bar functions
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchEquipment = equipment.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searching = true
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        tableView.reloadData()
+    }
+    
+    
     // MARK: - Table view data source
 
     /*
@@ -46,7 +65,11 @@ class EquipmentTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return equipment.count
+        if searching{
+            return searchEquipment.count
+        }else{
+            return equipment.count
+        }
     }
 
     
@@ -55,8 +78,14 @@ class EquipmentTVC: UITableViewController {
 
         // Configure the cell...
 
-        let item = equipment[indexPath.row]
-        cell.equipmentLabel?.text = item
+        if searching{
+            let item = searchEquipment[indexPath.row]
+            cell.equipmentLabel?.text = item
+        }else{
+            let item = equipment[indexPath.row]
+            cell.equipmentLabel?.text = item
+        }
+        
         cell.selectionStyle = .none
         cell.checkButton?.addTarget(self, action: #selector(checkButtonClicked(sender:)), for: .touchUpInside)
         // return the cell
