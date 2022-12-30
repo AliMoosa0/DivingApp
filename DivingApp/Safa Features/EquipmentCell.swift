@@ -2,7 +2,7 @@
 //  EquipmentCell.swift
 //  DivingApp
 //
-//  Created by Safa Juma on 29/12/2022.
+//  Created by ALI MOOSA and Safa Juma on 29/12/2022.
 //
 
 import UIKit
