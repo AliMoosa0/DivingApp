@@ -159,8 +159,8 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
         let suiteType = suiteTypel
         let weight = Double(wieghtTF.text!)
         let gasMix = Double(gassMixTF.text!)
-        let computer = computerTF.text
-        let camera = cameraTF.text
+        let computer = computerTF.text!
+        let camera = cameraTF.text!
         let weatherCondition = weatherl
         let weatherTemp = Double(weatherTempTF.text!)
         let airTemp = Double(airTempTF.text!)
