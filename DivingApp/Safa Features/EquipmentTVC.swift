@@ -16,17 +16,24 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     var searchEquipment = [Equipment]()
     var searching = false
     
-    //var equipment : [Equipment] = []
+    var equipment : [Equipment] = []
     
     
-    var equipment : [Equipment] = ["Regulator","Mask", "Snorkel", "Wetsuit", "Defog", "Fins and booties", "Surface Marker Buoy", "Dive weight", "Dive Computer", "Diving Knife", "Dive Light", "Tank Bangers", "Compass", "Writing Slates", "First Aid Kit", "Dry box", "Underwater Camera"].compactMap({Equipment(title: $0)})
+    var equipmentToLoad : [Equipment] = ["Regulator","Mask", "Snorkel", "Wetsuit", "Defog", "Fins and booties", "Surface Marker Buoy", "Dive weight", "Dive Computer", "Diving Knife", "Dive Light", "Tank Bangers", "Compass", "Writing Slates", "First Aid Kit", "Dry box", "Underwater Camera"].compactMap({Equipment(title: $0)})
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
         //Equipment.saveEquipment(equipment)
-        equipment = Equipment.loadEquipment()!
+        //equipment = Equipment.loadEquipment()!
+        
+        if let savedEquipment = Equipment.loadEquipment(){
+            equipment = savedEquipment
+        }else{
+            Equipment.saveEquipment(equipmentToLoad)
+             equipment = Equipment.loadEquipment()!
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
