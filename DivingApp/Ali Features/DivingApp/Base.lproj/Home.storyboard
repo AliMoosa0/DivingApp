@@ -45,7 +45,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OAf-ds-TET">
                                                 <rect key="frame" x="0.0" y="204.5" width="414" height="204.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max depth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxu-AH-3ba">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max depth" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxu-AH-3ba">
                                                         <rect key="frame" x="0.0" y="92" width="207" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -77,6 +77,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house" id="ob0-cL-63X"/>
                     <connections>
+                        <outlet property="lastButton" destination="gxu-AH-3ba" id="r6y-rR-RMv"/>
                         <outlet property="maxDepthLabel" destination="gxu-AH-3ba" id="J9y-Ns-wAO"/>
                         <outlet property="noOfDives" destination="3qC-27-sO3" id="iZX-uq-3bZ"/>
                         <outlet property="noOfTrips" destination="JAp-IV-Rtd" id="Wa4-yZ-jVd"/>
