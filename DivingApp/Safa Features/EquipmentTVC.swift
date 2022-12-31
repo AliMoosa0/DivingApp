@@ -21,16 +21,11 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     
     var equipment : [Equipment] = ["Regulator","Mask", "Snorkel", "Wetsuit", "Defog", "Fins and booties", "Surface Marker Buoy", "Dive weight", "Dive Computer", "Diving Knife", "Dive Light", "Tank Bangers", "Compass", "Writing Slates", "First Aid Kit", "Dry box", "Underwater Camera"].compactMap({Equipment(title: $0)})
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        Equipment.saveEquipment(equipment)
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        Equipment.saveEquipment(equipment)
+        //Equipment.saveEquipment(equipment)
         equipment = Equipment.loadEquipment()!
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -128,10 +123,12 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
             let indexPathForSearched = tableView.indexPathForSelectedRow
             let searchedItem = searchEquipment[indexPathForSearched!.row]
             searchedItem.isChecked = !searchedItem.isChecked
+            Equipment.saveEquipment(searchEquipment)
             tableView.reloadData()
         }else{
             let item = equipment[indexPath.row]
             item.isChecked = !item.isChecked
+            Equipment.saveEquipment(equipment)
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
