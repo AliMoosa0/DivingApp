@@ -10,6 +10,7 @@
 		062F8578295DD2BC0037DE59 /* equipmentCheck.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 062F8577295DD2BC0037DE59 /* equipmentCheck.storyboard */; };
 		062F857A295DD3380037DE59 /* EquipmentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F8579295DD3380037DE59 /* EquipmentTVC.swift */; };
 		062F857C295DD4600037DE59 /* EquipmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F857B295DD4600037DE59 /* EquipmentCell.swift */; };
+		062F857E2960788D0037DE59 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F857D2960788D0037DE59 /* Equipment.swift */; };
 		0645EF8D2953887200BB53DF /* ViewDivesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645EF8C2953887200BB53DF /* ViewDivesTVC.swift */; };
 		0645EFAF29561A3700BB53DF /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645EFAE29561A3700BB53DF /* TripCell.swift */; };
 		0645EFB1295620A100BB53DF /* DiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645EFB0295620A100BB53DF /* DiveCell.swift */; };
@@ -44,6 +45,7 @@
 		062F8577295DD2BC0037DE59 /* equipmentCheck.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = equipmentCheck.storyboard; sourceTree = "<group>"; };
 		062F8579295DD3380037DE59 /* EquipmentTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentTVC.swift; sourceTree = "<group>"; };
 		062F857B295DD4600037DE59 /* EquipmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentCell.swift; sourceTree = "<group>"; };
+		062F857D2960788D0037DE59 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		0645EF8C2953887200BB53DF /* ViewDivesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDivesTVC.swift; sourceTree = "<group>"; };
 		0645EFAE29561A3700BB53DF /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
 		0645EFB0295620A100BB53DF /* DiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiveCell.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				0645EF8C2953887200BB53DF /* ViewDivesTVC.swift */,
 				062F8577295DD2BC0037DE59 /* equipmentCheck.storyboard */,
 				062F8579295DD3380037DE59 /* EquipmentTVC.swift */,
+				062F857D2960788D0037DE59 /* Equipment.swift */,
 				062F857B295DD4600037DE59 /* EquipmentCell.swift */,
 				3F5B3825294B89B600E2B78E /* TheTrips.storyboard */,
 				0645EFB0295620A100BB53DF /* DiveCell.swift */,
@@ -266,6 +269,7 @@
 				0645EF8D2953887200BB53DF /* ViewDivesTVC.swift in Sources */,
 				3F020F982951A6BD00BC4291 /* AddEditTripTVC.swift in Sources */,
 				3F5DFAA629577D8500D482DB /* SelectSwellTVC.swift in Sources */,
+				062F857E2960788D0037DE59 /* Equipment.swift in Sources */,
 				3FB1C236294B015700C706F1 /* Trips.swift in Sources */,
 				062F857A295DD3380037DE59 /* EquipmentTVC.swift in Sources */,
 				3FB2446F29560C8A00CF45A6 /* HomeVC.swift in Sources */,
