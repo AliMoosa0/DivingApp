@@ -68,6 +68,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     }
 
     
+    // sort functions
     func sortTable(){
         switch sortSegmentedControl.selectedSegmentIndex{
         case 0:
@@ -141,6 +142,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
             cell.diveNumberLabel.text = "Dive number \(dive.diveNumber ?? 0)"
             cell.descriptionLabel.text = "Max depth: \(dive.maxDepth ?? 0.0)"
         }
+        
        
         // Return cell
         return cell
@@ -170,9 +172,11 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let movedCell = dives!.remove(at: fromIndexPath.row)
+        dives!.insert(movedCell, at: to.row)
     }
     */
+    
 
     /*
     // Override to support conditional rearranging of the table view.
