@@ -54,6 +54,7 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
                 eq.isChecked.toggle()
             }
         }
+        Equipment.saveEquipment(equipment)
         tableView.reloadData()
     }
     
