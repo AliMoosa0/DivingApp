@@ -12,11 +12,19 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var searchEquipment = [String]()
+    var searchEquipment = [Equipment]()
     var searching = false
     
+    class Equipment {
+        let title: String
+        var isChecked: Bool = false
+        
+        init(title: String){
+            self.title = title
+        }
+    }
     
-    let equipment : [String] = ["Regulator","Mask", "Snorkel", "Wetsuit", "Defog", "Fins and booties", "Surface Marker Buoy", "Dive weight", "Dive Computer", "Diving Knife", "Dive Light", "Tank Bangers", "Compass", "Writing Slates", "First Aid Kit", "Dry box", "Underwater Camera"]
+    let equipment : [Equipment] = ["Regulator","Mask", "Snorkel", "Wetsuit", "Defog", "Fins and booties", "Surface Marker Buoy", "Dive weight", "Dive Computer", "Diving Knife", "Dive Light", "Tank Bangers", "Compass", "Writing Slates", "First Aid Kit", "Dry box", "Underwater Camera"].compactMap({Equipment(title: $0)})
     
     
     
@@ -31,6 +39,8 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     }
     
     
+    /*
+        DELETE THIS METHOD
     @objc func checkButtonClicked( sender: UIButton){
         if sender.isSelected{
             sender.isSelected = false
@@ -39,10 +49,11 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
         }
        
     }
+     */
     
     // search bar functions
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchEquipment = equipment.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searchEquipment = equipment.filter({$0.title.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
         tableView.reloadData()
     }
@@ -80,16 +91,38 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
 
         if searching{
             let item = searchEquipment[indexPath.row]
-            cell.equipmentLabel?.text = item
+            cell.equipmentLabel?.text = item.title
+            cell.accessoryType = item.isChecked ? .checkmark : .none
+            
         }else{
             let item = equipment[indexPath.row]
-            cell.equipmentLabel?.text = item
+            cell.equipmentLabel?.text = item.title
+            cell.accessoryType = item.isChecked ? .checkmark : .none
         }
         
+    
+        
+        /*
+            DELETE THIS
         cell.selectionStyle = .none
         cell.checkButton?.addTarget(self, action: #selector(checkButtonClicked(sender:)), for: .touchUpInside)
+         */
+        
         // return the cell
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if searching{
+            let indexPathForSearched = tableView.indexPathForSelectedRow
+            let searchedItem = searchEquipment[indexPathForSearched!.row]
+            searchedItem.isChecked = !searchedItem.isChecked
+            tableView.reloadData()
+        }else{
+            let item = equipment[indexPath.row]
+            item.isChecked = !item.isChecked
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
     }
     
 
