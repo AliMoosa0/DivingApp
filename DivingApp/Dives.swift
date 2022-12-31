@@ -6,66 +6,85 @@
 //
 
 import Foundation
-struct Dive : Equatable, Codable{
+// Struct representing a dive, with properties for storing information about the dive
+// and conforming to the Equatable and Codable protocols
+struct Dive : Equatable, Codable {
     
+    // Unique identifier for the dive
     var id = UUID()
+    
+    // Dive number
     var diveNumber : Int?
     
+    // Surface interval in hours
     var surfaceInterval : Double?
+    
+    // Time that the diver entered the water
     var timeIn : Date?
+    
+    // Time that the diver exited the water
     var timeOut : Date?
     
+    // Maximum depth reached during the dive
     var maxDepth : Double?
+    
+    // Average depth during the dive
     var avgDepth : Double?
+    
+    // Bottom time of the dive in minutes
     var buttomTime : Double?
     
-    
-    
-    
+    // Type of tank used during the dive
     var tankType : TankType?
    
-    
+    // Capacity of the tank in liters
     var tankCap : TankCap?
     
+    // Amount of air in the tank at the beginning of the dive in bar
     var airIn : Double?
+    
+    // Amount of air in the tank at the end of the dive in bar
     var airOut : Double?
     
-    
-    
-    
-    
+    // Type of diving suit worn during the dive
     var suiteType : SuiteType?
-    
    
-   
-    
+    // Weight of the diver in kilograms
     var wieght : Double?
+    
+    // Gas mix used during the dive, as a percentage of oxygen
     var gasMix : Double?
+    
+    // Type of diving computer used during the dive
     var computer : String?
+    
+    // Type of camera used during the dive
     var camera : String?
     
+    // Weather conditions during the dive
     var wetherType : Weather?
     
-    
+    // Swell conditions during the dive
     var swell : Swell?
     
-    
+    // Air temperature during the dive in Celsius
     var airTemp : Double?
+    
+    // Water temperature during the dive in Celsius
     var waterTemp : Double?
+    
+    // Visibility during the dive in meters
     var visibility : Double?
     
-    
+    // Notes about the dive
     var notes : String?
     
-    
-    
+    // Static function for comparing two Dive instances
     static func ==(lhs: Dive, rhs: Dive) -> Bool {
         return lhs.id == rhs.id
     }
-
-    
 }
-
+//MARK: - Tank Cap
 enum TankCap: CaseIterable, CustomStringConvertible, Codable {
     case ten
     case twelve
@@ -119,7 +138,7 @@ extension TankCap {
     }
 }
 
-//MARK: -
+//MARK: - Tank Type
 
 
 
@@ -176,7 +195,7 @@ extension TankType {
 
 
 
-
+//MARK: - Suite Type
 enum SuiteType: CaseIterable, CustomStringConvertible , Codable{
     case shortie
     case onePiece
@@ -247,7 +266,7 @@ extension SuiteType {
 
 
 
-
+//MARK: - weather
 enum Weather: CaseIterable, CustomStringConvertible, Codable {
     case sunny
     case clowdy
@@ -313,7 +332,7 @@ extension Weather {
 }
 
 
-
+//MARK: - Swell
 enum Swell: CaseIterable, CustomStringConvertible, Codable {
     case noSwell
     case moderateSwell

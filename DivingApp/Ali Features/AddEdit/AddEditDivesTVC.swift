@@ -145,7 +145,8 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     var dive: Dive?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "saveDiveUnwind" else {return}
-        let noOfDives = Int(numOfDivesLabel.text!)
+        
+        let noOfDives = Int(numOfDivesLabel.text!)!
         let surfaceIntreval = Double(surfaceIntervalTF.text!)
         let timeInThePicker = timeInPicker.date
         let timeOutThePicker = timeOutPicker.date
@@ -167,12 +168,14 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
         let visibility = Double(visibilyTF.text!)
         let swellingLvl = swellLvll
         let notes = notesTF.text
+        
+        // Dive is not nil, so we can safely access its properties and methods
         if dive != nil {
-            // Dive is not nil, so we can safely access its properties and methods
+           
             
             
             // Update the dive object with the new values
-            dive?.diveNumber = noOfDives!
+            dive?.diveNumber = noOfDives
             dive?.surfaceInterval = surfaceIntreval
             dive?.timeIn = timeInThePicker
             dive?.timeOut = timeOutThePicker
@@ -421,20 +424,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     
     }
     */
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updatetankType()
-        updatetankCap()
-        updateWeather()
-        updateSwell()
-        updateSuiteType()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    func updateDive(){
         
         if let dive = dive {
             navigationItem.title = "Editing a Dive"
@@ -461,7 +451,26 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
             swellingLvlLabel.text = String("\(dive.swell!)")
             notesTF.text = String("\(dive.notes!)")
             
+        }else{
+            navigationItem.title = "New Dive"
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateDive()
+        updatetankType()
+        updatetankCap()
+        updateWeather()
+        updateSwell()
+        updateSuiteType()
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+       
         
        
        
@@ -480,7 +489,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     @IBSegueAction func showTankCapS(_ coder: NSCoder) -> SelectTankCapTVC? {
         let typeController = SelectTankCapTVC(coder: coder)
         typeController?.delegate = self
-        
+        typeController?.tankCap = tankcapl
         return typeController
     }
     
@@ -488,14 +497,14 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     @IBSegueAction func showSuiteTypeS(_ coder: NSCoder) -> SelectSuiteTypeTVC? {
         let typeController = SelectSuiteTypeTVC(coder: coder)
         typeController?.delegate = self
-        
+        typeController?.suiteType = suiteTypel
         return typeController
     }
     
     @IBSegueAction func showWeatherConditionS(_ coder: NSCoder) -> SelectWeatherConditionTVC? {
         let typeController = SelectWeatherConditionTVC(coder: coder)
         typeController?.delegate = self
-        
+        typeController?.weather = weatherl
         return typeController
     }
    
@@ -503,7 +512,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     @IBSegueAction func showSwellS(_ coder: NSCoder) -> SelectSwellTVC? {
         let typeController = SelectSwellTVC(coder: coder)
         typeController?.delegate = self
-        
+        typeController?.swell = swellLvll
         return typeController
     }
    

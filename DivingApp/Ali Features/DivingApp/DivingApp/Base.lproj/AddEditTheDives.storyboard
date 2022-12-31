@@ -245,7 +245,7 @@
                                         <rect key="frame" x="0.0" y="985" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xRb-aL-IRw" id="yfz-7M-3Qx">
-                                            <rect key="frame" x="0.0" y="0.0" width="397.5" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="395.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Y9j-WY-TJf">
@@ -278,7 +278,7 @@
                                         <rect key="frame" x="0.0" y="1096" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PEn-ZX-xSm" id="1NJ-4l-Hx4">
-                                            <rect key="frame" x="0.0" y="0.0" width="397.5" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="395.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZjA-tN-QI3">
@@ -357,7 +357,7 @@
                                         <rect key="frame" x="0.0" y="1372.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kVH-2w-IMX" id="Wjo-Rj-P3Q">
-                                            <rect key="frame" x="0.0" y="0.0" width="397.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="395.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bJQ-Bg-iab">
@@ -478,7 +478,7 @@
                                         <rect key="frame" x="0.0" y="1768" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5rQ-8I-3wY" id="dc5-sm-6eQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="397.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="395.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HsD-kx-OO0">
@@ -574,7 +574,7 @@
                                         <rect key="frame" x="0.0" y="2042" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="79H-XO-n4A" id="KDi-as-YkZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="397.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="395.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HkL-8f-QAd">
