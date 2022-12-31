@@ -7,16 +7,10 @@
 
 import UIKit
 
-protocol EquipmentCellDelegate: AnyObject{
-    func checkmarkTapped(sender: EquipmentCell)
-}
-
 class EquipmentCell: UITableViewCell {
 
-    weak var delegate: EquipmentCellDelegate?
     
     
-    @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var equipmentLabel: UILabel!
     
     override func awakeFromNib() {
@@ -30,8 +24,5 @@ class EquipmentCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func checkButtonTapped(_ sender: UIButton) {
-        delegate?.checkmarkTapped(sender: self)
-    }
     
 }

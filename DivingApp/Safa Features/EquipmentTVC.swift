@@ -7,30 +7,59 @@
 
 import UIKit
 
+class Equipment: Codable {
+    let title: String
+    var isChecked: Bool = false
+    
+    init(title: String){
+        self.title = title
+    }
+    
+    //let equipment : [Equipment] = [Equipment(title: "Regulator", isChecked: false), Equipment(title: "Mask", isChecked: false)]
+    
+    
+    var equipment : [Equipment] = ["Regulator","Mask", "Snorkel", "Wetsuit", "Defog", "Fins and booties", "Surface Marker Buoy", "Dive weight", "Dive Computer", "Diving Knife", "Dive Light", "Tank Bangers", "Compass", "Writing Slates", "First Aid Kit", "Dry box", "Underwater Camera"].compactMap({Equipment(title: $0)})
+
+    
+    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    
+    static let archiveURL = documentsDirectory.appendingPathComponent("equipment").appendingPathExtension("plist")
+    
+    func saveEquipment(){
+        let propertyListEncoder = PropertyListEncoder()
+        let codedEquipment = try? propertyListEncoder.encode(equipment)
+        try? codedEquipment?.write(to: Equipment.archiveURL, options: .noFileProtection)
+    }
+    
+    static func loadEquipment() -> [Equipment]? {
+        guard let codedEquipment = try? Data(contentsOf: archiveURL) else {return nil}
+        let propertListDecoder = PropertyListDecoder()
+        return try? propertListDecoder.decode(Array<Equipment>.self, from: codedEquipment)
+    }
+    
+}
+
 class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     
     
+    @IBOutlet weak var clearButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     
     var searchEquipment = [Equipment]()
     var searching = false
     
-    class Equipment {
-        let title: String
-        var isChecked: Bool = false
-        
-        init(title: String){
-            self.title = title
-        }
-    }
+    var equipment : [Equipment] = []
     
-    let equipment : [Equipment] = ["Regulator","Mask", "Snorkel", "Wetsuit", "Defog", "Fins and booties", "Surface Marker Buoy", "Dive weight", "Dive Computer", "Diving Knife", "Dive Light", "Tank Bangers", "Compass", "Writing Slates", "First Aid Kit", "Dry box", "Underwater Camera"].compactMap({Equipment(title: $0)})
-    
+    /*
+    var equipment : [Equipment] = ["Regulator","Mask", "Snorkel", "Wetsuit", "Defog", "Fins and booties", "Surface Marker Buoy", "Dive weight", "Dive Computer", "Diving Knife", "Dive Light", "Tank Bangers", "Compass", "Writing Slates", "First Aid Kit", "Dry box", "Underwater Camera"].compactMap({Equipment(title: $0)})
+    */
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        
+        equipment = Equipment.loadEquipment()!
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -50,6 +79,18 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
        
     }
      */
+    
+    
+    @IBAction func clearButtonPressed(_ sender: UIBarButtonItem) {
+        for eq in equipment{
+            if eq.isChecked {
+                eq.isChecked.toggle()
+            }
+        }
+        tableView.reloadData()
+    }
+    
+    
     
     // search bar functions
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -99,8 +140,6 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
             cell.equipmentLabel?.text = item.title
             cell.accessoryType = item.isChecked ? .checkmark : .none
         }
-        
-    
         
         /*
             DELETE THIS
