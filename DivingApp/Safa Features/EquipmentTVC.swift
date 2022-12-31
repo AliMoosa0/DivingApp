@@ -7,38 +7,6 @@
 
 import UIKit
 
-class Equipment: Codable {
-    let title: String
-    var isChecked: Bool = false
-    
-    init(title: String){
-        self.title = title
-    }
-    
-    //let equipment : [Equipment] = [Equipment(title: "Regulator", isChecked: false), Equipment(title: "Mask", isChecked: false)]
-    
-    
-    var equipment : [Equipment] = ["Regulator","Mask", "Snorkel", "Wetsuit", "Defog", "Fins and booties", "Surface Marker Buoy", "Dive weight", "Dive Computer", "Diving Knife", "Dive Light", "Tank Bangers", "Compass", "Writing Slates", "First Aid Kit", "Dry box", "Underwater Camera"].compactMap({Equipment(title: $0)})
-
-    
-    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    
-    static let archiveURL = documentsDirectory.appendingPathComponent("equipment").appendingPathExtension("plist")
-    
-    func saveEquipment(){
-        let propertyListEncoder = PropertyListEncoder()
-        let codedEquipment = try? propertyListEncoder.encode(equipment)
-        try? codedEquipment?.write(to: Equipment.archiveURL, options: .noFileProtection)
-    }
-    
-    static func loadEquipment() -> [Equipment]? {
-        guard let codedEquipment = try? Data(contentsOf: archiveURL) else {return nil}
-        let propertListDecoder = PropertyListDecoder()
-        return try? propertListDecoder.decode(Array<Equipment>.self, from: codedEquipment)
-    }
-    
-}
-
 class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     
     
@@ -48,17 +16,21 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     var searchEquipment = [Equipment]()
     var searching = false
     
-    var equipment : [Equipment] = []
+    //var equipment : [Equipment] = []
     
-    /*
+    
     var equipment : [Equipment] = ["Regulator","Mask", "Snorkel", "Wetsuit", "Defog", "Fins and booties", "Surface Marker Buoy", "Dive weight", "Dive Computer", "Diving Knife", "Dive Light", "Tank Bangers", "Compass", "Writing Slates", "First Aid Kit", "Dry box", "Underwater Camera"].compactMap({Equipment(title: $0)})
-    */
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Equipment.saveEquipment(equipment)
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        
+        Equipment.saveEquipment(equipment)
         equipment = Equipment.loadEquipment()!
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
