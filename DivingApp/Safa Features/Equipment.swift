@@ -15,9 +15,6 @@ class Equipment: Codable {
         self.title = title
     }
     
-    //let equipment : [Equipment] = [Equipment(title: "Regulator", isChecked: false), Equipment(title: "Mask", isChecked: false)]
-    
-
 
     static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
