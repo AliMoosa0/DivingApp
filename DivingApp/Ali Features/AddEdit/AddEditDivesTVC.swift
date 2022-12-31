@@ -150,7 +150,9 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
    
 
     
-    @IBOutlet weak var notesTF: UITextView!
+   
+    @IBOutlet weak var notesTF: UITextField!
+    
     
     
     // MARK: - functions and methods
