@@ -10,9 +10,10 @@ protocol AddEditDivesTableViewControllerDelegate: AnyObject {
     func diveDetailTableViewController(_ controller: AddEditDivesTableViewController, didSave dive: Dive)
 }
 
-class AddEditDivesTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
+class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+
     
-    
+   
    
     
     
@@ -131,32 +132,49 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDelega
        // updateWeather()
        // updateSwell()
         //updateSuiteType()
-        
-        slectedTankType.inputView = tankTypePicker
-        
-       
-        tankTypePicker.delegate = self
-        tankTypePicker.dataSource = self
-        tankCapPicker.delegate = self
-        tankCapPicker.dataSource = self
+        slectedTankType.inputView = tankTypePickerView
+        slectedtankcap.inputView = tankCapPickerView
+        slectedSuiteType.inputView = suiteTypePickerView
+        slectedWeather.inputView = weatherPickerView
+        slectedSwell.inputView = swellPickerView
 
+        tankTypePickerView.delegate = self
+        tankTypePickerView.dataSource = self
         
+        tankCapPickerView.delegate = self
+        tankCapPickerView.dataSource = self
+        
+        suiteTypePickerView.delegate = self
+        suiteTypePickerView.dataSource = self
+        
+        weatherPickerView.delegate = self
+        weatherPickerView.dataSource = self
+        
+        swellPickerView.delegate = self
+        swellPickerView.dataSource = self
+        
+        updatePlaceHolders()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-       
-        
+       // to dissmiss the keyboard
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
        
        
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+   /*
+   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
-
+*/
     
     
     
@@ -180,67 +198,97 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDelega
     var swellLvl : Swell?
 
     
-    //MARK:  - tanktype picker
-    
+    //MARK:  - selections on the picker views
     @IBOutlet weak var slectedTankType: UITextField!
-    
-    
-    
-    var arrTanktype = ["Aluminuim", "Steel" ]
-    let tankTypePicker = UIPickerView()
-
-    func numberOfComponents(in tankTypePicker: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ tankTypePicker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return arrTanktype.count
-    }
-
-    func pickerView(_ tankTypePicker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return arrTanktype[row]
-    }
-
-    func pickerView(_ tankTypePicker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        slectedTankType.text = arrTanktype[row]
-    }
-
-    //MARK:  - tankCap picker
     @IBOutlet weak var slectedtankcap: UITextField!
-    var arrTankcap = ["10", "12", "15" ]
-    let tankCapPicker = UIPickerView()
-
-    func numberOfComponents(in tankCapPicker: UIPickerView) -> Int {
-        return 1
-    }
-
-
-    func pickerView(_ tankCapPicker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return arrTankcap.count
-    }
-
-    func pickerView(_ tankCapPicker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return arrTankcap[row]
-    }
-
-    func pickerView(_ tankCapPicker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        slectedtankcap.text = arrTankcap[row]
-    }
-    
-    
-    
-    //MARK:  - suiteType picker
     @IBOutlet weak var slectedSuiteType: UITextField!
-
-    
-    //MARK:  - weather picker
     @IBOutlet weak var slectedWeather: UITextField!
-
-    
-    //MARK:  - Swell picker
-    
     @IBOutlet weak var slectedSwell: UITextField!
+    
+    
+    
+    let arrTanktype = ["Aluminuim", "Steel" ]
+    let arrTankcap = ["10", "12", "15" ]
+    let arrSuiteType = ["Shortie", "One Piece", "Two Piece", "semi Dry", "Dry Suite" ]
+    let arrWeather = [" Sunny", "Clowdy", "Windy", "Overcast" ]
+    
+    
+    let arrSwell = ["No Swell", "Moderate Swell", "Strong Swell"]
+    func updatePlaceHolders(){
+    slectedTankType.placeholder = "select a tank type"
+    slectedtankcap.placeholder = "select a tank type"
+    slectedSuiteType.placeholder = "select a tank type"
+    slectedWeather.placeholder = "select a tank type"
+    slectedSwell.placeholder = "select a tank type"
+    }
+    
+    var tankTypePickerView = UIPickerView()
+    var tankCapPickerView = UIPickerView()
+    var suiteTypePickerView = UIPickerView()
+    var weatherPickerView = UIPickerView()
+    var swellPickerView = UIPickerView()
 
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+           return 1
+       }
+
+       func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+           if pickerView == tankTypePickerView {
+               return arrTanktype.count
+           } else if pickerView == tankCapPickerView {
+               return arrTankcap.count
+           } else if pickerView == suiteTypePickerView {
+               return arrSuiteType.count
+           } else if pickerView == weatherPickerView {
+               return arrWeather.count
+           } else if pickerView == swellPickerView {
+               return arrSwell.count
+           }
+           return 0
+       }
+
+       func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+           if pickerView == tankTypePickerView {
+               return arrTanktype[row]
+           } else if pickerView == tankCapPickerView {
+               return arrTankcap[row]
+           } else if pickerView == suiteTypePickerView {
+               return arrSuiteType[row]
+           } else if pickerView == weatherPickerView {
+               return arrWeather[row]
+           } else if pickerView == swellPickerView {
+               return arrSwell[row]
+           }
+           return nil
+       }
+
+       func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+           if pickerView == tankTypePickerView {
+               // Update the selected tank type here
+               slectedTankType.text = arrTanktype[row]
+           }
+           else if pickerView == tankCapPickerView {
+               // Update the selected tank capacity here
+               slectedtankcap.text = arrTankcap[row]
+           }
+           else if pickerView == suiteTypePickerView {
+               
+               // Update the selected suite type here
+               slectedSuiteType.text = arrSuiteType[row]
+           }
+           else if pickerView == weatherPickerView {
+               
+               // Update the selected weather here
+               slectedWeather.text = arrWeather[row]
+           }
+           else if pickerView == swellPickerView {
+               
+               // Update the selected swell here
+               slectedSwell.text = arrSwell[row]
+           }
+       }
+    
     //MARK: - update the text fields
     
     func updateDive(){
