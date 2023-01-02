@@ -54,7 +54,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     
     
 //MARK: -
-    @IBOutlet weak var tankTypeLabel: UILabel!
+  //  @IBOutlet weak var tankTypeLabel: UILabel!
     
     
 
@@ -65,7 +65,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     //MARK: -
     
    
-    @IBOutlet weak var tankCapLabel: UILabel!
+   // @IBOutlet weak var tankCapLabel: UILabel!
     
     
     //MARK: -
@@ -81,7 +81,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     
     //MARK: -
     
-    @IBOutlet weak var suiteTypeLabel: UILabel!
+ //   @IBOutlet weak var suiteTypeLabel: UILabel!
     
     
     
@@ -105,7 +105,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     //MARK: -
 
     
-    @IBOutlet weak var weatherConditionLabel: UILabel!
+   // @IBOutlet weak var weatherConditionLabel: UILabel!
     
     @IBOutlet weak var weatherTempTF: UITextField!
     
@@ -118,7 +118,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
 
     
     
-    @IBOutlet weak var swellingLvlLabel: UILabel!
+ //   @IBOutlet weak var swellingLvlLabel: UILabel!
     
     
    
@@ -126,6 +126,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     //MARK: - View did load
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(tankTypePickerView.selectedRow(inComponent: 0))
         updateDive()
        // updatetankType()
        // updatetankCap()
@@ -161,14 +162,14 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
        // to dissmiss the keyboard
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(tapGesture)
+       // let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+      //  view.addGestureRecognizer(tapGesture)
        
        
     }
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
+  //  @objc func handleTap(_ sender: UITapGestureRecognizer) {
+    //    view.endEditing(true)
+   // }
    /*
    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -191,11 +192,11 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     
     
     // MARK: - functions and methods
-    var tankType : TankType?
-    var tankCap :TankCap?
-    var suiteType : SuiteType?
-    var weather : Weather?
-    var swellLvl : Swell?
+  //  var tankType : TankType?
+   // var tankCap :TankCap?
+   // var suiteType : SuiteType?
+  //  var weather : Weather?
+  //  var swellLvl : Swell?
 
     
     //MARK:  - selections on the picker views
@@ -303,13 +304,13 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             avgDepthTF.text = String("\(dive.avgDepth!)")
             bottomTimeTF.text = String("\(dive.buttomTime!)")
             
-            tankTypeLabel.text = dive.tankType?.description
-            tankCapLabel.text = dive.tankCap?.description
+            slectedTankType.text = dive.tankType
+            slectedtankcap.text = dive.tankCap
             
             airInTF.text = String("\(dive.airIn!)")
             airOutTF.text = String("\(dive.airOut!)")
             
-            suiteTypeLabel.text = dive.suiteType?.description
+            slectedSuiteType.text = dive.suiteType
             
             wieghtTF.text = String("\(dive.wieght!)")
             gassMixTF.text = String("\(dive.gasMix!)")
@@ -323,11 +324,11 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             
          
             
-            weatherConditionLabel.text = dive.wetherType?.description
+            slectedWeather.text = dive.wetherType
             
             airTempTF.text = String("\(dive.airTemp!)")
             visibilyTF.text = String("\(dive.visibility!)")
-            swellingLvlLabel.text = dive.swell?.description
+            slectedSwell.text = dive.swell
             notesTF.text = String("\(dive.notes!)")
             
         }else{
@@ -339,27 +340,27 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "saveDiveUnwind" else {return}
         
-        let noOfDives = Int(numOfDivesLabel.text!)!
-        let surfaceIntreval = Double(surfaceIntervalTF.text!)!
+        let noOfDives = Int(numOfDivesLabel.text!)
+        let surfaceIntreval = Double(surfaceIntervalTF.text!)
         let timeInThePicker = timeInPicker.date
         let timeOutThePicker = timeOutPicker.date
-        let maxDepth = Double(macDepthTF.text!)!
-        let avgDepth = Double(avgDepthTF.text!)!
-        let bottomTime = Double(bottomTimeTF.text!)!
-        let tankType = tankType
-        let tankCap = tankCap
+        let maxDepth = Double(macDepthTF.text!)
+        let avgDepth = Double(avgDepthTF.text!)
+        let bottomTime = Double(bottomTimeTF.text!)
+        let tankTypeSelectedRow = tankTypePickerView.selectedRow(inComponent: 0)
+        let tankCapSelectedRow = tankCapPickerView.selectedRow(inComponent: 0)
         let airIn = Double(airInTF.text!)
         let airOut = Double(airOutTF.text!)
-        let suiteType = suiteType
+        let suiteTypeSelectedRow = suiteTypePickerView.selectedRow(inComponent: 0)
         let weight = Double(wieghtTF.text!)
         let gasMix = Double(gassMixTF.text!)
         let computer = computerTF.text!
         let camera = cameraTF.text!
-        let weatherCondition = weather
+        let weatherSelectedRow = weatherPickerView.selectedRow(inComponent: 0)
         let weatherTemp = Double(weatherTempTF.text!)
         let airTemp = Double(airTempTF.text!)
         let visibility = Double(visibilyTF.text!)
-        let swellingLvl = swellLvl
+        let swellSelectedRow = swellPickerView.selectedRow(inComponent: 0)
         let notes = notesTF.text
         
         // Dive is not nil, so we can safely access its properties and methods
@@ -375,30 +376,33 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             dive?.maxDepth = maxDepth
             dive?.avgDepth = avgDepth
             dive?.buttomTime = bottomTime
-            dive?.tankType = tankType
-            dive?.tankCap = tankCap
+            dive?.tankType = String("\(tankTypeSelectedRow)")
+            dive?.tankCap =  String("\(tankCapSelectedRow)")
             dive?.airIn = airIn
             dive?.airOut = airOut
-            dive?.suiteType = suiteType
+            dive?.suiteType = String("\(String(suiteTypeSelectedRow))")
             dive?.wieght = weight
             dive?.gasMix = gasMix
             dive?.computer = computer
             dive?.camera = camera
-            dive?.wetherType = weatherCondition
+            dive?.wetherType = String("\(weatherSelectedRow)")
             dive?.waterTemp = weatherTemp
             dive?.airTemp = airTemp
             dive?.visibility = visibility
-            dive?.swell = swellingLvl
+            dive?.swell = String("\(swellSelectedRow)")
             dive?.notes = notes
             
            
         } else {
             // Dive is nil, so we need to create a new dive object
-            
-          
+               let tankType = arrTanktype[tankTypeSelectedRow]
+               let tankCap = arrTankcap[tankCapSelectedRow]
+               let suiteType = arrSuiteType[suiteTypeSelectedRow]
+               let weatherType = arrWeather[weatherSelectedRow]
+               let swell = arrSwell[swellSelectedRow]
 
-            dive = Dive(id: UUID(), diveNumber: noOfDives, surfaceInterval: surfaceIntreval, timeIn: timeInThePicker, timeOut: timeOutThePicker, maxDepth: maxDepth, avgDepth: avgDepth, buttomTime: bottomTime, tankType: tankType, tankCap: tankCap, airIn: airIn, airOut: airOut, suiteType: suiteType, wieght: weight, gasMix: gasMix, computer: computer, camera: camera, wetherType: weather, swell: swellLvl, airTemp: airTemp, waterTemp: weatherTemp, visibility: visibility, notes: notes)
-        }
+               dive = Dive(id: UUID(), diveNumber: noOfDives, surfaceInterval: surfaceIntreval, timeIn: timeInThePicker, timeOut: timeOutThePicker, maxDepth: maxDepth, avgDepth: avgDepth, buttomTime: bottomTime, tankType: tankType, tankCap: tankCap, airIn: airIn, airOut: airOut, suiteType: suiteType, wieght: weight, gasMix: gasMix, computer: computer, camera: camera, wetherType: weatherType, swell: swell, airTemp: airTemp, waterTemp: weatherTemp, visibility: visibility, notes: notes)
+           }
 
     }
     
@@ -537,8 +541,8 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         typeController?.tanktype = tankType
         return typeController
     }
-    */
-    /*
+    
+    
     func updatetankType(){
         if let tankType = tankType{
             tankTypeLabel.text = tankType.description
@@ -553,7 +557,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         updatetankType()
         
     }
-    */
+    /*
     
     
     
@@ -566,7 +570,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         return typeController
     }
     
-   /*
+   
     func updatetankCap(){
         if let tankcap = tankCap{
             tankCapLabel.text = tankcap.description
@@ -579,7 +583,6 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         updatetankCap()
         
     }
-    */
     
     
     
@@ -590,13 +593,14 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     
     
     
-    /*
+    
+    
     @IBSegueAction func showSuiteTypeS(_ coder: NSCoder) -> SelectSuiteTypeTVC? {
         let typeController = SelectSuiteTypeTVC(coder: coder)
         typeController?.delegate = self
         typeController?.suiteType = suiteType
         return typeController
-    }
+
     
     
     
@@ -677,4 +681,6 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         updateSwell()
     }
    */
+     */
 }
+
