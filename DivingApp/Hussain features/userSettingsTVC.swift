@@ -22,6 +22,7 @@ class userSettingsTVC: UITableViewController {
     
     
     @IBAction func TempSwitch(_ sender: Any) {
+        
     }
     
 

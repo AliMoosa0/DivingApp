@@ -9,6 +9,9 @@ import UIKit
 
 class ViewTheDivesTVC: UITableViewController {
     
+    var unitsAreCelsius: Bool = true
+
+    
     @IBOutlet weak var editDiveButton: UIButton!
     
     
@@ -21,10 +24,7 @@ class ViewTheDivesTVC: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    
-    
-    
+
     
     
     @IBOutlet weak var DiveNoLbl: UILabel!
@@ -33,7 +33,7 @@ class ViewTheDivesTVC: UITableViewController {
     @IBOutlet weak var TimeOutLbl: UILabel!
     @IBOutlet weak var MaxDepthLbl: UILabel!
     @IBOutlet weak var AvgDepth: UILabel!
-    @IBOutlet weak var BottomTimeLbl: UILabel!
+    @IBOutlet weak var BottomTimeLbl:UILabel!
     @IBOutlet weak var TankTypeLbl: UILabel!
     @IBOutlet weak var CapacityLbl: UILabel!
     @IBOutlet weak var AirInLbl: UILabel!
@@ -44,9 +44,9 @@ class ViewTheDivesTVC: UITableViewController {
     @IBOutlet weak var GasMixLbl: UILabel!
     @IBOutlet weak var ComputerLbl: UILabel!
     @IBOutlet weak var CameraLbl: UILabel!
-    @IBOutlet weak var WaterTempLbl: UILabel!
+    @IBOutlet weak var WaterTempLbl:UILabel!
     @IBOutlet weak var AirTempLbl: UILabel!
-    @IBOutlet weak var VisibilityLbl: UILabel!
+    @IBOutlet weak var VisibilityLbl:UILabel!
     
     
     @IBOutlet weak var NotesLbl: UILabel!
