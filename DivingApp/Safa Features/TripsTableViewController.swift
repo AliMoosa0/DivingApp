@@ -145,6 +145,8 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
             cell.descriptionLabel.text = "\(trip.location) - \(trip.tripDate)"
         }
         
+        cell.showsReorderControl = true
+        
         // Return the cell
         return cell
     }
@@ -170,12 +172,13 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let movedCell = trips.remove(at: fromIndexPath.row)
+        trips.insert(movedCell, at: to.row)
     }
-    */
+    
 
     /*
     // Override to support conditional rearranging of the table view.

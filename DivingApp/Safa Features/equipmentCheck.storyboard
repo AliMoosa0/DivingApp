@@ -29,38 +29,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4y-G6-Jk5">
-                                            <rect key="frame" x="8" y="8.5" width="37" height="27"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="37" id="ecH-J0-8e0"/>
-                                            </constraints>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" title="Button" image="circle" catalog="system">
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
-                                            </state>
-                                            <state key="selected" image="checkmark.circle.fill" catalog="system">
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="checkButtonTapped:" destination="iRS-B5-7kH" eventType="touchUpInside" id="Sav-Hg-gr5"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGp-44-ZXN">
-                                            <rect key="frame" x="53" y="11.5" width="42" height="21"/>
+                                            <rect key="frame" x="32" y="11.5" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="e4y-G6-Jk5" firstAttribute="centerY" secondItem="lex-D4-n45" secondAttribute="centerY" id="MMv-3B-HVt"/>
-                                        <constraint firstItem="oGp-44-ZXN" firstAttribute="leading" secondItem="e4y-G6-Jk5" secondAttribute="trailing" constant="8" id="Phm-ln-V82"/>
-                                        <constraint firstItem="oGp-44-ZXN" firstAttribute="centerY" secondItem="lex-D4-n45" secondAttribute="centerY" id="VlX-rK-kce"/>
-                                        <constraint firstItem="e4y-G6-Jk5" firstAttribute="leading" secondItem="lex-D4-n45" secondAttribute="leading" constant="8" id="g3p-0z-RNs"/>
+                                        <constraint firstItem="oGp-44-ZXN" firstAttribute="centerY" secondItem="lex-D4-n45" secondAttribute="centerY" id="1wT-MU-saD"/>
+                                        <constraint firstItem="oGp-44-ZXN" firstAttribute="leading" secondItem="lex-D4-n45" secondAttribute="leadingMargin" constant="12" id="kgl-0U-DdW"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="checkButton" destination="e4y-G6-Jk5" id="ZVI-8H-DFA"/>
                                     <outlet property="equipmentLabel" destination="oGp-44-ZXN" id="uU4-up-dBp"/>
                                 </connections>
                             </tableViewCell>
@@ -70,8 +51,15 @@
                             <outlet property="delegate" destination="dlK-GP-laL" id="3NC-Ly-ER7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Equipment list" id="N4S-eC-8o7"/>
+                    <navigationItem key="navigationItem" title="Equipment list" id="N4S-eC-8o7">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="mo0-PW-eV6">
+                            <connections>
+                                <action selector="clearButtonPressed:" destination="dlK-GP-laL" id="ua6-kf-Gck"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="clearButton" destination="mo0-PW-eV6" id="5KJ-FC-QCr"/>
                         <outlet property="searchBar" destination="8hE-G4-KbM" id="18O-1t-C7N"/>
                     </connections>
                 </tableViewController>
@@ -97,8 +85,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
