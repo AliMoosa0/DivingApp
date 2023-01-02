@@ -10,7 +10,9 @@ protocol AddEditDivesTableViewControllerDelegate: AnyObject {
     func diveDetailTableViewController(_ controller: AddEditDivesTableViewController, didSave dive: Dive)
 }
 
-class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDelegate, SelectSwellTVCDelegate, SelectTankCapTVCDelegate, SelectWeatherConditionTVCDelegate, SelectSuiteTypeTVCDelegate{
+class AddEditDivesTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
+    
+    
    
     
     
@@ -20,6 +22,9 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     
     
     // MARK: - Form Outlits
+    
+    
+    
     
     @IBOutlet weak var numOfDivesLabel: UITextField!
     
@@ -121,11 +126,21 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     override func viewDidLoad() {
         super.viewDidLoad()
         updateDive()
-        updatetankType()
-        updatetankCap()
-        updateWeather()
-        updateSwell()
-        updateSuiteType()
+       // updatetankType()
+       // updatetankCap()
+       // updateWeather()
+       // updateSwell()
+        //updateSuiteType()
+        
+        slectedTankType.inputView = tankTypePicker
+        
+       
+        tankTypePicker.delegate = self
+        tankTypePicker.dataSource = self
+        tankCapPicker.delegate = self
+        tankCapPicker.dataSource = self
+
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -137,7 +152,9 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
        
        
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
 
     
@@ -163,13 +180,67 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     var swellLvl : Swell?
 
     
+    //MARK:  - tanktype picker
+    
+    @IBOutlet weak var slectedTankType: UITextField!
     
     
     
+    var arrTanktype = ["Aluminuim", "Steel" ]
+    let tankTypePicker = UIPickerView()
+
+    func numberOfComponents(in tankTypePicker: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ tankTypePicker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrTanktype.count
+    }
+
+    func pickerView(_ tankTypePicker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrTanktype[row]
+    }
+
+    func pickerView(_ tankTypePicker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        slectedTankType.text = arrTanktype[row]
+    }
+
+    //MARK:  - tankCap picker
+    @IBOutlet weak var slectedtankcap: UITextField!
+    var arrTankcap = ["10", "12", "15" ]
+    let tankCapPicker = UIPickerView()
+
+    func numberOfComponents(in tankCapPicker: UIPickerView) -> Int {
+        return 1
+    }
+
+
+    func pickerView(_ tankCapPicker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrTankcap.count
+    }
+
+    func pickerView(_ tankCapPicker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrTankcap[row]
+    }
+
+    func pickerView(_ tankCapPicker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        slectedtankcap.text = arrTankcap[row]
+    }
     
     
     
+    //MARK:  - suiteType picker
+    @IBOutlet weak var slectedSuiteType: UITextField!
+
     
+    //MARK:  - weather picker
+    @IBOutlet weak var slectedWeather: UITextField!
+
+    
+    //MARK:  - Swell picker
+    
+    @IBOutlet weak var slectedSwell: UITextField!
+
     //MARK: - update the text fields
     
     func updateDive(){
@@ -411,15 +482,15 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
 
     // MARK: - show the selections
     
-    
+    /*
     @IBSegueAction func showTankTypeS(_ coder: NSCoder) -> SelectTankTypeTVC? {
         let typeController = SelectTankTypeTVC(coder: coder)
         typeController?.delegate = self
         typeController?.tanktype = tankType
         return typeController
     }
-    
-    
+    */
+    /*
     func updatetankType(){
         if let tankType = tankType{
             tankTypeLabel.text = tankType.description
@@ -427,13 +498,14 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
             tankTypeLabel.text = "not set"
         }
     }
-    
+     */
+    /*
     func selectTankTypeTVC(_ controller: SelectTankTypeTVC, didSelect tanktype: TankType ){
         self.tankType = tanktype
         updatetankType()
         
     }
-    
+    */
     
     
     
@@ -441,12 +513,12 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     
     @IBSegueAction func showTankCapS(_ coder: NSCoder) -> SelectTankCapTVC? {
         let typeController = SelectTankCapTVC(coder: coder)
-        typeController?.delegate = self
+       // typeController?.delegate = self
         typeController?.tankCap = tankCap
         return typeController
     }
     
-    
+   /*
     func updatetankCap(){
         if let tankcap = tankCap{
             tankCapLabel.text = tankcap.description
@@ -459,6 +531,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
         updatetankCap()
         
     }
+    */
     
     
     
@@ -469,7 +542,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     
     
     
-    
+    /*
     @IBSegueAction func showSuiteTypeS(_ coder: NSCoder) -> SelectSuiteTypeTVC? {
         let typeController = SelectSuiteTypeTVC(coder: coder)
         typeController?.delegate = self
@@ -555,5 +628,5 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
         self.swellLvl = swell
         updateSwell()
     }
-   
+   */
 }
