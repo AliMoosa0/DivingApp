@@ -170,7 +170,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     
     
     
-    
+    //MARK: - update the text fields
     
     func updateDive(){
         
@@ -197,6 +197,12 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
             computerTF.text = String("\(dive.computer!)")
             weatherTempTF.text = String("\(dive.waterTemp!)")
             cameraTF.text = String("\(dive.camera!)")
+            
+            
+            
+            
+            
+         
             
             weatherConditionLabel.text = dive.wetherType?.description
             
@@ -397,7 +403,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
         
     
     
-    //MARK: - check the dive
+
 
    
     

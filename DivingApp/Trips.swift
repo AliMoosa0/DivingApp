@@ -49,7 +49,7 @@ struct Trip: Equatable, Codable{
         
         
         
-        let trip2 = Trip(title: "trip2", location: "manama", tripDate: Date(), dives: [Dive(diveNumber: 1, surfaceInterval: 11.11, timeIn: Date.now, timeOut: Date.now, maxDepth: 50.00, avgDepth: 60.00, buttomTime: 11.11, tankType: .steel, tankCap: .twelve, airIn: 11.11, airOut: 11.11, suiteType: .onePiece, wieght: 11.11, gasMix: 11.11, computer: "Mac", camera: "canon", wetherType: .sunny, swell: .noSwell, airTemp: 11.11, waterTemp: 11.11, visibility: 1.11, notes: "arigato")])
+        let trip2 = Trip(title: "trip2", location: "manama", tripDate: Date(), dives: [Dive(diveNumber: 1, surfaceInterval: 11.11, timeIn: Date.now, timeOut: Date.now, maxDepth: 60.00, avgDepth: 60.00, buttomTime: 11.11, tankType: .steel, tankCap: .twelve, airIn: 11.11, airOut: 11.11, suiteType: .onePiece, wieght: 11.11, gasMix: 11.11, computer: "Mac", camera: "canon", wetherType: .sunny, swell: .noSwell, airTemp: 11.11, waterTemp: 11.11, visibility: 1.11, notes: "arigato")])
         
      
         
