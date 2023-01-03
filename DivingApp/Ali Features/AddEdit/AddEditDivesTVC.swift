@@ -10,7 +10,10 @@ protocol AddEditDivesTableViewControllerDelegate: AnyObject {
     func diveDetailTableViewController(_ controller: AddEditDivesTableViewController, didSave dive: Dive)
 }
 
-class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDelegate, SelectSwellTVCDelegate, SelectTankCapTVCDelegate, SelectWeatherConditionTVCDelegate, SelectSuiteTypeTVCDelegate{
+class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+
+    
+   
    
     
     
@@ -20,6 +23,9 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     
     
     // MARK: - Form Outlits
+    
+    
+    
     
     @IBOutlet weak var numOfDivesLabel: UITextField!
     
@@ -48,7 +54,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     
     
 //MARK: -
-    @IBOutlet weak var tankTypeLabel: UILabel!
+  //  @IBOutlet weak var tankTypeLabel: UILabel!
     
     
 
@@ -59,7 +65,8 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     //MARK: -
     
    
-    @IBOutlet weak var tankCapLabel: UILabel!
+   // @IBOutlet weak var tankCapLabel: UILabel!
+    
     
     
     //MARK: -
@@ -75,7 +82,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     
     //MARK: -
     
-    @IBOutlet weak var suiteTypeLabel: UILabel!
+ //   @IBOutlet weak var suiteTypeLabel: UILabel!
     
     
     
@@ -99,7 +106,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     //MARK: -
 
     
-    @IBOutlet weak var weatherConditionLabel: UILabel!
+   // @IBOutlet weak var weatherConditionLabel: UILabel!
     
     @IBOutlet weak var weatherTempTF: UITextField!
     
@@ -112,7 +119,7 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
 
     
     
-    @IBOutlet weak var swellingLvlLabel: UILabel!
+ //   @IBOutlet weak var swellingLvlLabel: UILabel!
     
     
    
@@ -120,55 +127,182 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     //MARK: - View did load
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(tankTypePickerView.selectedRow(inComponent: 0))
         updateDive()
-        updatetankType()
-        updatetankCap()
-        updateWeather()
-        updateSwell()
-        updateSuiteType()
+       // updatetankType()
+       // updatetankCap()
+       // updateWeather()
+       // updateSwell()
+        //updateSuiteType()
+        slectedTankType.inputView = tankTypePickerView
+        slectedtankcap.inputView = tankCapPickerView
+        slectedSuiteType.inputView = suiteTypePickerView
+        slectedWeather.inputView = weatherPickerView
+        slectedSwell.inputView = swellPickerView
+
+        // Set up the picker views
+            tankTypePickerView.dataSource = self
+            tankTypePickerView.delegate = self
+            slectedTankType.inputView = tankTypePickerView
+            slectedTankType.inputAccessoryView = toolBar
+
+            tankCapPickerView.dataSource = self
+            tankCapPickerView.delegate = self
+            slectedtankcap.inputView = tankCapPickerView
+            slectedtankcap.inputAccessoryView = toolBar
+
+            suiteTypePickerView.dataSource = self
+            suiteTypePickerView.delegate = self
+            slectedSuiteType.inputView = suiteTypePickerView
+            slectedSuiteType.inputAccessoryView = toolBar
+
+            weatherPickerView.dataSource = self
+            weatherPickerView.delegate = self
+            slectedWeather.inputView = weatherPickerView
+            slectedWeather.inputAccessoryView = toolBar
+
+            swellPickerView.dataSource = self
+            swellPickerView.delegate = self
+            slectedSwell.inputView = swellPickerView
+            slectedSwell.inputAccessoryView = toolBar
+        
+        updatePlaceHolders()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-       
+       // to dissmiss the keyboard
+       // let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+      //  view.addGestureRecognizer(tapGesture)
+        
+
+        
         
        
-       
+    }
+  //  @objc func handleTap(_ sender: UITapGestureRecognizer) {
+    //    view.endEditing(true)
+   // }
+   /*
+   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
-    
-
-    
+*/
     
     
-  
-    
-    
-    
-   
-
     
    
     @IBOutlet weak var notesTF: UITextField!
     
     
     
-    // MARK: - functions and methods
-    var tankType : TankType?
-    var tankCap :TankCap?
-    var suiteType : SuiteType?
-    var weather : Weather?
-    var swellLvl : Swell?
+  
+    // MARK: - adding a done button to the pickerView
+    @IBOutlet var toolBar: UIToolbar!
+    
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+        
+        slectedTankType.resignFirstResponder()
+        slectedtankcap.resignFirstResponder()
+        slectedSuiteType.resignFirstResponder()
+        slectedWeather.resignFirstResponder()
+        slectedSwell.resignFirstResponder()
+
+    }
+    
+    //MARK:  - selections on the picker views
+    @IBOutlet weak var slectedTankType: UITextField!
+    @IBOutlet weak var slectedtankcap: UITextField!
+    @IBOutlet weak var slectedSuiteType: UITextField!
+    @IBOutlet weak var slectedWeather: UITextField!
+    @IBOutlet weak var slectedSwell: UITextField!
+    
+    
+    
+    let arrTanktype = ["Aluminuim", "Steel" ]
+    let arrTankcap = ["10", "12", "15" ]
+    let arrSuiteType = ["Shortie", "One Piece", "Two Piece", "semi Dry", "Dry Suite" ]
+    let arrWeather = [" Sunny", "Clowdy", "Windy", "Overcast" ]
+    
+    
+    let arrSwell = ["No Swell", "Moderate Swell", "Strong Swell"]
+    func updatePlaceHolders(){
+    slectedTankType.placeholder = "select a tank type"
+    slectedtankcap.placeholder = "select a tank type"
+    slectedSuiteType.placeholder = "select a tank type"
+    slectedWeather.placeholder = "select a tank type"
+    slectedSwell.placeholder = "select a tank type"
+    }
+    
+    var tankTypePickerView = UIPickerView()
+    var tankCapPickerView = UIPickerView()
+    var suiteTypePickerView = UIPickerView()
+    var weatherPickerView = UIPickerView()
+    var swellPickerView = UIPickerView()
 
     
-    
-    
-    
-    
-    
-    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+           return 1
+       }
+
+       func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+           if pickerView == tankTypePickerView {
+               return arrTanktype.count
+           } else if pickerView == tankCapPickerView {
+               return arrTankcap.count
+           } else if pickerView == suiteTypePickerView {
+               return arrSuiteType.count
+           } else if pickerView == weatherPickerView {
+               return arrWeather.count
+           } else if pickerView == swellPickerView {
+               return arrSwell.count
+           }
+           return 0
+       }
+
+       func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+           if pickerView == tankTypePickerView {
+               return arrTanktype[row]
+           } else if pickerView == tankCapPickerView {
+               return arrTankcap[row]
+           } else if pickerView == suiteTypePickerView {
+               return arrSuiteType[row]
+           } else if pickerView == weatherPickerView {
+               return arrWeather[row]
+           } else if pickerView == swellPickerView {
+               return arrSwell[row]
+           }
+           return nil
+       }
+
+       func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+           if pickerView == tankTypePickerView {
+               // Update the selected tank type here
+               slectedTankType.text = arrTanktype[row]
+           }
+           else if pickerView == tankCapPickerView {
+               // Update the selected tank capacity here
+               slectedtankcap.text = arrTankcap[row]
+           }
+           else if pickerView == suiteTypePickerView {
+               
+               // Update the selected suite type here
+               slectedSuiteType.text = arrSuiteType[row]
+           }
+           else if pickerView == weatherPickerView {
+               
+               // Update the selected weather here
+               slectedWeather.text = arrWeather[row]
+           }
+           else if pickerView == swellPickerView {
+               
+               // Update the selected swell here
+               slectedSwell.text = arrSwell[row]
+           }
+       }
     
     //MARK: - update the text fields
     
@@ -176,21 +310,21 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
         
         if let dive = dive {
             navigationItem.title = "Editing the Dive"
-            numOfDivesLabel.text = String(" \(dive.diveNumber!)")
-            surfaceIntervalTF.text = String(" \(dive.surfaceInterval!)")
+            numOfDivesLabel.text = String("\(dive.diveNumber!)")
+            surfaceIntervalTF.text = String("\(dive.surfaceInterval!)")
             timeInLabel.text = String("\(dive.timeIn!)")
             timeOutLabel.text = String("\(dive.timeOut!)")
             macDepthTF.text = String("\(dive.maxDepth!)")
             avgDepthTF.text = String("\(dive.avgDepth!)")
             bottomTimeTF.text = String("\(dive.buttomTime!)")
             
-            tankTypeLabel.text = dive.tankType?.description
-            tankCapLabel.text = dive.tankCap?.description
+            slectedTankType.text = dive.tankType
+            slectedtankcap.text = dive.tankCap
             
             airInTF.text = String("\(dive.airIn!)")
             airOutTF.text = String("\(dive.airOut!)")
             
-            suiteTypeLabel.text = dive.suiteType?.description
+            slectedSuiteType.text = dive.suiteType
             
             wieghtTF.text = String("\(dive.wieght!)")
             gassMixTF.text = String("\(dive.gasMix!)")
@@ -204,11 +338,11 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
             
          
             
-            weatherConditionLabel.text = dive.wetherType?.description
+            slectedWeather.text = dive.wetherType
             
             airTempTF.text = String("\(dive.airTemp!)")
             visibilyTF.text = String("\(dive.visibility!)")
-            swellingLvlLabel.text = dive.swell?.description
+            slectedSwell.text = dive.swell
             notesTF.text = String("\(dive.notes!)")
             
         }else{
@@ -219,34 +353,42 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
     var dive: Dive?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "saveDiveUnwind" else {return}
-        
-        let noOfDives = Int(numOfDivesLabel.text!)!
-        let surfaceIntreval = Double(surfaceIntervalTF.text!)!
+        print("saveDiveUnwind")
+        let noOfDives = Int(numOfDivesLabel.text!)
+        let surfaceIntreval = Double(surfaceIntervalTF.text!)
         let timeInThePicker = timeInPicker.date
         let timeOutThePicker = timeOutPicker.date
-        let maxDepth = Double(macDepthTF.text!)!
-        let avgDepth = Double(avgDepthTF.text!)!
-        let bottomTime = Double(bottomTimeTF.text!)!
-        let tankType = tankType
-        let tankCap = tankCap
+        let maxDepth = Double(macDepthTF.text!)
+        let avgDepth = Double(avgDepthTF.text!)
+        let bottomTime = Double(bottomTimeTF.text!)
+        let tankTypeSelectedRow = tankTypePickerView.selectedRow(inComponent: 0)
+        let tankCapSelectedRow = tankCapPickerView.selectedRow(inComponent: 0)
         let airIn = Double(airInTF.text!)
         let airOut = Double(airOutTF.text!)
-        let suiteType = suiteType
+        let suiteTypeSelectedRow = suiteTypePickerView.selectedRow(inComponent: 0)
         let weight = Double(wieghtTF.text!)
         let gasMix = Double(gassMixTF.text!)
         let computer = computerTF.text!
         let camera = cameraTF.text!
-        let weatherCondition = weather
+        let weatherSelectedRow = weatherPickerView.selectedRow(inComponent: 0)
         let weatherTemp = Double(weatherTempTF.text!)
         let airTemp = Double(airTempTF.text!)
         let visibility = Double(visibilyTF.text!)
-        let swellingLvl = swellLvl
+        let swellSelectedRow = swellPickerView.selectedRow(inComponent: 0)
         let notes = notesTF.text
+        
+        
+        
+        let tankType = arrTanktype[tankTypeSelectedRow]
+        let tankCap = arrTankcap[tankCapSelectedRow]
+        let suiteType = arrSuiteType[suiteTypeSelectedRow]
+        let weatherType = arrWeather[weatherSelectedRow]
+        let swell = arrSwell[swellSelectedRow]
         
         // Dive is not nil, so we can safely access its properties and methods
         if dive != nil {
            
-            
+            print("updating the dive")
             
             // Update the dive object with the new values
             dive?.diveNumber = noOfDives
@@ -265,21 +407,23 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
             dive?.gasMix = gasMix
             dive?.computer = computer
             dive?.camera = camera
-            dive?.wetherType = weatherCondition
+            dive?.wetherType = weatherType
             dive?.waterTemp = weatherTemp
             dive?.airTemp = airTemp
             dive?.visibility = visibility
-            dive?.swell = swellingLvl
+            dive?.swell = swell
             dive?.notes = notes
             
-           
+           print("PRINTING THE DIVE AFTER SAVING")
+           // print(dive)
         } else {
-            // Dive is nil, so we need to create a new dive object
+            print("creating a new dive")
             
-          
+            // Dive is nil, so we need to create a new dive object
+              
 
-            dive = Dive(id: UUID(), diveNumber: noOfDives, surfaceInterval: surfaceIntreval, timeIn: timeInThePicker, timeOut: timeOutThePicker, maxDepth: maxDepth, avgDepth: avgDepth, buttomTime: bottomTime, tankType: tankType, tankCap: tankCap, airIn: airIn, airOut: airOut, suiteType: suiteType, wieght: weight, gasMix: gasMix, computer: computer, camera: camera, wetherType: weather, swell: swellLvl, airTemp: airTemp, waterTemp: weatherTemp, visibility: visibility, notes: notes)
-        }
+               dive = Dive(id: UUID(), diveNumber: noOfDives, surfaceInterval: surfaceIntreval, timeIn: timeInThePicker, timeOut: timeOutThePicker, maxDepth: maxDepth, avgDepth: avgDepth, buttomTime: bottomTime, tankType: tankType, tankCap: tankCap, airIn: airIn, airOut: airOut, suiteType: suiteType, wieght: weight, gasMix: gasMix, computer: computer, camera: camera, wetherType: weatherType, swell: swell, airTemp: airTemp, waterTemp: weatherTemp, visibility: visibility, notes: notes)
+           }
 
     }
     
@@ -288,8 +432,32 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
        
         
         
-        timeInLabel.text = timeInPicker.date.formatted(date: .abbreviated, time: .omitted)
-        timeOutLabel.text = timeOutPicker.date.formatted(date: .abbreviated, time: .omitted)
+        let calendar = Calendar.current
+        let timeInComponents = calendar.dateComponents([.hour, .minute], from: timeInPicker.date)
+        let timeOutComponents = calendar.dateComponents([.hour, .minute], from: timeOutPicker.date)
+
+        let hourIn = timeInComponents.hour!
+        let hourOut = timeOutComponents.hour!
+        let minuteIn = timeInComponents.minute!
+        let minuteOut = timeOutComponents.minute!
+
+        let timeInString: String
+        if hourIn > 12 {
+            timeInString = String(format: "%02d:%02d PM", hourIn - 12, minuteIn)
+        } else {
+            timeInString = String(format: "%02d:%02d AM", hourIn, minuteIn)
+        }
+
+        let timeOutString: String
+        if hourOut > 12 {
+            timeOutString = String(format: "%02d:%02d PM", hourOut - 12, minuteOut)
+        } else {
+            timeOutString = String(format: "%02d:%02d AM", hourOut, minuteOut)
+        }
+
+        timeInLabel.text = timeInString
+        timeOutLabel.text = timeOutString
+
     }
     
     
@@ -401,159 +569,5 @@ class AddEditDivesTableViewController: UITableViewController,SelectTankTypeTVCDe
             
         }
         
-    
-    
-
-
-   
-    
- 
-
-    // MARK: - show the selections
-    
-    
-    @IBSegueAction func showTankTypeS(_ coder: NSCoder) -> SelectTankTypeTVC? {
-        let typeController = SelectTankTypeTVC(coder: coder)
-        typeController?.delegate = self
-        typeController?.tanktype = tankType
-        return typeController
-    }
-    
-    
-    func updatetankType(){
-        if let tankType = tankType{
-            tankTypeLabel.text = tankType.description
-        }else{
-            tankTypeLabel.text = "not set"
-        }
-    }
-    
-    func selectTankTypeTVC(_ controller: SelectTankTypeTVC, didSelect tanktype: TankType ){
-        self.tankType = tanktype
-        updatetankType()
-        
-    }
-    
-    
-    
-    
-    
-    
-    @IBSegueAction func showTankCapS(_ coder: NSCoder) -> SelectTankCapTVC? {
-        let typeController = SelectTankCapTVC(coder: coder)
-        typeController?.delegate = self
-        typeController?.tankCap = tankCap
-        return typeController
-    }
-    
-    
-    func updatetankCap(){
-        if let tankcap = tankCap{
-            tankCapLabel.text = tankcap.description
-        }else{
-            tankCapLabel.text = "not set"
-        }
-    }
-    func selectTankCapTVC(_ controller: SelectTankCapTVC, didSelect tankCap: TankCap) {
-        self.tankCap = tankCap
-        updatetankCap()
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @IBSegueAction func showSuiteTypeS(_ coder: NSCoder) -> SelectSuiteTypeTVC? {
-        let typeController = SelectSuiteTypeTVC(coder: coder)
-        typeController?.delegate = self
-        typeController?.suiteType = suiteType
-        return typeController
-    }
-    
-    
-    
-    
-    func updateSuiteType(){
-        if let suiteType = suiteType{
-            suiteTypeLabel.text = suiteType.description
-        }else{
-            suiteTypeLabel.text = "not set"
-        }
-    }
-    func selectSuiteTypeTVC(_ controller: SelectSuiteTypeTVC, didSelect suiteType: SuiteType) {
-        self.suiteType = suiteType
-        updateSuiteType()
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @IBSegueAction func showWeatherConditionS(_ coder: NSCoder) -> SelectWeatherConditionTVC? {
-        let typeController = SelectWeatherConditionTVC(coder: coder)
-        typeController?.delegate = self
-        typeController?.weather = weather
-        return typeController
-    }
-    
-    
-    func updateWeather(){
-        if let weather = weather{
-            weatherConditionLabel.text = weather.description
-        }else{
-            weatherConditionLabel.text = "not set"
-        }
-    }
-    func selectWeatherConditionTVC(_ controller: SelectWeatherConditionTVC, didSelect weather: Weather) {
-        self.weather = weather
-        updateWeather()
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-
-    @IBSegueAction func showSwellS(_ coder: NSCoder) -> SelectSwellTVC? {
-        let typeController = SelectSwellTVC(coder: coder)
-        typeController?.delegate = self
-        typeController?.swell = swellLvl
-        return typeController
-    }
-    
-    
-    
-    func updateSwell(){
-        if let swell = swellLvl{
-            swellingLvlLabel.text = swell.description
-        }else{
-            swellingLvlLabel.text = "not set"
-        }
-    }
-    
-    func selectSwellTVC(_ controller: SelectSwellTVC, didSelect swell: Swell) {
-        self.swellLvl = swell
-        updateSwell()
-    }
-   
 }
+
