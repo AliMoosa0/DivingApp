@@ -35,10 +35,10 @@ struct Dive : Equatable, Codable {
     var buttomTime : Double?
     
     // Type of tank used during the dive
-    var tankType : TankType?
+    var tankType : String?
    
     // Capacity of the tank in liters
-    var tankCap : TankCap?
+    var tankCap :  String?
     
     // Amount of air in the tank at the beginning of the dive in bar
     var airIn : Double?
@@ -47,7 +47,7 @@ struct Dive : Equatable, Codable {
     var airOut : Double?
     
     // Type of diving suit worn during the dive
-    var suiteType : SuiteType?
+    var suiteType :  String?
    
     // Weight of the diver in kilograms
     var wieght : Double?
@@ -62,10 +62,10 @@ struct Dive : Equatable, Codable {
     var camera : String?
     
     // Weather conditions during the dive
-    var wetherType : Weather?
+    var wetherType : String?
     
     // Swell conditions during the dive
-    var swell : Swell?
+    var swell :  String?
     
     // Air temperature during the dive in Celsius
     var airTemp : Double?

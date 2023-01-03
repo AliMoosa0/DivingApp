@@ -85,6 +85,11 @@ class ViewTheDivesTVC: UITableViewController {
         super.viewDidLoad()
         upadteLabels()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(dive)
+        upadteLabels()
+    }
 
     
     @IBSegueAction func editDive(_ coder: NSCoder, sender: Any?) -> AddEditDivesTableViewController? {

@@ -44,7 +44,7 @@ var dives = [Dive]()
         var numDives = 0
 
         for trip in trips {
-            for dive in trip.dives! {
+            for dive in trip.dives {
                 totalDepth += dive.maxDepth!
                 numDives += 1
             }
@@ -69,7 +69,7 @@ var dives = [Dive]()
     func numberOfDives(trips :[Trip]){
         var noDives : Int = 0
         for trip in trips {
-            noDives += trip.dives!.count
+            noDives += trip.dives.count
         }
         
         noOfDives.text = "Number of dives:\n\(String(noDives))"
