@@ -7,25 +7,74 @@
 
 import UIKit
 
-class userSettingsTVC: UITableViewController {
+class userSettingsTVC: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+   
+
+    
+    var dive = Dive(id: UUID(), diveNumber: 0, surfaceInterval: 0.0, timeIn: Date(), timeOut: Date(), maxDepth: 0.0, avgDepth: 0.0, buttomTime: 0.0, tankType: .none, tankCap: .none, airIn: 0.0, airOut: 0.0, suiteType: .none, wieght: 0.0, gasMix: 0.0, computer: "", camera: "", wetherType: .none, swell: .none, airTemp: 0.0, waterTemp: 0.0, visibility: 0.0, notes: "")
+
     
     
     
-    
-    @IBAction func DistanceSwitch(_ sender: Any) {
+    @IBAction func ChangeBtn(_ sender: Any) {
+
+        let imagePickerController = UIImagePickerController()
         
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        
+        present(imagePickerController, animated: true, completion: nil)
     }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        dismiss(animated: true, completion: nil)
+        
+            guard let selectedImage = info[.originalImage] as? UIImage else {
+                return
+            }
+            
+            imageView.image = selectedImage
+    }
+    @IBOutlet weak var imageView: UIImageView!
     
     
+    
+    
+    /*
+   
     @IBAction func WeightSwitch(_ sender: Any) {
+        let weightString = WeightLbl.text!
+           let weight = Double(weightString)!
+           
+           if let switchControl = sender as? UISwitch {
+               if switchControl.isOn {
+                   let pounds = weight * 2.205
+                   WeightLbl.text = String(pounds)
+               } else {
+                   let kilograms = weight / 2.205
+                   WeightLbl.text = String(kilograms)
+               }
+           }
     }
     
     
     @IBAction func TempSwitch(_ sender: Any) {
+        let temp = dive.waterTemp
+        if let switchControl = sender as? UISwitch {
+            if switchControl.isOn {
+                let fahrenheit = (temp! * 9/5) + 32
+                WaterTempLbl.text = String(fahrenheit)
+            } else {
+                let celsius = (temp! - 32) * 5/9
+                WaterTempLbl.text = String(celsius)
+            }
+        }
         
     }
     
-
+*/
     override func viewDidLoad() {
         super.viewDidLoad()
 

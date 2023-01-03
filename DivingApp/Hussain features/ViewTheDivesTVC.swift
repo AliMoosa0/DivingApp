@@ -2,12 +2,17 @@
 //  ViewTheDivesTVC.swift
 //  DivingApp
 //
-//  Created by ALI MOOSA on 27/12/2022.
+//  Created by Hussain ali on 27/12/2022.
 //
 
 import UIKit
 
 class ViewTheDivesTVC: UITableViewController {
+    
+    
+
+    
+    
     
     var unitsAreCelsius: Bool = true
 
@@ -26,7 +31,7 @@ class ViewTheDivesTVC: UITableViewController {
     
 
     
-    
+    //Outlet for labels
     @IBOutlet weak var DiveNoLbl: UILabel!
     @IBOutlet weak var SurfaceLbl: UILabel!
     @IBOutlet weak var TimeInLbl: UILabel!
@@ -79,11 +84,6 @@ class ViewTheDivesTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         upadteLabels()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     
@@ -101,8 +101,6 @@ class ViewTheDivesTVC: UITableViewController {
             
             
         }
-        
-        
     }
     
     
