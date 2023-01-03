@@ -68,6 +68,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
    // @IBOutlet weak var tankCapLabel: UILabel!
     
     
+    
     //MARK: -
     
     
@@ -139,20 +140,31 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         slectedWeather.inputView = weatherPickerView
         slectedSwell.inputView = swellPickerView
 
-        tankTypePickerView.delegate = self
-        tankTypePickerView.dataSource = self
-        
-        tankCapPickerView.delegate = self
-        tankCapPickerView.dataSource = self
-        
-        suiteTypePickerView.delegate = self
-        suiteTypePickerView.dataSource = self
-        
-        weatherPickerView.delegate = self
-        weatherPickerView.dataSource = self
-        
-        swellPickerView.delegate = self
-        swellPickerView.dataSource = self
+        // Set up the picker views
+            tankTypePickerView.dataSource = self
+            tankTypePickerView.delegate = self
+            slectedTankType.inputView = tankTypePickerView
+            slectedTankType.inputAccessoryView = toolBar
+
+            tankCapPickerView.dataSource = self
+            tankCapPickerView.delegate = self
+            slectedtankcap.inputView = tankCapPickerView
+            slectedtankcap.inputAccessoryView = toolBar
+
+            suiteTypePickerView.dataSource = self
+            suiteTypePickerView.delegate = self
+            slectedSuiteType.inputView = suiteTypePickerView
+            slectedSuiteType.inputAccessoryView = toolBar
+
+            weatherPickerView.dataSource = self
+            weatherPickerView.delegate = self
+            slectedWeather.inputView = weatherPickerView
+            slectedWeather.inputAccessoryView = toolBar
+
+            swellPickerView.dataSource = self
+            swellPickerView.delegate = self
+            slectedSwell.inputView = swellPickerView
+            slectedSwell.inputAccessoryView = toolBar
         
         updatePlaceHolders()
         // Uncomment the following line to preserve selection between presentations
@@ -164,7 +176,10 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
        // to dissmiss the keyboard
        // let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
       //  view.addGestureRecognizer(tapGesture)
-       
+        
+
+        
+        
        
     }
   //  @objc func handleTap(_ sender: UITapGestureRecognizer) {
@@ -179,13 +194,6 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     
     
     
-  
-    
-    
-    
-   
-
-    
    
     @IBOutlet weak var notesTF: UITextField!
     
@@ -197,7 +205,18 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
    // var suiteType : SuiteType?
   //  var weather : Weather?
   //  var swellLvl : Swell?
+    // MARK: - adding a done button to the pickerView
+    @IBOutlet var toolBar: UIToolbar!
+    
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+        
+        slectedTankType.resignFirstResponder()
+        slectedtankcap.resignFirstResponder()
+        slectedSuiteType.resignFirstResponder()
+        slectedWeather.resignFirstResponder()
+        slectedSwell.resignFirstResponder()
 
+    }
     
     //MARK:  - selections on the picker views
     @IBOutlet weak var slectedTankType: UITextField!
