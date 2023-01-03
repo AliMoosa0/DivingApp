@@ -6,13 +6,33 @@
 //
 
 import UIKit
+import MessageUI
 
-class userSettingsTVC: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
    
 
-    
+     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        // Dismiss the mail composer
+        controller.dismiss(animated: true, completion: nil)
+    }
+
     var dive = Dive(id: UUID(), diveNumber: 0, surfaceInterval: 0.0, timeIn: Date(), timeOut: Date(), maxDepth: 0.0, avgDepth: 0.0, buttomTime: 0.0, tankType: .none, tankCap: .none, airIn: 0.0, airOut: 0.0, suiteType: .none, wieght: 0.0, gasMix: 0.0, computer: "", camera: "", wetherType: .none, swell: .none, airTemp: 0.0, waterTemp: 0.0, visibility: 0.0, notes: "")
+    
+    @IBOutlet weak var rfrLbl: UILabel!
+    @IBAction func referralCodeButtonTapped(_ sender: Any) {
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                var referralCode = ""
+                for _ in 0..<6 {
+                    referralCode += String(letters[letters.index(letters.startIndex, offsetBy: Int.random(in: 0..<letters.count))])
+                }
+            }
+    
+
+    
+
+    
+
 
     
     
@@ -40,6 +60,39 @@ class userSettingsTVC: UITableViewController, UIImagePickerControllerDelegate & 
     @IBOutlet weak var imageView: UIImageView!
     
     
+    
+    @IBAction func emailBtn(_ sender: Any) {
+        
+            // Check if the device is able to send emails
+            guard MFMailComposeViewController.canSendMail() else {
+                // Display an alert if the device cannot send emails
+                let alert = UIAlertController(title: "Error", message: "This device is not able to send emails. Please set up an email account in order to send an email.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
+                return
+            }
+
+            // Create and configure the mail composer
+            let mailComposter = MFMailComposeViewController()
+            mailComposter.mailComposeDelegate = self
+            mailComposter.setToRecipients(["diveApp@gmail.com"])
+            mailComposter.setSubject("Enter your subjet")
+            mailComposter.setMessageBody("type your message", isHTML: false)
+
+            // Add the image as an attachment to the email, if it exists
+        if let image = imageView.image, let jpegData = image.jpegData(compressionQuality: 0.9) {
+            mailComposter.addAttachmentData(jpegData, mimeType: "image/jpeg", fileName: "photo.jpg")
+        }
+
+
+            // Present the mail composer
+            present(mailComposter, animated: true, completion: nil)
+        }
+
+
+
+}
     
     
     /*
@@ -75,8 +128,8 @@ class userSettingsTVC: UITableViewController, UIImagePickerControllerDelegate & 
     }
     
 */
-    override func viewDidLoad() {
-        super.viewDidLoad()
+func viewDidLoad() {
+        viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -145,4 +198,4 @@ class userSettingsTVC: UITableViewController, UIImagePickerControllerDelegate & 
     }
     */
 
-}
+

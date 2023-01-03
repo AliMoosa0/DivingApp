@@ -177,7 +177,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Other" footerTitle="" id="V06-h0-sMq">
+                            <tableViewSection headerTitle="" footerTitle="" id="V06-h0-sMq">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="featuresCell" rowHeight="43" id="HKq-Rv-f90">
                                         <rect key="frame" x="0.0" y="809.5" width="414" height="43"/>
@@ -192,7 +192,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="gray" title="Contact Us"/>
                                                     <connections>
-                                                        <action selector="emailBtn:" destination="DWz-KG-qBS" eventType="touchUpInside" id="7B3-zO-hfS"/>
+                                                        <action selector="emailBtn:" destination="DWz-KG-qBS" eventType="touchUpInside" id="nh7-Ig-fzV"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -211,7 +211,8 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="gray" title="Referal Code"/>
                                                     <connections>
-                                                        <segue destination="w3w-Jb-0m3" kind="show" id="g1B-fU-2uV"/>
+                                                        <action selector="referralCodeButtonTapped:" destination="DWz-KG-qBS" eventType="touchUpInside" id="NGq-J4-4sS"/>
+                                                        <segue destination="w3w-Jb-0m3" kind="show" id="d3D-LI-bP4"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -235,31 +236,48 @@
             </objects>
             <point key="canvasLocation" x="-730.43478260869574" y="533.70535714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--User SettingsTVC-->
         <scene sceneID="MkA-LA-ajV">
             <objects>
-                <viewController id="w3w-Jb-0m3" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZl-jx-cKv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="w3w-Jb-0m3" customClass="userSettingsTVC" customModule="DivingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rij-Tb-gxy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share this code with a friend to get a discount when downloading the app " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhE-ET-Od6">
-                                <rect key="frame" x="-74" y="273" width="562" height="85"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share this code with a friend " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhE-ET-Od6">
+                                <rect key="frame" x="64" y="142" width="287" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="to get a discount when downloading the app " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lea-az-U4u">
+                                <rect key="frame" x="36" y="176" width="342" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25B-Bs-25k">
+                                <rect key="frame" x="186" y="250" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iHi-Wx-gQN"/>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="N3k-P1-8lb"/>
+                    <connections>
+                        <outlet property="rfrLbl" destination="25B-Bs-25k" id="yUR-Kl-dbo"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sZl-jx-cKv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129" y="534"/>
+            <point key="canvasLocation" x="128.98550724637681" y="533.70535714285711"/>
         </scene>
         <!--User Settings-->
         <scene sceneID="ec9-Rc-dzG">
@@ -281,6 +299,9 @@
     </scenes>
     <resources>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
