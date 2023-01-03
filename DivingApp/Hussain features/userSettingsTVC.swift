@@ -18,21 +18,6 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
     }
 
     var dive = Dive(id: UUID(), diveNumber: 0, surfaceInterval: 0.0, timeIn: Date(), timeOut: Date(), maxDepth: 0.0, avgDepth: 0.0, buttomTime: 0.0, tankType: .none, tankCap: .none, airIn: 0.0, airOut: 0.0, suiteType: .none, wieght: 0.0, gasMix: 0.0, computer: "", camera: "", wetherType: .none, swell: .none, airTemp: 0.0, waterTemp: 0.0, visibility: 0.0, notes: "")
-    
-    @IBOutlet weak var rfrLbl: UILabel!
-    @IBAction func referralCodeButtonTapped(_ sender: Any) {
-        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                var referralCode = ""
-                for _ in 0..<6 {
-                    referralCode += String(letters[letters.index(letters.startIndex, offsetBy: Int.random(in: 0..<letters.count))])
-                }
-            }
-    
-
-    
-
-    
-
 
     
     
@@ -92,8 +77,8 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
 
 
 
-}
-    
+
+    }
     
     /*
    
