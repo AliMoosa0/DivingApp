@@ -11,7 +11,7 @@ struct Trip: Equatable, Codable{
     var title: String
     var location: String
     var tripDate: Date
-    var dives : [Dive]?
+    var dives : [Dive]
    
     
     init(title: String, location: String, tripDate:Date, dives : [Dive]){
