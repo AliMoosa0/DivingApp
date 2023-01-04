@@ -23,6 +23,36 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    
+    
+    
+    
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        nameTextField.becomeFirstResponder()
+        updateSaveButtonState()
+        updateTheDateLabel(date: datePicker.date)
+       
+        
+        if let trip = trip {
+            navigationItem.title = "Editing a Trip"
+            nameTextField.text = trip.title
+            locationTextField.text = trip.location
+            theDateLabel.text = String("\(trip.tripDate)")
+            
+        }
+        //when the user tap on the screen the keyboard dismisses
+         let tap :UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddEditTableViewController.keyboardDismiss))
+         view.addGestureRecognizer(tap)
+     }
+     
+     @objc func keyboardDismiss(){
+         view.endEditing(true)
+     }
+    
     // MARK: - Save Button funcs
     
     var trip : Trip?
@@ -43,7 +73,7 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
         
     }
     
-    //MARK: - 
+
     // MARK: - hide unhide the pickers
     let DateLableCellIndexPath = IndexPath(row: 2, section: 0)
     let DatePickerCellIndexPath = IndexPath(row: 3, section: 0)
@@ -116,31 +146,7 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        nameTextField.becomeFirstResponder()
-        updateSaveButtonState()
-        updateTheDateLabel(date: datePicker.date)
-       
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        
-        
-        
-        if let trip = trip {
-            navigationItem.title = "Editing a Trip"
-            nameTextField.text = trip.title
-            locationTextField.text = trip.location
-            theDateLabel.text = String("\(trip.tripDate)")
-            
-        }
-        
-    }
+    
     //to hide the heyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -150,28 +156,5 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
         nameTextField.resignFirstResponder()
         return(true)
     }
-    
-    /*
-    func updateDateViews() {
-      let date = Date()
-      let dateFormatter = DateFormatter()
-      dateFormatter.dateFormat = "MMMM d, yyyy"
-      let formattedDate = dateFormatter.string(from: date)
-      theDateLabel.text = formattedDate
-    }
-*/
-     
-    /*
-    let now = Date()
-    
-    func updateDateViews(date: now) {
-       
-      let dateFormatter = DateFormatter()
-      dateFormatter.dateFormat = "MMMM d, yyyy"
-        
-      let formattedDate = dateFormatter.string(from: date)
-        
-      theDateLabel.text = formattedDate
-    }
-     */
+   
 }

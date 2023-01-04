@@ -6,34 +6,16 @@
 //
 
 import UIKit
-protocol AddEditDivesTableViewControllerDelegate: AnyObject {
-    func diveDetailTableViewController(_ controller: AddEditDivesTableViewController, didSave dive: Dive)
-}
+
 
 class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
     
-   
-   
-    
-    
-    weak var delegate: AddEditDivesTableViewControllerDelegate?
-    
-    
-    
-    
     // MARK: - Form Outlits
-    
-    
-    
     
     @IBOutlet weak var numOfDivesLabel: UITextField!
     
-    
-    
     @IBOutlet weak var surfaceIntervalTF: UITextField!
-    
-    
     
     @IBOutlet weak var timeInLabel: UILabel!
     
@@ -49,51 +31,9 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     
     @IBOutlet weak var bottomTimeTF: UITextField!
     
-    
-    
-    
-    
-//MARK: -
-  //  @IBOutlet weak var tankTypeLabel: UILabel!
-    
-    
-
-    
-    
-    
-    
-    //MARK: -
-    
-   
-   // @IBOutlet weak var tankCapLabel: UILabel!
-    
-    
-    
-    //MARK: -
-    
-    
-    
-    
-    
-    
     @IBOutlet weak var airInTF: UITextField!
     
     @IBOutlet weak var airOutTF: UITextField!
-    
-    //MARK: -
-    
- //   @IBOutlet weak var suiteTypeLabel: UILabel!
-    
-    
-    
-   
-    
-    //MARK: -
-    
-    
-    
-    
-    
     
     @IBOutlet weak var wieghtTF: UITextField!
     
@@ -103,37 +43,24 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     
     @IBOutlet weak var cameraTF: UITextField!
     
-    //MARK: -
-
-    
-   // @IBOutlet weak var weatherConditionLabel: UILabel!
-    
     @IBOutlet weak var weatherTempTF: UITextField!
     
     @IBOutlet weak var airTempTF: UITextField!
     
     @IBOutlet weak var visibilyTF: UITextField!
     
-    
-    //MARK: -
-
-    
-    
- //   @IBOutlet weak var swellingLvlLabel: UILabel!
-    
-    
-   
-    
+    @IBOutlet weak var notesTF: UITextField!
     //MARK: - View did load
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(tankTypePickerView.selectedRow(inComponent: 0))
+     
+        //timeOutPicker.delegate = self
+          //      timeInPicker.delegate = self
+
+        
+        
         updateDive()
-       // updatetankType()
-       // updatetankCap()
-       // updateWeather()
-       // updateSwell()
-        //updateSuiteType()
+   
         slectedTankType.inputView = tankTypePickerView
         slectedtankcap.inputView = tankCapPickerView
         slectedSuiteType.inputView = suiteTypePickerView
@@ -167,38 +94,15 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             slectedSwell.inputAccessoryView = toolBar
         
         updatePlaceHolders()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-       // to dissmiss the keyboard
-       // let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-      //  view.addGestureRecognizer(tapGesture)
-        
-
-        
-        
-       
+       //when the user tap on the screen the keyboard dismisses
+        let tap :UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddEditDivesTableViewController.keyboardDismiss))
+        view.addGestureRecognizer(tap)
     }
-  //  @objc func handleTap(_ sender: UITapGestureRecognizer) {
-    //    view.endEditing(true)
-   // }
-   /*
-   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
+    @objc func keyboardDismiss(){
         view.endEditing(true)
     }
-    
-*/
-    
-    
-    
-   
-    @IBOutlet weak var notesTF: UITextField!
-    
-    
-    
+
   
     // MARK: - adding a done button to the pickerView
     @IBOutlet var toolBar: UIToolbar!
@@ -231,10 +135,10 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     let arrSwell = ["No Swell", "Moderate Swell", "Strong Swell"]
     func updatePlaceHolders(){
     slectedTankType.placeholder = "select a tank type"
-    slectedtankcap.placeholder = "select a tank type"
-    slectedSuiteType.placeholder = "select a tank type"
-    slectedWeather.placeholder = "select a tank type"
-    slectedSwell.placeholder = "select a tank type"
+    slectedtankcap.placeholder = "select a tank cap"
+    slectedSuiteType.placeholder = "select a Suite type"
+    slectedWeather.placeholder = "select a weather condition"
+    slectedSwell.placeholder = "select a swell level"
     }
     
     var tankTypePickerView = UIPickerView()
@@ -317,29 +221,17 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             macDepthTF.text = String("\(dive.maxDepth!)")
             avgDepthTF.text = String("\(dive.avgDepth!)")
             bottomTimeTF.text = String("\(dive.buttomTime!)")
-            
             slectedTankType.text = dive.tankType
             slectedtankcap.text = dive.tankCap
-            
             airInTF.text = String("\(dive.airIn!)")
             airOutTF.text = String("\(dive.airOut!)")
-            
             slectedSuiteType.text = dive.suiteType
-            
             wieghtTF.text = String("\(dive.wieght!)")
             gassMixTF.text = String("\(dive.gasMix!)")
             computerTF.text = String("\(dive.computer!)")
             weatherTempTF.text = String("\(dive.waterTemp!)")
             cameraTF.text = String("\(dive.camera!)")
-            
-            
-            
-            
-            
-         
-            
             slectedWeather.text = dive.wetherType
-            
             airTempTF.text = String("\(dive.airTemp!)")
             visibilyTF.text = String("\(dive.visibility!)")
             slectedSwell.text = dive.swell
@@ -413,11 +305,8 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             dive?.visibility = visibility
             dive?.swell = swell
             dive?.notes = notes
-            
-           print("PRINTING THE DIVE AFTER SAVING")
-           // print(dive)
-        } else {
-            print("creating a new dive")
+            } else {
+           
             
             // Dive is nil, so we need to create a new dive object
               
@@ -428,17 +317,20 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     }
     
     //MARK: - Update the date
-    func updateDateViews(){
-       
-        
-        
+    
+    //this function is to format the pickers and set the vlaue to the label
+    func updateDateViews() {
         let calendar = Calendar.current
-        let timeInComponents = calendar.dateComponents([.hour, .minute], from: timeInPicker.date)
-        let timeOutComponents = calendar.dateComponents([.hour, .minute], from: timeOutPicker.date)
+        let oneMinuteInterval = DateComponents(minute: 1)
+        let minimumTime = calendar.date(byAdding: oneMinuteInterval, to: timeInPicker.date)
+        timeOutPicker.minimumDate = minimumTime
 
+        let timeInComponents = calendar.dateComponents([.hour, .minute], from: timeInPicker.date)
         let hourIn = timeInComponents.hour!
-        let hourOut = timeOutComponents.hour!
         let minuteIn = timeInComponents.minute!
+
+        let timeOutComponents = calendar.dateComponents([.hour, .minute], from: timeOutPicker.date)
+        let hourOut = timeOutComponents.hour!
         let minuteOut = timeOutComponents.minute!
 
         let timeInString: String
@@ -457,19 +349,17 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
 
         timeInLabel.text = timeInString
         timeOutLabel.text = timeOutString
-
     }
-    
+
     
     @IBAction func pickerValueChanged(_ sender: Any) {
         updateDateViews()
     }
     
-    // MARK: - hide unhide the pickers
+    // MARK: - hide unhide the pickers a
     
     
    
-    
     
     
     let timeInCellIndexPath = IndexPath(row: 1, section: 1)
@@ -568,6 +458,6 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             
             
         }
-        
+    
 }
 
