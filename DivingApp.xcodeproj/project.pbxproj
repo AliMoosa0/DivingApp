@@ -79,15 +79,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F54FB55295793A100F580CA /* AddEdit */ = {
+		3F32C40B29663C5200048720 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3FB2446E29560C8A00CF45A6 /* HomeVC.swift */,
+				3FB1C23A294B0D5B00C706F1 /* Home.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3F32C40C29663C8500048720 /* Dive */ = {
+			isa = PBXGroup;
+			children = (
+				3F0C06A52952F06C00D4F178 /* AddEditDivesTVC.swift */,
+				3F5B3834294B8F8D00E2B78E /* AddEditTheDives.storyboard */,
+			);
+			path = Dive;
+			sourceTree = "<group>";
+		};
+		3F54FB55295793A100F580CA /* Trip */ = {
 			isa = PBXGroup;
 			children = (
 				3F020F972951A6BD00BC4291 /* AddEditTripTVC.swift */,
 				3F5B3831294B8F6100E2B78E /* AddEditTheTrips.storyboard */,
-				3F0C06A52952F06C00D4F178 /* AddEditDivesTVC.swift */,
-				3F5B3834294B8F8D00E2B78E /* AddEditTheDives.storyboard */,
 			);
-			path = AddEdit;
+			path = Trip;
 			sourceTree = "<group>";
 		};
 		3FD2AB9A29477EA6001D293A = {
@@ -128,9 +144,9 @@
 		3FFCC8B92950F3A200A1B21A /* Ali Features */ = {
 			isa = PBXGroup;
 			children = (
-				3FB1C23A294B0D5B00C706F1 /* Home.storyboard */,
-				3FB2446E29560C8A00CF45A6 /* HomeVC.swift */,
-				3F54FB55295793A100F580CA /* AddEdit */,
+				3F32C40B29663C5200048720 /* Home */,
+				3F54FB55295793A100F580CA /* Trip */,
+				3F32C40C29663C8500048720 /* Dive */,
 			);
 			path = "Ali Features";
 			sourceTree = "<group>";
