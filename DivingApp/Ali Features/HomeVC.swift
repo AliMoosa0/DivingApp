@@ -21,23 +21,6 @@ var dives = [Dive]()
         noOfTrips.text = "Number of trips:\n\(String(tripCount))"
     }
    
-   /*
-    func maxDepth(trips : [Trip], dives: [Dive]){
-        var noOfDepth : Int = 0
-        var maxDepthCount : Int = 0
-        for trip in trips {
-            noOfDepth += trip.dives!.count
-        }
-        
-        for dive in dives {
-            maxDepthCount += Int(dive.maxDepth!)
-        }
-        
-        let total = maxDepthCount / noOfDepth
-        lastButton.text = "AVG of max Depths:\n\(String(total )  )  "
-    }
-    
-    */
     
     func avgMaxDepth(trips: [Trip], dives: [Dive]) -> Double {
         var totalDepth = 0.0
@@ -92,9 +75,7 @@ var dives = [Dive]()
         numberOfTrips(trips: trips)
         numberOfDives(trips : trips)
         updatLastLabel()
-        //maxDepth(trips : trips, dives: dives)
         
-        // Do any additional setup after loading the view.
     }
     
 

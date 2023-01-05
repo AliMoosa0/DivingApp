@@ -42,7 +42,7 @@ struct Trip: Equatable, Codable{
         let codedtrips = try? propertyListEncoder.encode(trips)
         try? codedtrips?.write(to: archiveURL, options: .noFileProtection)
     }
-    
+    // fix the times in the dive and the dte in the trip 
     static func loadSampleLoad() -> [Trip]{
         let trip1 = Trip(title: "trip1", location: "malkia", tripDate: Date(), dives: [Dive(diveNumber: 1, surfaceInterval: 11.11, timeIn: Date.now, timeOut: Date.now, maxDepth: 60.00, avgDepth: 60.00, buttomTime: 11.11, tankType: "Steel", tankCap: "12", airIn: 11.11, airOut: 11.11, suiteType: "one Piece", wieght: 11.11, gasMix: 11.11, computer: "Mac", camera: "canon", wetherType: "sunny", swell: "no Swell", airTemp: 11.11, waterTemp: 11.11, visibility: 1.11, notes: "arigato")])
         
