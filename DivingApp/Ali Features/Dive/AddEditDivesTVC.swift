@@ -42,6 +42,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         numOfDivesLabel.becomeFirstResponder()
         
         //calling the methods
+        updateErrorLabels()
         updateDive()
         updatePlaceHolders()
         
@@ -704,21 +705,22 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     @IBOutlet weak var visibilityError: UILabel!
     
     @IBAction func visibilityChanged(_ sender: Any) {
-        // Get the text from the location text field
-        if let visibility =  visibilyTF.text{
+        // Get the text from the visibility text field
+        if let visibility =  visibilyTF.text {
             // Check if the text is a valid double
-            if checkDouble(visibility) == nil {
-                // If the text is a valid double, hide the location error label
-                visibilityError.isHidden = true
-            } else {
-                // If the text is not a valid double, set the error message of the location error label
-                visibilityError.text = "Input is not a valid double"
-                // Make the location error label visible
+            if let errorMessage = checkDouble(visibility) {
+                print(errorMessage)
+                // If the text is a valid double, set the error message of the visibility error label
+                visibilityError.text = errorMessage
+                // Make the visibility error label visible
                 visibilityError.isHidden = false
+            } else {
+                // If the text is not a valid double, hide the visibility error label
+                visibilityError.isHidden = true
             }
         }
     }
-    
+
     
     
     
@@ -730,13 +732,14 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     
     
     func checkDouble(_ value: String) -> String? {
-        if let _ = Double(value) {
-            // value is a valid double
-            return nil
+        if value.range(of: ".") == nil {
+            return "Please enter a double value."
         } else {
-            return " Please enter a double value."
+            return nil
         }
     }
+
+
 
 
     
@@ -747,6 +750,21 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         return nil
     }
     
+    func updateErrorLabels(){
+        surfaceError.text = "       "
+        maxDepthError.text = "        "
+        avgDepthError.text = "        "
+        buttomTimeError.text = "         "
+        airInError.text = "           "
+        airOutError.text = "          "
+        wightError.text = "          "
+        gassMixError.text = "          "
+        computerError.text = ""
+        cameraError.text = "         "
+        weatherError.text = "          "
+        airTempError.text = "       "
+        visibilityError.text = "       "
+    }
     
     
     //MARK: - clolors for dark and light mode
@@ -762,5 +780,8 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         }
     }
     }
+    
+    
+    
 }
 
