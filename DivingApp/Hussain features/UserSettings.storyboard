@@ -118,8 +118,27 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="featuresCell" rowHeight="43" id="XC3-n1-LxE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="featuresCell" rowHeight="43" id="x9v-Is-F2z">
                                         <rect key="frame" x="0.0" y="576.5" width="414" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x9v-Is-F2z" id="XFV-8N-osb">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idv-eo-01W">
+                                                    <rect key="frame" x="8" y="6" width="398" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="gray" title="Share"/>
+                                                    <connections>
+                                                        <action selector="ShareBtn:" destination="DWz-KG-qBS" eventType="touchUpInside" id="Yo2-lL-SSu"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="featuresCell" rowHeight="43" id="XC3-n1-LxE">
+                                        <rect key="frame" x="0.0" y="619.5" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XC3-n1-LxE" id="njc-zB-Vqk">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -146,12 +165,10 @@
                             <outlet property="delegate" destination="DWz-KG-qBS" id="MVZ-6k-fWJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="User Settings" id="fqt-U8-CDs">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="BgG-nN-kXq"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="User Settings" id="fqt-U8-CDs"/>
                     <connections>
-                        <outlet property="EditBtn" destination="BgG-nN-kXq" id="ISA-hZ-1mK"/>
                         <outlet property="NameTxt" destination="hC3-ha-BBb" id="IB8-7J-j6l"/>
+                        <outlet property="bioTxt" destination="UJG-wi-FPX" id="vjh-cQ-AUM"/>
                         <outlet property="imageView" destination="eAR-Tn-4XD" id="L9m-aU-J8Q"/>
                     </connections>
                 </tableViewController>

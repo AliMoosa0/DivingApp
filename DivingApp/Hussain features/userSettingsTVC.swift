@@ -9,18 +9,67 @@ import UIKit
 import MessageUI
 
 
-class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+
+class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate,UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     
-    
-    @IBOutlet weak var EditBtn: UIBarButtonItem!
     
     @IBOutlet weak var NameTxt: UITextField!
     
     
+    @IBAction func editName(_ sender: UITextField) {
+        
+        self.navigationItem.rightBarButtonItem=UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(rightBtn))
+        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(rightBtn))
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(leftBtn))
+    }
+    var input : String?
+    
+    @IBOutlet weak var bioTxt: UITextField!
+    var bio : String?
+    
+    @objc func rightBtn(){
+        
+        input = NameTxt.text
+        bio = bioTxt.text
+        // Dismiss the cursor
+          NameTxt.resignFirstResponder()
+        bioTxt.resignFirstResponder()
 
+          // Hide the "Done" button
+          self.navigationItem.rightBarButtonItem = nil
+        self.navigationItem.leftBarButtonItem = nil
+        
+    }
+    @objc func leftBtn(){
+        NameTxt.text = input
+        bioTxt.text = bio
+        NameTxt.resignFirstResponder()
+        bioTxt.resignFirstResponder()
+        // Hide the "Done" button
+        self.navigationItem.rightBarButtonItem = nil
+      self.navigationItem.leftBarButtonItem = nil
+        
+        
+    }
     
-    
+    @IBAction func ShareBtn(_ sender: Any) {
+        
+        // Create an array of items to share
+        let itemsToShare = ["Check out this great app!", URL(string: "https://itunes.apple.com/app/polytechnic.bh.DivingApp")] as [Any]
+           
+           // Create the activity view controller
+           let activityViewController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
+           
+           // Present the activity view controller
+           present(activityViewController, animated: true, completion: nil)
+        
+    }
     
     
     
@@ -108,6 +157,10 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
     
 override func viewDidLoad() {
     super.viewDidLoad()
+    
+    NameTxt.delegate = self
+    bioTxt.delegate = self
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
