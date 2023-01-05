@@ -9,10 +9,14 @@ import UIKit
 
 class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     
-    
+    // dives of selected trip
     var dives: [Dive] = []
+    // trip var to edit this trip
     var trip = Trip(title: "", location: "", tripDate: Date(), dives: [])
+    // trips array to save the data
     var trips: [Trip] = []
+    
+    // search bar related variables
     var searchDive: [Dive] = []
     var searching = false
     
@@ -67,7 +71,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         //NEED THIS TO SAVE THE DATA ON FILE
         //dive.saveDives(dives)
         
-        trips.append(trip)
+        //trips.append(trip)
         Trip.saveTrips(trips)
     }
     
