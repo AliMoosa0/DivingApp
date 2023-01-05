@@ -12,7 +12,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     
     var dives: [Dive] = []
     var trip = Trip(title: "", location: "", tripDate: Date(), dives: [])
-    
+    var trips: [Trip] = []
     var searchDive: [Dive] = []
     var searching = false
     
@@ -54,7 +54,11 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
                 
                 let newIndexPath = IndexPath(row: dives.count, section: 0)
                 dives.append(dive)
+                //trip.dives.append(dive)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
+                
+             
+//                trip.dives.append(dive)
             }
             
         }
@@ -62,6 +66,9 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         //FIX THIS
         //NEED THIS TO SAVE THE DATA ON FILE
         //dive.saveDives(dives)
+        
+        trips.append(trip)
+        Trip.saveTrips(trips)
     }
     
     
@@ -71,9 +78,12 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         let alert = UIAlertController(title: "Delete Dive", message: "Are you sure you want to delete this dive?", preferredStyle: .alert)
         
         //delete action
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {ACTION in self.dives.remove(at: indexPath.row)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { ACTION in
+            self.dives.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            Trip.saveTrips(self.trips)
         })
+
         
         //cancel action
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -180,6 +190,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         if editingStyle == .delete {
             // Delete the row from the data source
             presentDeleteAlert(indexPath: indexPath)
+           
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }

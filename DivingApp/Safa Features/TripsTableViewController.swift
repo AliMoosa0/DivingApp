@@ -22,16 +22,16 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         tableView.delegate = self
         searchBar.delegate = self
-        trips = Trip.loadSampleLoad()
+        //trips = Trip.loadSampleLoad()
         self.sortTable()
         
-        /*
+        
         if let savedTrips = Trip.loadTrips(){
             trips = savedTrips
         }else{
             trips = Trip.loadSampleLoad()
         }
-        */
+        
          
         navigationItem.leftBarButtonItem = editButtonItem
         // Uncomment the following line to preserve selection between presentations
@@ -66,10 +66,10 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
             tableView.insertRows(at: [newIndexPath], with: .automatic)
             
         
-        Trip.saveTrips(trips)
+        
     }
 }
-    
+        Trip.saveTrips(trips)
     }
     
     //Delete function
@@ -79,6 +79,7 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
         //delete action
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {ACTION in self.trips.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            Trip.saveTrips(self.trips)
         })
         
         //cancel action
@@ -166,6 +167,7 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
         if editingStyle == .delete {
             // Delete the row from the data source
             presentDeleteAlert(indexPath: indexPath)
+            //Trip.saveTrips(trips)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
