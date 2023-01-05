@@ -33,6 +33,8 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
     @IBOutlet weak var bioTxt: UITextField!
     var bio : String?
     
+    
+    
     @objc func rightBtn(){
         
         input = NameTxt.text
@@ -157,7 +159,6 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
     
 override func viewDidLoad() {
     super.viewDidLoad()
-    
     NameTxt.delegate = self
     bioTxt.delegate = self
 
