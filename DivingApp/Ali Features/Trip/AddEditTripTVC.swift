@@ -19,19 +19,13 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var theDateLabel: UILabel!
     
-    
-    
     @IBOutlet weak var datePicker: UIDatePicker!
-    
-    
-    
-    
-    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         nameTextField.becomeFirstResponder()
         updateSaveButtonState()
         updateTheDateLabel(date: datePicker.date)
