@@ -159,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="-730.43478260869574" y="533.70535714285711"/>
         </scene>
-        <!--Table View Controller-->
+        <!--ReferralTVC-->
         <scene sceneID="11q-i0-Lx5">
             <objects>
-                <tableViewController id="x0G-g1-LQB" sceneMemberID="viewController">
+                <tableViewController id="x0G-g1-LQB" customClass="ReferralTVC" customModule="DivingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="ZyE-Is-e7U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,8 +193,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rx-kx-SD8">
-                                                    <rect key="frame" x="166" y="12" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rx-kx-SD8">
+                                                    <rect key="frame" x="88" y="12" width="198" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -212,10 +212,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="It2-sP-X5b"/>
+                    <connections>
+                        <outlet property="Label" destination="5rx-kx-SD8" id="M0u-4n-lBN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="se6-mP-Mcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3" y="534"/>
+            <point key="canvasLocation" x="2.8985507246376816" y="533.70535714285711"/>
         </scene>
         <!--User Settings-->
         <scene sceneID="ec9-Rc-dzG">
