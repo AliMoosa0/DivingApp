@@ -22,7 +22,12 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // change the backgrownd color
+        backgrowndColor()
 
+        // set the default values for the errors
+        resetErrors()
         // Set the name text field as the first responder
         nameTextField.becomeFirstResponder()
 
@@ -159,8 +164,86 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
             trip = Trip(title: name, location: location, tripDate: date, dives: [])
         }
     }
+    //MARK: - Validation
+    // Outlet for the location and name error labels
+    @IBOutlet weak var nameError: UILabel!
+    @IBOutlet weak var locationError: UILabel!
+    
+    // This function is called when the text in the name text field is changed
+    @IBAction func nameChanged(_ sender: Any) {
+        // Get the text from the name text field
+        if let name = nameTextField.text {
+            // Check if the text is valid
+            if let errorMessage = invalidInput(name){
+                // If the text is invalid, set the error message of the name error label
+                nameError.text = errorMessage
+                // Make the name error label visible
+                nameError.isHidden = false
+            }else {
+                // If the text is valid, hide the name error label
+                nameError.isHidden = true
+            }
+        }
+        
+    }
+    
+    // This function is called when the text in the location text field is changed
+    @IBAction func locationChanged(_ sender: Any) {
+    
+        // Get the text from the location text field
+    if let location = locationTextField.text {
+        // Check if the text is valid
+        if let errorMessage = invalidInput(location){
+            // If the text is invalid, set the error message of the location error label
+            locationError.text = errorMessage
+            // Make the location error label visible
+            locationError.isHidden = false
+        }else {
+            // If the text is valid, hide the location error label
+            locationError.isHidden = true
+        }
+    }
+    
+    }
+        
+        // This function checks if a given name is valid
+        // A name is considered valid if it contains at least 3 characters
+    func invalidInput(_ value: String) -> String?{
+        if value.count < 3{
+            return "Input must contain at least 3 characters"
+        }
+        return nil
+    }
+
     
     
+    // This function resets the error messages for the name and location text fields
+    func resetErrors(){
+        // Make the name and location error labels visible
+        nameError.isHidden = false
+        locationError.isHidden = false
+        
+        // Set the text of the name and location error labels to "Required"
+        nameError.text = "Required"
+        locationError.text = "Required"
+    }
+
+    
+    
+    //MARK: - clolors for dark and light mode
+    func backgrowndColor(){
+    tableView.backgroundColor = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+        switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
+            case .dark:
+                return .black
+            default:
+            return .white
+        }
+    }
+    }
+
     }
 
 

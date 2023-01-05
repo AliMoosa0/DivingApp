@@ -45,7 +45,12 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         updateDive()
         updatePlaceHolders()
         
+       
+        macDepthTF.autocorrectionType = .no
+        macDepthTF.adjustsFontSizeToFitWidth = false
         
+
+
         // Set up the picker views
         //assign the input view to the picker view
         //adding the done button to each picker view
@@ -73,8 +78,11 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             swellPickerView.delegate = self
             slectedSwell.inputView = swellPickerView
             slectedSwell.inputAccessoryView = toolBar
-        
-        
+            
+            //change the backgrownd color
+        tableView.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
+
+
         // Add a tap gesture recognizer to the view
         // to dismiss the keyboard when the view is tapped
         let tap: UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddEditDivesTableViewController.keyboardDismiss))
@@ -461,6 +469,298 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             
             
         }
+    //MARK: - Validation
     
+    @IBOutlet weak var surfaceError: UILabel!
+    
+    
+    
+    
+    @IBAction func surfaceChanged(_ sender: Any) {
+        // Get the text from the location text field
+        if let surface = surfaceIntervalTF.text {
+        // Check if the text is valid
+        if let errorMessage = checkDouble(surface){
+            // If the text is invalid, set the error message of the location error label
+            surfaceError.text = errorMessage
+            // Make the location error label visible
+            surfaceError.isHidden = false
+        }else {
+            // If the text is valid, hide the location error label
+            surfaceError.isHidden = true
+        }
+    }
+    
+    }
+    
+    @IBOutlet weak var maxDepthError: UILabel!
+    
+    
+    @IBAction func maxDepthChanged(_ sender: Any) {
+       
+            // Get the text from the location text field
+            if let maxDepth = macDepthTF.text {
+                // Check if the text is a valid double
+                if checkDouble(maxDepth) == nil {
+                    // If the text is a valid double, hide the location error label
+                    maxDepthError.isHidden = true
+                } else {
+                    // If the text is not a valid double, set the error message of the location error label
+                    maxDepthError.text = "Input is not a valid double"
+                    // Make the location error label visible
+                    maxDepthError.isHidden = false
+                }
+            }
+    }
+    
+    
+    @IBOutlet weak var avgDepthError: UILabel!
+    
+    @IBAction func avgDepthChanged(_ sender: Any) {
+        
+             // Get the text from the location text field
+        if let avgDepth = avgDepthTF.text {
+                 // Check if the text is a valid double
+                 if checkDouble(avgDepth) == nil {
+                     // If the text is a valid double, hide the location error label
+                     avgDepthError.isHidden = true
+                 } else {
+                     // If the text is not a valid double, set the error message of the location error label
+                     avgDepthError.text = "Input is not a valid double"
+                     // Make the location error label visible
+                     avgDepthError.isHidden = false
+                 }
+             }
+    }
+    
+    @IBOutlet weak var buttomTimeError: UILabel!
+    
+    @IBAction func buttomTimeChanged(_ sender: Any) {
+        // Get the text from the location text field
+        if let buttomTime =  bottomTimeTF.text{
+            // Check if the text is a valid double
+            if checkDouble(buttomTime) == nil {
+                // If the text is a valid double, hide the location error label
+                buttomTimeError.isHidden = true
+            } else {
+                // If the text is not a valid double, set the error message of the location error label
+                buttomTimeError.text = "Input is not a valid double"
+                // Make the location error label visible
+                buttomTimeError.isHidden = false
+            }
+        }
+    }
+    
+    @IBOutlet weak var airInError: UILabel!
+    
+    @IBAction func airInChanged(_ sender: Any) {
+        // Get the text from the location text field
+        if let airIn =  airInTF.text{
+            // Check if the text is a valid double
+            if checkDouble(airIn) == nil {
+                // If the text is a valid double, hide the location error label
+                airInError.isHidden = true
+            } else {
+                // If the text is not a valid double, set the error message of the location error label
+                airInError.text = "Input is not a valid double"
+                // Make the location error label visible
+                airInError.isHidden = false
+            }
+        }
+    }
+    @IBOutlet weak var airOutError: UILabel!
+    
+    @IBAction func airOutChanged(_ sender: Any) {
+        // Get the text from the location text field
+        if let airOut =  airOutTF.text{
+            // Check if the text is a valid double
+            if checkDouble(airOut) == nil {
+                // If the text is a valid double, hide the location error label
+                airOutError.isHidden = true
+            } else {
+                // If the text is not a valid double, set the error message of the location error label
+                airOutError.text = "Input is not a valid double"
+                // Make the location error label visible
+                airOutError.isHidden = false
+            }
+        }
+        
+    }
+    
+    @IBOutlet weak var wightError: UILabel!
+    
+    @IBAction func wightChanged(_ sender: Any) {
+        // Get the text from the location text field
+        if let wieght =  wieghtTF.text{
+            // Check if the text is a valid double
+            if checkDouble(wieght) == nil {
+                // If the text is a valid double, hide the location error label
+                wightError.isHidden = true
+            } else {
+                // If the text is not a valid double, set the error message of the location error label
+                wightError.text = "Input is not a valid double"
+                // Make the location error label visible
+                wightError.isHidden = false
+            }
+        }
+    }
+    
+    @IBOutlet weak var gassMixError: UILabel!
+    
+    
+    @IBAction func gassMixChanged(_ sender: Any) {
+        // Get the text from the location text field
+        if let gassMix =  gassMixTF.text{
+            // Check if the text is a valid double
+            if checkDouble(gassMix) == nil {
+                // If the text is a valid double, hide the location error label
+                gassMixError.isHidden = true
+            } else {
+                // If the text is not a valid double, set the error message of the location error label
+                gassMixError.text = "Input is not a valid double"
+                // Make the location error label visible
+                gassMixError.isHidden = false
+            }
+        }
+    }
+    
+    @IBOutlet weak var computerError: UILabel!
+    
+    @IBAction func computerChanged(_ sender: Any) {
+        // Get the text from the location text field
+    if let computer = computerTF.text {
+        // Check if the text is valid
+        if let errorMessage = invalidInput(computer){
+            // If the text is invalid, set the error message of the location error label
+            computerError.text = errorMessage
+            // Make the location error label visible
+            computerError.isHidden = false
+        }else {
+            // If the text is valid, hide the location error label
+            computerError.isHidden = true
+        }
+    }
+    }
+    
+    
+    @IBOutlet weak var cameraError: UILabel!
+    
+    @IBAction func cameraChanged(_ sender: Any) {
+        // Get the text from the location text field
+    if let camera = cameraTF.text {
+        // Check if the text is valid
+        if let errorMessage = invalidInput(camera){
+            // If the text is invalid, set the error message of the location error label
+            cameraError.text = errorMessage
+            // Make the location error label visible
+            cameraError.isHidden = false
+        }else {
+            // If the text is valid, hide the location error label
+            cameraError.isHidden = true
+        }
+    }
+    }
+    
+    @IBOutlet weak var weatherError: UILabel!
+    
+    @IBAction func weatherChanged(_ sender: Any) {
+        // Get the text from the location text field
+        if let weather =  weatherTempTF.text{
+            // Check if the text is a valid double
+            if checkDouble(weather) == nil {
+                // If the text is a valid double, hide the location error label
+                weatherError.isHidden = true
+            } else {
+                // If the text is not a valid double, set the error message of the location error label
+                weatherError.text = "Input is not a valid double"
+                // Make the location error label visible
+                weatherError.isHidden = false
+            }
+        }
+    }
+    
+    
+    @IBOutlet weak var airTempError: UILabel!
+    
+    
+    @IBAction func airTempChanged(_ sender: Any) {
+        // Get the text from the location text field
+        if let airTemp =  airTempTF.text{
+            // Check if the text is a valid double
+            if checkDouble(airTemp) == nil {
+                // If the text is a valid double, hide the location error label
+                airTempError.isHidden = true
+            } else {
+                // If the text is not a valid double, set the error message of the location error label
+                airTempError.text = "Input is not a valid double"
+                // Make the location error label visible
+                airTempError.isHidden = false
+            }
+        }
+    }
+    
+    
+    
+    @IBOutlet weak var visibilityError: UILabel!
+    
+    @IBAction func visibilityChanged(_ sender: Any) {
+        // Get the text from the location text field
+        if let visibility =  visibilyTF.text{
+            // Check if the text is a valid double
+            if checkDouble(visibility) == nil {
+                // If the text is a valid double, hide the location error label
+                visibilityError.isHidden = true
+            } else {
+                // If the text is not a valid double, set the error message of the location error label
+                visibilityError.text = "Input is not a valid double"
+                // Make the location error label visible
+                visibilityError.isHidden = false
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    func checkDouble(_ value: String) -> String? {
+        if let _ = Double(value) {
+            // value is a valid double
+            return nil
+        } else {
+            return " Please enter a double value."
+        }
+    }
+
+
+    
+    func invalidInput(_ value: String) -> String?{
+        if value.count < 3{
+            return "Input must contain at least 3 characters"
+        }
+        return nil
+    }
+    
+    
+    
+    //MARK: - clolors for dark and light mode
+    func backgrowndColor(){
+    tableView.backgroundColor = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+        switch traitCollection.userInterfaceStyle {
+            case .light:
+                return UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
+            case .dark:
+                return .black
+            default:
+            return .white
+        }
+    }
+    }
 }
 
