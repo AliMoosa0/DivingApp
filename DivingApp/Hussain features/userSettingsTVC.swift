@@ -8,7 +8,22 @@
 import UIKit
 import MessageUI
 
+
 class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    
+    
+    @IBOutlet weak var EditBtn: UIBarButtonItem!
+    
+    @IBOutlet weak var NameTxt: UITextField!
+    
+    
+
+    
+    
+    
+    
+    
     
    
 
@@ -76,45 +91,23 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
         }
 
 
-
-
-    }
-    
-    /*
-   
-    @IBAction func WeightSwitch(_ sender: Any) {
-        let weightString = WeightLbl.text!
-           let weight = Double(weightString)!
-           
-           if let switchControl = sender as? UISwitch {
-               if switchControl.isOn {
-                   let pounds = weight * 2.205
-                   WeightLbl.text = String(pounds)
-               } else {
-                   let kilograms = weight / 2.205
-                   WeightLbl.text = String(kilograms)
-               }
-           }
-    }
     
     
-    @IBAction func TempSwitch(_ sender: Any) {
-        let temp = dive.waterTemp
-        if let switchControl = sender as? UISwitch {
-            if switchControl.isOn {
-                let fahrenheit = (temp! * 9/5) + 32
-                WaterTempLbl.text = String(fahrenheit)
-            } else {
-                let celsius = (temp! - 32) * 5/9
-                WaterTempLbl.text = String(celsius)
-            }
-        }
+    
+    @IBAction func referralCodeButtonTapped(_ sender: Any) {
         
     }
     
-*/
-func viewDidLoad() {
-        viewDidLoad()
+    
+    
+    
+    
+    
+    
+    
+    
+override func viewDidLoad() {
+    super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -124,7 +117,7 @@ func viewDidLoad() {
         
     }
 
-    
+}
     
     
     
