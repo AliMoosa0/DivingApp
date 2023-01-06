@@ -13,7 +13,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     var dives: [Dive] = []
     // trip var to edit this trip
     var trip = Trip(title: "", location: "", tripDate: Date(), dives: [])
-    // trips array to save the data
+    // trips array to save the data - this is the array of tips sent from TripsTableViewController 
     var trips: [Trip] = []
     
     // search bar related variables
