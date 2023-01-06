@@ -8,9 +8,10 @@
 import UIKit
 
 class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
-    
+    //empty dives array
+    var dives:[Dive] = []
     // dives of selected trip
-    var dives: [Dive] = []
+    var divesOfSelectedTrip: [Dive] = []
     // trip var to edit this trip
     var trip = Trip(title: "", location: "", tripDate: Date(), dives: [])
     // trips array to save the data - this is the array of tips sent from TripsTableViewController 
@@ -32,6 +33,12 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         tableView.delegate = self
         searchBar.delegate = self
         self.sortTable()
+        
+        if let savedDives = Dive.loadDives(){
+            dives = savedDives
+        }else{
+            dives = divesOfSelectedTrip
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -72,7 +79,8 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         //dive.saveDives(dives)
         
         //trips.append(trip)
-        Trip.saveTrips(trips)
+        //Trip.saveTrips(trips)
+        Dive.saveDives(dives)
     }
     
     
@@ -85,7 +93,8 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { ACTION in
             self.dives.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            Trip.saveTrips(self.trips)
+            //Trip.saveTrips(self.trips)
+            Dive.saveDives(self.dives)
         })
 
         
