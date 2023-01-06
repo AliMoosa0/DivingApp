@@ -10,12 +10,14 @@ import UIKit
 class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     //empty dives array
     var dives:[Dive] = []
-    // dives of selected trip
+    // dives of selected trip to load sample data
     var divesOfSelectedTrip: [Dive] = []
     // trip var to edit this trip
     var trip = Trip(title: "", location: "", tripDate: Date(), dives: [])
-    // trips array to save the data - this is the array of tips sent from TripsTableViewController 
-    var trips: [Trip] = []
+    
+    
+    // trips array to save the data using Trip.saveTrips - this is the array of tips sent from TripsTableViewController
+    //var trips: [Trip] = []
     
     // search bar related variables
     var searchDive: [Dive] = []
