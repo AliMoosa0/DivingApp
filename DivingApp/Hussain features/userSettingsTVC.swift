@@ -36,9 +36,9 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
         content.title = "Diving App"
         content.body = "It's time to log your dive!"
         content.sound = .default
-        content.badge = 1
+        content.badge = 0
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 15, repeats: false)
        
         let request = UNNotificationRequest(identifier: "diving_reminder", content: content, trigger: trigger)
 

@@ -85,13 +85,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write your bio here" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UJG-wi-FPX">
-                                                    <rect key="frame" x="20" y="11" width="374" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write your bio here" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UJG-wi-FPX">
+                                                    <rect key="frame" x="20" y="11" width="374" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UJG-wi-FPX" secondAttribute="bottom" id="5Is-H1-fXI"/>
+                                                <constraint firstItem="UJG-wi-FPX" firstAttribute="leading" secondItem="KoF-0g-ZN5" secondAttribute="leadingMargin" id="HfH-mw-hDy"/>
+                                                <constraint firstItem="UJG-wi-FPX" firstAttribute="trailing" secondItem="KoF-0g-ZN5" secondAttribute="trailingMargin" id="jOn-tk-F6g"/>
+                                                <constraint firstItem="UJG-wi-FPX" firstAttribute="top" secondItem="KoF-0g-ZN5" secondAttribute="topMargin" id="wVF-gO-UhY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -105,21 +110,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recieve Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJ9-85-Sk6">
-                                                    <rect key="frame" x="20" y="23" width="160" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recieve Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJ9-85-Sk6">
+                                                    <rect key="frame" x="20" y="21" width="175" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BMh-HV-xfg">
-                                                    <rect key="frame" x="337" y="18" width="49" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BMh-HV-xfg">
+                                                    <rect key="frame" x="345" y="21" width="51" height="24"/>
                                                     <connections>
                                                         <action selector="Notif:" destination="DWz-KG-qBS" eventType="valueChanged" id="Bgr-FV-LBd"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vJ9-85-Sk6" firstAttribute="top" secondItem="c5K-g0-v4p" secondAttribute="topMargin" constant="10" id="CWD-sR-MG3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="BMh-HV-xfg" secondAttribute="trailing" id="O8B-zN-1vJ"/>
+                                                <constraint firstItem="BMh-HV-xfg" firstAttribute="top" secondItem="c5K-g0-v4p" secondAttribute="topMargin" constant="10" id="RpS-sR-9Zy"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="vJ9-85-Sk6" secondAttribute="bottom" constant="10" id="Ti5-h0-mmY"/>
+                                                <constraint firstItem="BMh-HV-xfg" firstAttribute="leading" secondItem="vJ9-85-Sk6" secondAttribute="trailing" constant="150" id="V9Q-cK-mBm"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BMh-HV-xfg" secondAttribute="bottom" constant="10" id="qlJ-Tk-Chd"/>
+                                                <constraint firstItem="vJ9-85-Sk6" firstAttribute="leading" secondItem="c5K-g0-v4p" secondAttribute="leadingMargin" id="w7S-Mv-ab8"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -133,9 +145,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idv-eo-01W">
-                                                    <rect key="frame" x="8" y="6" width="398" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idv-eo-01W">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="gray" title="Share"/>
                                                     <connections>
@@ -143,6 +154,12 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="idv-eo-01W" firstAttribute="top" secondItem="VfR-Pi-4f3" secondAttribute="top" id="Ipj-wD-5cL"/>
+                                                <constraint firstItem="idv-eo-01W" firstAttribute="leading" secondItem="VfR-Pi-4f3" secondAttribute="leading" id="KQh-pM-Snw"/>
+                                                <constraint firstAttribute="bottom" secondItem="idv-eo-01W" secondAttribute="bottom" id="Wey-au-OsN"/>
+                                                <constraint firstAttribute="trailing" secondItem="idv-eo-01W" secondAttribute="trailing" id="vZR-Sm-CWh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="featuresCell" rowHeight="43" id="x9v-Is-F2z">
@@ -152,9 +169,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYQ-fa-Pb8">
-                                                    <rect key="frame" x="8" y="6" width="398" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYQ-fa-Pb8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="gray" title="Contact Us"/>
                                                     <connections>
@@ -162,6 +178,12 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BYQ-fa-Pb8" firstAttribute="leading" secondItem="XFV-8N-osb" secondAttribute="leading" id="bqm-Ah-ybp"/>
+                                                <constraint firstAttribute="bottom" secondItem="BYQ-fa-Pb8" secondAttribute="bottom" id="c1H-ZO-8K6"/>
+                                                <constraint firstAttribute="trailing" secondItem="BYQ-fa-Pb8" secondAttribute="trailing" id="hXd-KC-zgx"/>
+                                                <constraint firstItem="BYQ-fa-Pb8" firstAttribute="top" secondItem="XFV-8N-osb" secondAttribute="top" id="x1m-jp-ogv"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="featuresCell" rowHeight="42" id="XC3-n1-LxE">
@@ -171,9 +193,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KG-hz-pMq">
-                                                    <rect key="frame" x="8" y="6" width="398" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KG-hz-pMq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="gray" title="Referal Code"/>
                                                     <connections>
@@ -182,6 +203,12 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="9KG-hz-pMq" secondAttribute="bottom" id="P8a-HI-KNR"/>
+                                                <constraint firstItem="9KG-hz-pMq" firstAttribute="leading" secondItem="njc-zB-Vqk" secondAttribute="leading" id="jSv-Ei-lRH"/>
+                                                <constraint firstAttribute="trailing" secondItem="9KG-hz-pMq" secondAttribute="trailing" id="rRY-hl-Jgh"/>
+                                                <constraint firstItem="9KG-hz-pMq" firstAttribute="top" secondItem="njc-zB-Vqk" secondAttribute="top" id="xAT-9H-GhN"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
