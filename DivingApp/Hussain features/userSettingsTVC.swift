@@ -15,18 +15,21 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
     
     
     @IBAction func Notif(_ sender: UISwitch) {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert]) { granted, error in
-            if granted{ print("granted")
-                self.scheduleNotif()
+        if sender.isOn {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert]) { granted, error in
+                if granted{
+                    print("granted")
+                    self.scheduleNotif()
+                } else {
+                    print("denied")
+                }
             }
-            else{
-                print("denied")
-                
-            }
+        } else {
+            // Remove notification request from the notification center
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["diving_reminder"])
         }
-        
     }
-    
+
     func scheduleNotif() {
         let content = UNMutableNotificationContent(
         )
