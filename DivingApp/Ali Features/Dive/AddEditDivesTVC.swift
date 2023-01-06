@@ -752,18 +752,18 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     
     func updateErrorLabels(){
         surfaceError.text = "       "
-        maxDepthError.text = "        "
-        avgDepthError.text = "        "
-        buttomTimeError.text = "         "
-        airInError.text = "           "
-        airOutError.text = "          "
-        wightError.text = "          "
-        gassMixError.text = "          "
-        computerError.text = ""
-        cameraError.text = "         "
-        weatherError.text = "          "
+        maxDepthError.text = "      "
+        avgDepthError.text = "      "
+        buttomTimeError.text = "    "
+        airInError.text = "         "
+        airOutError.text = "        "
+        wightError.text = "         "
+        gassMixError.text = "       "
+        computerError.text = "      "
+        cameraError.text = "        "
+        weatherError.text = "       "
         airTempError.text = "       "
-        visibilityError.text = "       "
+        visibilityError.text = "    "
     }
     
     
