@@ -14,6 +14,37 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
     
     
     
+    @IBAction func Notif(_ sender: UISwitch) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert]) { granted, error in
+            if granted{ print("granted")
+                self.scheduleNotif()
+            }
+            else{
+                print("denied")
+                
+            }
+        }
+        
+    }
+    
+    func scheduleNotif() {
+        let content = UNMutableNotificationContent(
+        )
+        content.title = "Diving App"
+        content.body = "It's time to log your dive!"
+        content.sound = .default
+        content.badge = 1
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+       
+        let request = UNNotificationRequest(identifier: "diving_reminder", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { (error) in
+
+        }
+    }
+    
+    
     @IBOutlet weak var NameTxt: UITextField!
     
     
