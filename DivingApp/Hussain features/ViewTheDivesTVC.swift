@@ -2,12 +2,20 @@
 //  ViewTheDivesTVC.swift
 //  DivingApp
 //
-//  Created by ALI MOOSA on 27/12/2022.
+//  Created by Hussain ali on 27/12/2022.
 //
 
 import UIKit
 
 class ViewTheDivesTVC: UITableViewController {
+    
+    
+
+    
+    
+    
+    var unitsAreCelsius: Bool = true
+
     
     @IBOutlet weak var editDiveButton: UIButton!
     
@@ -21,19 +29,16 @@ class ViewTheDivesTVC: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+
     
-    
-    
-    
-    
-    
+    //Outlet for labels
     @IBOutlet weak var DiveNoLbl: UILabel!
     @IBOutlet weak var SurfaceLbl: UILabel!
     @IBOutlet weak var TimeInLbl: UILabel!
     @IBOutlet weak var TimeOutLbl: UILabel!
     @IBOutlet weak var MaxDepthLbl: UILabel!
     @IBOutlet weak var AvgDepth: UILabel!
-    @IBOutlet weak var BottomTimeLbl: UILabel!
+    @IBOutlet weak var BottomTimeLbl:UILabel!
     @IBOutlet weak var TankTypeLbl: UILabel!
     @IBOutlet weak var CapacityLbl: UILabel!
     @IBOutlet weak var AirInLbl: UILabel!
@@ -44,45 +49,67 @@ class ViewTheDivesTVC: UITableViewController {
     @IBOutlet weak var GasMixLbl: UILabel!
     @IBOutlet weak var ComputerLbl: UILabel!
     @IBOutlet weak var CameraLbl: UILabel!
-    @IBOutlet weak var WaterTempLbl: UILabel!
+    @IBOutlet weak var WaterTempLbl:UILabel!
     @IBOutlet weak var AirTempLbl: UILabel!
-    @IBOutlet weak var VisibilityLbl: UILabel!
+    @IBOutlet weak var VisibilityLbl:UILabel!
+    @IBOutlet weak var wetherLbl: UILabel!
+    
     
     
     @IBOutlet weak var NotesLbl: UILabel!
     
     
     func upadteLabels(){
-        DiveNoLbl.text = String("\(dive.diveNumber!)")
-        SurfaceLbl.text = String("\(dive.surfaceInterval!)")
-        TimeOutLbl.text = String("\(dive.timeOut!)")
-        TimeInLbl.text = String("\(dive.timeIn!)")
-        MaxDepthLbl.text = String("\(dive.maxDepth!)")
-        BottomTimeLbl.text = String("\(dive.buttomTime!)")
-        TankTypeLbl.text = String("\(dive.tankType!)")
-        CapacityLbl.text = String("\(dive.tankCap!)")
-        AirInLbl.text = String("\(dive.airIn!)")
-        SwellingLbl.text = String("\(dive.swell!)")
-        AirOutLbl.text = String ("\(dive.airOut!)")
-        SuitTypeLbl.text = String ("\(dive.suiteType!)")
-        AvgDepth.text = String ("\(dive.avgDepth!)")
-        WeightLbl.text = String ("\(dive.wieght!)")
-        GasMixLbl.text = String ("\(dive.gasMix!)")
-        ComputerLbl.text = String ("\(dive.computer!)")
-        CameraLbl.text = String ("\(dive.camera!)")
-        WaterTempLbl.text = String ("\(dive.waterTemp!)")
-        AirTempLbl.text = String ("\(dive.airTemp!)")
-        VisibilityLbl.text = String ("\(dive.visibility!)")
-        NotesLbl.text = String ("\(dive.notes!)")
+        DiveNoLbl.text = String("\(dive.diveNumber ?? 0)")
+                SurfaceLbl.text = String("\(dive.surfaceInterval ?? 0.0)")
+                TimeOutLbl.text = String("\(dive.timeOut ?? .none)")
+                TimeInLbl.text = String("\(dive.timeIn ?? .none)")
+                MaxDepthLbl.text = String("\(dive.maxDepth ?? 0.0)")
+                BottomTimeLbl.text = String("\(dive.buttomTime ?? 0.0)")
+                TankTypeLbl.text = String("\(dive.tankType ?? .none)")
+                CapacityLbl.text = String("\(dive.tankCap ?? .none)")
+                AirInLbl.text = String("\(dive.airIn ?? 0.0)")
+                wetherLbl.text = String("\(dive.wetherType ?? .none)")
+                SwellingLbl.text = String("\(dive.swell ?? .none)")
+                AirOutLbl.text = String ("\(dive.airOut ?? 0.0)")
+                SuitTypeLbl.text = String ("\(dive.suiteType ?? .none)")
+                AvgDepth.text = String ("\(dive.avgDepth ?? 0.0)")
+                WeightLbl.text = String ("\(dive.wieght ?? 0.0)")
+                GasMixLbl.text = String ("\(dive.gasMix ?? 0.0)")
+                ComputerLbl.text = String ("\(dive.computer ?? "")")
+                CameraLbl.text = String ("\(dive.camera ?? "")")
+                WaterTempLbl.text = String ("\(dive.waterTemp ?? 0.0)")
+                AirTempLbl.text = String ("\(dive.airTemp ?? 0.0)")
+                VisibilityLbl.text = String ("\(dive.visibility ?? 0.0)")
+                NotesLbl.text = String ("\(dive.notes ?? "")")
+        
+        if let timeIn = dive.timeIn {
+            TimeInLbl.text = String("\(timeIn)")
+        }
+        if let timeOut = dive.timeOut {
+            TimeOutLbl.text = String("\(timeOut)")
+        }
+        if let tankType = dive.tankType {
+            TankTypeLbl.text = String("\(tankType)")
+        }
+        if let weatherType = dive.wetherType {
+            wetherLbl.text = String("\(weatherType)")
+        }
+        if let tankCapacity = dive.tankCap {
+            CapacityLbl.text = String("\(tankCapacity)")
+        }
+        if let suitType = dive.suiteType {
+            SuitTypeLbl.text = String("\(suitType)")
+        }
+        if let swellingLvl = dive.swell {
+            SwellingLbl.text = String("\(swellingLvl)")
+        }
+
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        upadteLabels()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,8 +132,6 @@ class ViewTheDivesTVC: UITableViewController {
             
             
         }
-        
-        
     }
     
     
