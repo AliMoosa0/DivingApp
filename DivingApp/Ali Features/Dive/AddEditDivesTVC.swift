@@ -36,8 +36,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     //MARK: - View did load
     override func viewDidLoad() {
         super.viewDidLoad()
-     //when opening the addEdit dive page make the keyboard appear on the number of dives text field
-        //FIX THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     
         //need to rename it form label to text field
         numOfDivesLabel.becomeFirstResponder()
         
@@ -45,8 +44,8 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         updateErrorLabels()
         updateDive()
         updatePlaceHolders()
-        
-       
+        saveButton.isEnabled = false
+                
         macDepthTF.autocorrectionType = .no
         macDepthTF.adjustsFontSizeToFitWidth = false
         
@@ -472,10 +471,31 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         }
     //MARK: - Validation
     
+    @IBOutlet weak var diveNumberError: UILabel!
+    
+    @IBAction func diveNumberChanged(_ sender: Any) {
+        // Get the text from the location text field
+          if let diveNo = numOfDivesLabel.text {
+            // Check if the text is empty
+            if let errorMessage = checkIfEmpty(input: diveNo) {
+              // If the text is empty, set the error message of the diveNumber error label to "required"
+              diveNumberError.text = errorMessage
+              // Make the diveNumber error label visible
+              diveNumberError.isHidden = false
+            } else {
+              // If the text is not empty, hide the diveNumber error label
+              diveNumberError.isHidden = true
+            }
+          }
+
+          updateSaveButtonState()
+        print("saveButton.isEnabled: \(saveButton.isEnabled)")
+
+    }
+    
+    
+    
     @IBOutlet weak var surfaceError: UILabel!
-    
-    
-    
     
     @IBAction func surfaceChanged(_ sender: Any) {
         // Get the text from the location text field
@@ -721,16 +741,8 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         }
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    // Function to evaluate the input "DOUBLE"
     func checkDouble(_ value: String) -> String? {
         if value.range(of: ".") == nil {
             return "Please enter a double value."
@@ -738,11 +750,18 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             return nil
         }
     }
+   
+    func checkIfEmpty(input: String) -> String? {
+      if input.isEmpty {
+        return "Required"
+      }
+      return nil
+    }
 
 
 
 
-    
+    // Function to evaluate the input "DOUBLE"
     func invalidInput(_ value: String) -> String?{
         if value.count < 3{
             return "Input must contain at least 3 characters"
@@ -750,21 +769,23 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         return nil
     }
     
+    // Function to empty the labels text
     func updateErrorLabels(){
-        surfaceError.text = "       "
-        maxDepthError.text = "      "
-        avgDepthError.text = "      "
-        buttomTimeError.text = "    "
-        airInError.text = "         "
-        airOutError.text = "        "
-        wightError.text = "         "
-        gassMixError.text = "       "
-        computerError.text = "      "
-        cameraError.text = "        "
-        weatherError.text = "       "
-        airTempError.text = "       "
-        visibilityError.text = "    "
+        surfaceError.text = " "
+        maxDepthError.text = " "
+        avgDepthError.text = " "
+        buttomTimeError.text = " "
+        airInError.text = " "
+        airOutError.text = " "
+        wightError.text = " "
+        gassMixError.text = " "
+        computerError.text = " "
+        cameraError.text = " "
+        weatherError.text = " "
+        airTempError.text = " "
+        visibilityError.text = " "
     }
+
     
     
     //MARK: - clolors for dark and light mode
@@ -781,7 +802,25 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     }
     }
     
+    //MARK: - save button
+   
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     
+    func updateSaveButtonState() {
+        if  diveNumberError.isHidden{
+                
+            saveButton.isEnabled = true
+
+            
+      } else {
+        saveButton.isEnabled = false
+      }
+    }
+
+
 }
+
+
 
