@@ -14,7 +14,8 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     var divesOfSelectedTrip: [Dive] = []
     // trip var to edit this trip
     var trip = Trip(title: "", location: "", tripDate: Date(), dives: [])
-    
+    // empty array of all the dives
+    var allDives : [Dive] = []
     
     
     // search bar related variables
@@ -39,6 +40,13 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         }else{
             dives = divesOfSelectedTrip
         }
+        
+        if let savedAllDives = Dive.loadAllDives(){
+            allDives = savedAllDives
+        }else{
+            dives = divesOfSelectedTrip
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -65,6 +73,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
                 
                 let newIndexPath = IndexPath(row: dives.count, section: 0)
                 dives.append(dive)
+                allDives.append(dive)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
                 
              
@@ -74,6 +83,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         }
         
         Dive.saveDives(dives, to: "\(trip.id)")
+        Dive.saveAllDives(allDives)
     }
     
     
@@ -86,8 +96,9 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { ACTION in
             self.dives.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            //Trip.saveTrips(self.trips)
+            
             Dive.saveDives(self.dives, to: "\(self.trip.id)")
+            Dive.saveAllDives(self.allDives)
         })
 
         

@@ -106,4 +106,24 @@ struct Dive : Equatable, Codable {
         let codedDives = try? propertyListEncoder.encode(dives)
         try? codedDives?.write(to: archiveURL, options: .noFileProtection)
     }
+    
+    
+    static let archiveURL = documentsDirectory.appendingPathComponent("dives").appendingPathExtension("plist")
+    
+    static func loadAllDives() -> [Dive]?{
+        //let archiveURL = documentsDirectory.appendingPathComponent("dives").appendingPathExtension("plist")
+        
+        guard let codedDives = try? Data(contentsOf: archiveURL) else {return nil}
+        let propertListDecoder = PropertyListDecoder()
+        return try? propertListDecoder.decode(Array<Dive>.self, from: codedDives)
+    }
+    
+    static func saveAllDives(_ dives: [Dive]){
+       // let archiveURL = documentsDirectory.appendingPathComponent("dives").appendingPathExtension("plist")
+        
+        let propertyListEncoder = PropertyListEncoder()
+        let codedDives = try? propertyListEncoder.encode(dives)
+        try? codedDives?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
 }

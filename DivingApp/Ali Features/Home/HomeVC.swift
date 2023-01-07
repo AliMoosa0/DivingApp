@@ -22,18 +22,39 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // load sample trips and assign them to the trips array
-        trips = Trip.loadSampleLoad()
+        // load sample trips or load trips from file and assign them to the trips array
+        if let savedTrips = Trip.loadTrips(){
+            trips = savedTrips
+        }else{
+            trips = Trip.loadSampleLoad()
+        }
+        
+        // load dives
+        
+        if let savedDives = Dive.loadAllDives(){
+            dives = savedDives
+        }
+         
 
         // update the number of trips label
-        numberOfTrips(trips: trips)
-
+        //numberOfTrips(trips: trips)
+        //updateNoOfTrips()
+        
         // update the number of dives label
-        numberOfDives(trips: trips)
-
+       // numberOfDives(dives: dives)
+       // updateNoOfDives()
+        refreshData()
         // update the average maximum depth label
         updatLastLabel()
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+            refreshData()
+        
+    }
+     
 
     // updates the noOfTrips label with the number of trips
     func numberOfTrips(trips :[Trip]){
@@ -45,7 +66,7 @@ class HomeVC: UIViewController {
     }
 
     // calculates the average maximum depth of all dives
-    func avgMaxDepth(trips: [Trip], dives: [Dive]) -> Double {
+    func avgMaxDepth(dives: [Dive]) -> String {
         // total depth of all dives
         var totalDepth = 0.0
 
@@ -53,41 +74,59 @@ class HomeVC: UIViewController {
         var numDives = 0
 
         // iterate through each trip and dive, adding the maximum depth of each dive to totalDepth
-        for trip in trips {
-            for dive in trip.dives {
-                totalDepth += dive.maxDepth!
+        
+            for dive in dives {
+                totalDepth += dive.maxDepth ?? 0.0
                 numDives += 1
             }
-        }
+        
 
         // if there are dives, return the average maximum depth
         if numDives > 0 {
-            return totalDepth / Double(numDives)
+            //return totalDepth / Double(numDives)
+            return String(format: "%.2f", totalDepth / Double(numDives))
         }
         // if there are no dives, return 0
         else {
-            return 0.0
+            return "0.00"
         }
     }
 
     // updates the maxDepthLabel with the average maximum depth of all dives
     func updatLastLabel(){
         // update the maxDepthLabel
-        maxDepthLabel.text = " AVG of max Depths:\n\(String(avgMaxDepth(trips: trips, dives: dives))) "
+        maxDepthLabel.text = " AVG of max Depths:\n\(String(avgMaxDepth(dives: dives))) "
     }
 
     // updates the noOfDives label with the number of dives in the trips array
-    func numberOfDives(trips :[Trip]){
+    func numberOfDives(dives :[Dive]){
         // number of dives
-        var noDives : Int = 0
+        //var noDives : Int = 0
 
         // iterate through each trip and add the number of dives in each trip to noDives
+        /*
         for trip in trips {
             noDives += trip.dives.count
         }
+         */
+        
+        let noDives = dives.count
 
         // update the noOfDives label
-        noOfDives.text = "Number of dives:\n\(String(noDives))"
+        noOfDives.text = "Number of dives:\n\(noDives)"
     }
+    
+    func updateNoOfTrips(){
+        numberOfTrips(trips: trips)
 
+    }
+    
+    func updateNoOfDives(){
+        numberOfDives(dives: dives)
+    }
+    
+    func refreshData(){
+        updateNoOfTrips()
+        updateNoOfDives()
+    }
 }
