@@ -16,8 +16,6 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     var trip = Trip(title: "", location: "", tripDate: Date(), dives: [])
     
     
-    // trips array to save the data using Trip.saveTrips - this is the array of tips sent from TripsTableViewController
-    //var trips: [Trip] = []
     
     // search bar related variables
     var searchDive: [Dive] = []
@@ -67,21 +65,14 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
                 
                 let newIndexPath = IndexPath(row: dives.count, section: 0)
                 dives.append(dive)
-                //trip.dives.append(dive)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
                 
              
-//                trip.dives.append(dive)
+
             }
             
         }
         
-        //FIX THIS
-        //NEED THIS TO SAVE THE DATA ON FILE
-        //dive.saveDives(dives)
-        
-        //trips.append(trip)
-        //Trip.saveTrips(trips)
         Dive.saveDives(dives, to: "\(trip.id)")
     }
     
@@ -114,11 +105,11 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     func sortTable(){
         switch sortSegmentedControl.selectedSegmentIndex{
         case 0:
-            dives.sort(by: {$0.diveNumber! > $1.diveNumber!})
+            dives.sort(by: {$0.diveNumber ?? 0 > $1.diveNumber ?? 0})
         case 1:
-            dives.sort(by: {$0.diveNumber! < $1.diveNumber!})
+            dives.sort(by: {$0.diveNumber ?? 0 < $1.diveNumber ?? 0})
         case 2:
-            dives.sort(by: {$0.maxDepth! > $1.maxDepth!})
+            dives.sort(by: {$0.maxDepth ?? 0.0 > $1.maxDepth ?? 0.0})
         default:
             print("this default is just to fix the error")
         }
@@ -255,7 +246,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     // search bar functions
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchDive = dives.filter({String($0.diveNumber!) == searchText})
+        searchDive = dives.filter({String($0.diveNumber ?? 0) == searchText})
         searching = true
         tableView.reloadData()
     }

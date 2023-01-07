@@ -208,7 +208,6 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
         let trip = trips[indexPath!.row]
         viewDivesTVC.trip = trip
         viewDivesTVC.dives = trip.dives
-        //viewDivesTVC.trips = trips
 
     }
     

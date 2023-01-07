@@ -42,17 +42,6 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     }
     
     
-    /*
-        DELETE THIS METHOD
-    @objc func checkButtonClicked( sender: UIButton){
-        if sender.isSelected{
-            sender.isSelected = false
-        }else{
-            sender.isSelected = true
-        }
-       
-    }
-     */
     
     
     @IBAction func clearButtonPressed(_ sender: UIBarButtonItem) {
@@ -116,11 +105,6 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
             cell.accessoryType = item.isChecked ? .checkmark : .none
         }
         
-        /*
-            DELETE THIS
-        cell.selectionStyle = .none
-        cell.checkButton?.addTarget(self, action: #selector(checkButtonClicked(sender:)), for: .touchUpInside)
-         */
         
         // return the cell
         return cell
