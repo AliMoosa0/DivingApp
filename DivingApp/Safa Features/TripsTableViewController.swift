@@ -139,11 +139,13 @@ class TripsTableViewController: UITableViewController, UISearchBarDelegate {
         if searching {
             let trip = searchTrip[indexPath.row]
             cell.tripNameLabel.text = trip.title
-            cell.descriptionLabel.text = "\(trip.location) - \(trip.tripDate)"
+            let formattedTripDate = trip.tripDate.formatted(.dateTime.month(.abbreviated).day().year(.defaultDigits))
+            cell.descriptionLabel.text = "\(trip.location) - \(formattedTripDate)"
         }else{
             let trip = trips[indexPath.row]
             cell.tripNameLabel.text = trip.title
-            cell.descriptionLabel.text = "\(trip.location) - \(trip.tripDate)"
+            let formattedTripDate = trip.tripDate.formatted(.dateTime.month(.abbreviated).day().year(.defaultDigits))
+            cell.descriptionLabel.text = "\(trip.location) - \(formattedTripDate)"
         }
         
         cell.showsReorderControl = true
