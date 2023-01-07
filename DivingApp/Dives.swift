@@ -86,15 +86,22 @@ struct Dive : Equatable, Codable {
     
     static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     
-    static let archiveURL = documentsDirectory.appendingPathComponent("dives").appendingPathExtension("plist")
+  //  static let archiveURL = documentsDirectory.appendingPathComponent("dives").appendingPathExtension("plist")
     
-    static func loadDives() -> [Dive]? {
+    static func getFileUrl(_ tripUID : String) -> URL{
+        let archiveURL = documentsDirectory.appendingPathComponent(tripUID).appendingPathExtension("plist")
+        return archiveURL
+    }
+    
+    static func loadDives(from tripUID: String) -> [Dive]? {
+        let archiveURL = getFileUrl(tripUID)
         guard let codedDives = try? Data(contentsOf: archiveURL) else {return nil}
         let propertListDecoder = PropertyListDecoder()
         return try? propertListDecoder.decode(Array<Dive>.self, from: codedDives)
     }
     
-    static func saveDives(_ dives: [Dive]){
+    static func saveDives(_ dives: [Dive], to tripUID: String){
+        let archiveURL = getFileUrl(tripUID)
         let propertyListEncoder = PropertyListEncoder()
         let codedDives = try? propertyListEncoder.encode(dives)
         try? codedDives?.write(to: archiveURL, options: .noFileProtection)

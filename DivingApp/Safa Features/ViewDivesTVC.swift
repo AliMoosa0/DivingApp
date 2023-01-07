@@ -36,7 +36,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         searchBar.delegate = self
         self.sortTable()
         
-        if let savedDives = Dive.loadDives(){
+        if let savedDives = Dive.loadDives(from: "\(trip.id)"){
             dives = savedDives
         }else{
             dives = divesOfSelectedTrip
@@ -82,7 +82,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         
         //trips.append(trip)
         //Trip.saveTrips(trips)
-        Dive.saveDives(dives)
+        Dive.saveDives(dives, to: "\(trip.id)")
     }
     
     
@@ -96,7 +96,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
             self.dives.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             //Trip.saveTrips(self.trips)
-            Dive.saveDives(self.dives)
+            Dive.saveDives(self.dives, to: "\(self.trip.id)")
         })
 
         
