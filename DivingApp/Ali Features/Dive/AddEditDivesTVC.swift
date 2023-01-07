@@ -209,34 +209,43 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     
     //MARK: - update the text fields
     // funxtion to updatge the dive
+    // funxtion to updatge the dive
     func updateDive(){
         //if the dive exist
         if let dive = dive {
             //set the title to editing dive
             navigationItem.title = "Editing the Dive"
             //set each dive component to their text fields and pickers
-            numOfDivesLabel.text = String("\(dive.diveNumber!)")
-            surfaceIntervalTF.text = String("\(dive.surfaceInterval!)")
-            timeInLabel.text = String("\(dive.timeIn!)")
-            timeOutLabel.text = String("\(dive.timeOut!)")
-            macDepthTF.text = String("\(dive.maxDepth!)")
-            avgDepthTF.text = String("\(dive.avgDepth!)")
-            bottomTimeTF.text = String("\(dive.buttomTime!)")
+            numOfDivesLabel.text = String("\(dive.diveNumber ?? 0)")
+            surfaceIntervalTF.text = String("\(dive.surfaceInterval ?? 0.0)")
+            timeInLabel.text = String("\(dive.timeIn ?? .none)")
+            timeOutLabel.text = String("\(dive.timeOut ?? .none)")
+            macDepthTF.text = String("\(dive.maxDepth ?? 0.0)")
+            avgDepthTF.text = String("\(dive.avgDepth ?? 0.0)")
+            bottomTimeTF.text = String("\(dive.buttomTime ?? 0.0)")
             slectedTankType.text = dive.tankType
             slectedtankcap.text = dive.tankCap
-            airInTF.text = String("\(dive.airIn!)")
-            airOutTF.text = String("\(dive.airOut!)")
+            airInTF.text = String("\(dive.airIn ?? 0.0)")
+            airOutTF.text = String("\(dive.airOut ?? 0.0)")
             slectedSuiteType.text = dive.suiteType
-            wieghtTF.text = String("\(dive.wieght!)")
-            gassMixTF.text = String("\(dive.gasMix!)")
-            computerTF.text = String("\(dive.computer!)")
-            weatherTempTF.text = String("\(dive.waterTemp!)")
-            cameraTF.text = String("\(dive.camera!)")
+            wieghtTF.text = String("\(dive.wieght ?? 0.0)")
+            gassMixTF.text = String("\(dive.gasMix ?? 0.0)")
+            computerTF.text = String("\(dive.computer ?? "")")
+            weatherTempTF.text = String("\(dive.waterTemp ?? 0.0)")
+            cameraTF.text = String("\(dive.camera ?? "")")
             slectedWeather.text = dive.wetherType
-            airTempTF.text = String("\(dive.airTemp!)")
-            visibilyTF.text = String("\(dive.visibility!)")
+            airTempTF.text = String("\(dive.airTemp ?? 0.0)")
+            visibilyTF.text = String("\(dive.visibility ?? 0.0)")
             slectedSwell.text = dive.swell
-            notesTF.text = String("\(dive.notes!)")
+            notesTF.text = String("\(dive.notes ?? "")")
+            
+            if let timeIn = dive.timeIn {
+                timeInLabel.text = String("\(timeIn)")
+            }
+            if let timeOut = dive.timeOut {
+                timeOutLabel.text = String("\(timeOut)")
+            }
+           
             
         }else{
             //else set the title to a new dive
