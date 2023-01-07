@@ -34,6 +34,8 @@
 		3FD2ABAE29477EA6001D293A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2ABAC29477EA6001D293A /* Main.storyboard */; };
 		3FD2ABB029477EA8001D293A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2ABAF29477EA8001D293A /* Assets.xcassets */; };
 		3FD2ABB329477EA8001D293A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2ABB129477EA8001D293A /* LaunchScreen.storyboard */; };
+		5D22B169295F60CA0033E0F7 /* userSettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D22B168295F60CA0033E0F7 /* userSettingsTVC.swift */; };
+		5DD668B429668E8700D17B1F /* ReferralTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD668B329668E8700D17B1F /* ReferralTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		3FD2ABAF29477EA8001D293A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FD2ABB229477EA8001D293A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FD2ABB429477EA8001D293A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D22B168295F60CA0033E0F7 /* userSettingsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSettingsTVC.swift; sourceTree = "<group>"; };
+		5DD668B329668E8700D17B1F /* ReferralTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferralTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,8 @@
 				3F5B3839294B92F900E2B78E /* ViewTheDives.storyboard */,
 				3F9AACC1295B0F4500593E72 /* ViewTheDivesTVC.swift */,
 				3F5B382A294B8BC900E2B78E /* UserSettings.storyboard */,
+				5D22B168295F60CA0033E0F7 /* userSettingsTVC.swift */,
+				5DD668B329668E8700D17B1F /* ReferralTVC.swift */,
 			);
 			path = "Hussain features";
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D22B169295F60CA0033E0F7 /* userSettingsTVC.swift in Sources */,
 				0645EF8D2953887200BB53DF /* ViewDivesTVC.swift in Sources */,
 				3F020F982951A6BD00BC4291 /* AddEditTripTVC.swift in Sources */,
 				062F857E2960788D0037DE59 /* Equipment.swift in Sources */,
@@ -270,6 +277,7 @@
 				062F857C295DD4600037DE59 /* EquipmentCell.swift in Sources */,
 				3FD2ABA729477EA6001D293A /* AppDelegate.swift in Sources */,
 				3F0C06A62952F06C00D4F178 /* AddEditDivesTVC.swift in Sources */,
+				5DD668B429668E8700D17B1F /* ReferralTVC.swift in Sources */,
 				0645EFAF29561A3700BB53DF /* TripCell.swift in Sources */,
 				3FD2ABA929477EA6001D293A /* SceneDelegate.swift in Sources */,
 				0645EFB1295620A100BB53DF /* DiveCell.swift in Sources */,
