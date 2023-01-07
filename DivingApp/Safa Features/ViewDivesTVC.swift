@@ -8,11 +8,18 @@
 import UIKit
 
 class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
-    
-    
-    var dives: [Dive] = []
+    //empty dives array
+    var dives:[Dive] = []
+    // dives of selected trip to load sample data
+    var divesOfSelectedTrip: [Dive] = []
+    // trip var to edit this trip
     var trip = Trip(title: "", location: "", tripDate: Date(), dives: [])
-    var trips: [Trip] = []
+    
+    
+    // trips array to save the data using Trip.saveTrips - this is the array of tips sent from TripsTableViewController
+    //var trips: [Trip] = []
+    
+    // search bar related variables
     var searchDive: [Dive] = []
     var searching = false
     
@@ -28,6 +35,12 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         tableView.delegate = self
         searchBar.delegate = self
         self.sortTable()
+        
+        if let savedDives = Dive.loadDives(from: "\(trip.id)"){
+            dives = savedDives
+        }else{
+            dives = divesOfSelectedTrip
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -67,8 +80,9 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         //NEED THIS TO SAVE THE DATA ON FILE
         //dive.saveDives(dives)
         
-        trips.append(trip)
-        Trip.saveTrips(trips)
+        //trips.append(trip)
+        //Trip.saveTrips(trips)
+        Dive.saveDives(dives, to: "\(trip.id)")
     }
     
     
@@ -81,7 +95,8 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { ACTION in
             self.dives.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            Trip.saveTrips(self.trips)
+            //Trip.saveTrips(self.trips)
+            Dive.saveDives(self.dives, to: "\(self.trip.id)")
         })
 
         
