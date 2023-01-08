@@ -17,6 +17,7 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var theDateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var datTitleLabel: UILabel!
     
     
     // MARK: - viewDidLoad
@@ -58,6 +59,9 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
             // If a trip object is provided, populate the text fields with its values
             //and set the navigation item title to "Editing a Trip"
             navigationItem.title = "Editing a Trip"
+            nameError.text = ""
+            locationError.text = ""
+
             nameTextField.text = trip.title
             locationTextField.text = trip.location
             theDateLabel.text = String("\(trip.tripDate)")
@@ -70,13 +74,16 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
     //MARK: - Update the date
     // Updates the date label with the provided date in the "month day, year" format
     func updateTheDateLabel(date: Date) {
-        theDateLabel.text = date.formatted(.dateTime.month(.defaultDigits).day().year(.defaultDigits))
+        theDateLabel.text = date.formatted(.dateTime.month(.abbreviated).day().year(.defaultDigits))
+        
+        
     }
 
     // Called when the value of the date picker changes
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         // Update the date label with the new date picker value
         updateTheDateLabel(date: sender.date)
+        datTitleLabel.text = "Date:"
     }
 
 

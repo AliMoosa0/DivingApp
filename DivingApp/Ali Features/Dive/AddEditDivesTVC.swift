@@ -33,11 +33,15 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     @IBOutlet weak var visibilyTF: UITextField!
     @IBOutlet weak var notesTF: UITextField!
     
+    @IBOutlet weak var timeInTitleLabel: UILabel!
+    
+    @IBOutlet weak var timeOutTitleLabel: UILabel!
+    
+    
     //MARK: - View did load
     override func viewDidLoad() {
         super.viewDidLoad()
-     //when opening the addEdit dive page make the keyboard appear on the number of dives text field
-        //FIX THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     
         //need to rename it form label to text field
         numOfDivesLabel.becomeFirstResponder()
         
@@ -45,8 +49,8 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         updateErrorLabels()
         updateDive()
         updatePlaceHolders()
-        
-       
+        saveButton.isEnabled = false
+                
         macDepthTF.autocorrectionType = .no
         macDepthTF.adjustsFontSizeToFitWidth = false
         
@@ -210,38 +214,53 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     
     //MARK: - update the text fields
     // funxtion to updatge the dive
+    // funxtion to updatge the dive
     func updateDive(){
+      
+
         //if the dive exist
         if let dive = dive {
             //set the title to editing dive
             navigationItem.title = "Editing the Dive"
+            diveNumberError.text = ""
             //set each dive component to their text fields and pickers
-            numOfDivesLabel.text = String("\(dive.diveNumber!)")
-            surfaceIntervalTF.text = String("\(dive.surfaceInterval!)")
-            timeInLabel.text = String("\(dive.timeIn!)")
-            timeOutLabel.text = String("\(dive.timeOut!)")
-            macDepthTF.text = String("\(dive.maxDepth!)")
-            avgDepthTF.text = String("\(dive.avgDepth!)")
-            bottomTimeTF.text = String("\(dive.buttomTime!)")
+            numOfDivesLabel.text = String("\(dive.diveNumber ?? 0)")
+            surfaceIntervalTF.text = String("\(dive.surfaceInterval ?? 0.0)")
+            timeInLabel.text = String("\(dive.timeIn ?? .none)")
+            timeOutLabel.text = String("\(dive.timeOut ?? .none)")
+            macDepthTF.text = String("\(dive.maxDepth ?? 0.0)")
+            avgDepthTF.text = String("\(dive.avgDepth ?? 0.0)")
+            bottomTimeTF.text = String("\(dive.buttomTime ?? 0.0)")
             slectedTankType.text = dive.tankType
             slectedtankcap.text = dive.tankCap
-            airInTF.text = String("\(dive.airIn!)")
-            airOutTF.text = String("\(dive.airOut!)")
+            airInTF.text = String("\(dive.airIn ?? 0.0)")
+            airOutTF.text = String("\(dive.airOut ?? 0.0)")
             slectedSuiteType.text = dive.suiteType
-            wieghtTF.text = String("\(dive.wieght!)")
-            gassMixTF.text = String("\(dive.gasMix!)")
-            computerTF.text = String("\(dive.computer!)")
-            weatherTempTF.text = String("\(dive.waterTemp!)")
-            cameraTF.text = String("\(dive.camera!)")
+            wieghtTF.text = String("\(dive.wieght ?? 0.0)")
+            gassMixTF.text = String("\(dive.gasMix ?? 0.0)")
+            computerTF.text = String("\(dive.computer ?? "None")")
+            weatherTempTF.text = String("\(dive.waterTemp ?? 0.0)")
+            cameraTF.text = String("\(dive.camera ?? "None")")
             slectedWeather.text = dive.wetherType
-            airTempTF.text = String("\(dive.airTemp!)")
-            visibilyTF.text = String("\(dive.visibility!)")
+            airTempTF.text = String("\(dive.airTemp ?? 0.0)")
+            visibilyTF.text = String("\(dive.visibility ?? 0.0)")
             slectedSwell.text = dive.swell
-            notesTF.text = String("\(dive.notes!)")
+            notesTF.text = String("\(dive.notes ?? "")")
+            
+            if let timeIn = dive.timeIn {
+                timeInLabel.text = String("\(timeIn)")
+            }
+            if let timeOut = dive.timeOut {
+                timeOutLabel.text = String("\(timeOut)")
+            }
+           
             
         }else{
             //else set the title to a new dive
             navigationItem.title = "New Dive"
+            updateDateViews()
+           
+
         }
     }
     //MARK: - Prepare
@@ -263,8 +282,8 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         let suiteTypeSelectedRow = suiteTypePickerView.selectedRow(inComponent: 0)
         let weight = Double(wieghtTF.text!)
         let gasMix = Double(gassMixTF.text!)
-        let computer = computerTF.text!
-        let camera = cameraTF.text!
+        let computer = computerTF.text ?? "None"
+        let camera = cameraTF.text ?? "None"
         let weatherSelectedRow = weatherPickerView.selectedRow(inComponent: 0)
         let weatherTemp = Double(weatherTempTF.text!)
         let airTemp = Double(airTempTF.text!)
@@ -282,7 +301,6 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         
         // Dive is not nil, so we can safely access its properties and methods
         if dive != nil {
-           
             print("updating the dive")
             
             // Update the dive object with the new values
@@ -364,10 +382,14 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
 
 
     //when a pciker is changed call the updateDateView method
-    @IBAction func pickerValueChanged(_ sender: Any) {
+    @IBAction func inPickerValueChanged(_ sender: Any) {
         updateDateViews()
+        timeInTitleLabel.text = "Time In"
     }
-    
+    @IBAction func outPickerValueChanged(_ sender: Any) {
+        updateDateViews()
+        timeOutTitleLabel.text = "Time Out"
+    }
     // MARK: - hide unhide the pickers a
     // Index path for the time in label cell
     let timeInCellIndexPath = IndexPath(row: 1, section: 1)
@@ -472,10 +494,31 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         }
     //MARK: - Validation
     
+    @IBOutlet weak var diveNumberError: UILabel!
+    
+    @IBAction func diveNumberChanged(_ sender: Any) {
+        // Get the text from the location text field
+          if let diveNo = numOfDivesLabel.text {
+            // Check if the text is empty
+            if let errorMessage = checkIfEmpty(input: diveNo) {
+              // If the text is empty, set the error message of the diveNumber error label to "required"
+              diveNumberError.text = errorMessage
+              // Make the diveNumber error label visible
+              diveNumberError.isHidden = false
+            } else {
+              // If the text is not empty, hide the diveNumber error label
+              diveNumberError.isHidden = true
+            }
+          }
+
+          updateSaveButtonState()
+        print("saveButton.isEnabled: \(saveButton.isEnabled)")
+
+    }
+    
+    
+    
     @IBOutlet weak var surfaceError: UILabel!
-    
-    
-    
     
     @IBAction func surfaceChanged(_ sender: Any) {
         // Get the text from the location text field
@@ -721,16 +764,8 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         }
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    // Function to evaluate the input "DOUBLE"
     func checkDouble(_ value: String) -> String? {
         if value.range(of: ".") == nil {
             return "Please enter a double value."
@@ -738,11 +773,18 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             return nil
         }
     }
+   
+    func checkIfEmpty(input: String) -> String? {
+      if input.isEmpty {
+        return "Required"
+      }
+      return nil
+    }
 
 
 
 
-    
+    // Function to evaluate the input "DOUBLE"
     func invalidInput(_ value: String) -> String?{
         if value.count < 3{
             return "Input must contain at least 3 characters"
@@ -750,21 +792,23 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         return nil
     }
     
+    // Function to empty the labels text
     func updateErrorLabels(){
-        surfaceError.text = "       "
-        maxDepthError.text = "        "
-        avgDepthError.text = "        "
-        buttomTimeError.text = "         "
-        airInError.text = "           "
-        airOutError.text = "          "
-        wightError.text = "          "
-        gassMixError.text = "          "
-        computerError.text = ""
-        cameraError.text = "         "
-        weatherError.text = "          "
-        airTempError.text = "       "
-        visibilityError.text = "       "
+        surfaceError.text = " "
+        maxDepthError.text = " "
+        avgDepthError.text = " "
+        buttomTimeError.text = " "
+        airInError.text = " "
+        airOutError.text = " "
+        wightError.text = " "
+        gassMixError.text = " "
+        computerError.text = " "
+        cameraError.text = " "
+        weatherError.text = " "
+        airTempError.text = " "
+        visibilityError.text = " "
     }
+
     
     
     //MARK: - clolors for dark and light mode
@@ -781,7 +825,25 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     }
     }
     
+    //MARK: - save button
+   
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     
+    func updateSaveButtonState() {
+        if  diveNumberError.isHidden{
+                
+            saveButton.isEnabled = true
+
+            
+      } else {
+        saveButton.isEnabled = false
+      }
+    }
+
+
 }
+
+
 

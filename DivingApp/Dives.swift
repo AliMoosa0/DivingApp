@@ -83,4 +83,47 @@ struct Dive : Equatable, Codable {
     static func ==(lhs: Dive, rhs: Dive) -> Bool {
         return lhs.id == rhs.id
     }
+    
+    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    
+  //  static let archiveURL = documentsDirectory.appendingPathComponent("dives").appendingPathExtension("plist")
+    
+    static func getFileUrl(_ tripUID : String) -> URL{
+        let archiveURL = documentsDirectory.appendingPathComponent(tripUID).appendingPathExtension("plist")
+        return archiveURL
+    }
+    
+    static func loadDives(from tripUID: String) -> [Dive]? {
+        let archiveURL = getFileUrl(tripUID)
+        guard let codedDives = try? Data(contentsOf: archiveURL) else {return nil}
+        let propertListDecoder = PropertyListDecoder()
+        return try? propertListDecoder.decode(Array<Dive>.self, from: codedDives)
+    }
+    
+    static func saveDives(_ dives: [Dive], to tripUID: String){
+        let archiveURL = getFileUrl(tripUID)
+        let propertyListEncoder = PropertyListEncoder()
+        let codedDives = try? propertyListEncoder.encode(dives)
+        try? codedDives?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
+    
+    static let archiveURL = documentsDirectory.appendingPathComponent("dives").appendingPathExtension("plist")
+    
+    static func loadAllDives() -> [Dive]?{
+        //let archiveURL = documentsDirectory.appendingPathComponent("dives").appendingPathExtension("plist")
+        
+        guard let codedDives = try? Data(contentsOf: archiveURL) else {return nil}
+        let propertListDecoder = PropertyListDecoder()
+        return try? propertListDecoder.decode(Array<Dive>.self, from: codedDives)
+    }
+    
+    static func saveAllDives(_ dives: [Dive]){
+       // let archiveURL = documentsDirectory.appendingPathComponent("dives").appendingPathExtension("plist")
+        
+        let propertyListEncoder = PropertyListEncoder()
+        let codedDives = try? propertyListEncoder.encode(dives)
+        try? codedDives?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
 }
