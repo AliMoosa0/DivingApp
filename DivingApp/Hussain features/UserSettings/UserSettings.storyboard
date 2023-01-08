@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--FAQ-->
         <scene sceneID="bHH-LV-gAd">
             <objects>
                 <tableViewController id="t9O-5I-bSz" sceneMemberID="viewController">
@@ -25,10 +25,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="974"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ng-3Y-Azp">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ng-3Y-Azp">
                                                     <rect key="frame" x="20" y="11" width="374" height="952"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <mutableString key="text">Q: What is this app for?
+                                                    <string key="text">Q: What is this app for?
 
 A: This app is for diving enthusiasts and professionals. It allows you to plan and track your diving activities, including dive sites, equipment, and logs.
 
@@ -58,7 +58,7 @@ A: No, currently this app is only available as a mobile app. However, we may con
 
 Q: I am having trouble with the app. Who can I contact for support?
 
-A: If you are experiencing any issues with the app, please don't hesitate to contact our support team by selecting the "contact us" button or at support@divingapp.com. We will do our best to assist you and resolve any issues you may be experiencing.</mutableString>
+A: If you are experiencing any issues with the app, please don't hesitate to contact our support team by selecting the "contact us" button or at support@divingapp.com. We will do our best to assist you and resolve any issues you may be experiencing.</string>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -80,7 +80,7 @@ A: If you are experiencing any issues with the app, please don't hesitate to con
                             <outlet property="delegate" destination="t9O-5I-bSz" id="uu4-Fn-0h5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="k7q-ZC-bQZ"/>
+                    <navigationItem key="navigationItem" title="FAQ" id="vgK-78-qMS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbi-F6-4c5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -368,25 +368,25 @@ A: If you are experiencing any issues with the app, please don't hesitate to con
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms and conditions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I3c-Kq-F5j">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <sections>
                             <tableViewSection id="tVn-NY-o12">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="1332" id="iFB-DP-Gjs">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="1332"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="1290" id="Kcf-t2-Ojq">
+                                        <rect key="frame" x="0.0" y="88.5" width="414" height="1290"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iFB-DP-Gjs" id="aBc-ie-zg6">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="1332"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kcf-t2-Ojq" id="zjb-Y1-3HP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="1290"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms and conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxU-Vp-DeL">
-                                                    <rect key="frame" x="93" y="26" width="229" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWa-Qr-ybj">
-                                                    <rect key="frame" x="20" y="64" width="374" height="1252.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="x38-KO-p41">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1878"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <mutableString key="text">Welcome to the diving logbook app (the "App"). By accessing or using the App, you agree to be bound by these terms and conditions (the "Terms"). If you do not agree to all of the Terms, do not use the App.
 
@@ -417,9 +417,10 @@ Miscellaneous: These Terms constitute the entire agreement between you and the A
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="YxU-Vp-DeL" firstAttribute="top" secondItem="aBc-ie-zg6" secondAttribute="topMargin" constant="15" id="9qi-lH-iDb"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="YxU-Vp-DeL" secondAttribute="trailing" constant="72" id="LDU-iH-iea"/>
-                                                <constraint firstItem="YxU-Vp-DeL" firstAttribute="leading" secondItem="aBc-ie-zg6" secondAttribute="leadingMargin" constant="73" id="gAr-NF-47Q"/>
+                                                <constraint firstAttribute="bottom" secondItem="x38-KO-p41" secondAttribute="bottom" constant="-588" id="C6n-db-bxG"/>
+                                                <constraint firstItem="x38-KO-p41" firstAttribute="top" secondItem="zjb-Y1-3HP" secondAttribute="top" id="G9Z-3n-zPv"/>
+                                                <constraint firstItem="x38-KO-p41" firstAttribute="leading" secondItem="zjb-Y1-3HP" secondAttribute="leading" id="Y5K-Gy-gJU"/>
+                                                <constraint firstAttribute="trailing" secondItem="x38-KO-p41" secondAttribute="trailing" id="t1h-xK-dW0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -431,7 +432,6 @@ Miscellaneous: These Terms constitute the entire agreement between you and the A
                             <outlet property="delegate" destination="95C-eH-mun" id="mhe-pP-Aci"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="VVw-ot-tFq"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tIz-ws-PRV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -448,37 +448,47 @@ Miscellaneous: These Terms constitute the entire agreement between you and the A
                             <tableViewSection id="Ark-va-xlK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pMf-sX-5xC">
-                                        <rect key="frame" x="20" y="18" width="374" height="44"/>
+                                        <rect key="frame" x="20" y="18" width="374" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pMf-sX-5xC" id="Hbb-rN-1XV">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send this to your friends for a discount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHZ-X3-7as">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Send this to your friends for a discount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHZ-X3-7as">
                                                     <rect key="frame" x="40" y="11" width="295" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cHZ-X3-7as" firstAttribute="leading" secondItem="Hbb-rN-1XV" secondAttribute="leadingMargin" constant="20" id="idh-Wk-hWn"/>
+                                                <constraint firstItem="cHZ-X3-7as" firstAttribute="top" secondItem="Hbb-rN-1XV" secondAttribute="topMargin" id="qc7-5G-6Xj"/>
+                                                <constraint firstItem="cHZ-X3-7as" firstAttribute="centerX" secondItem="Hbb-rN-1XV" secondAttribute="centerX" id="sRP-Z9-BX5"/>
+                                                <constraint firstItem="cHZ-X3-7as" firstAttribute="centerY" secondItem="Hbb-rN-1XV" secondAttribute="centerY" id="wqh-c3-hrh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dd9-2K-FtN">
-                                        <rect key="frame" x="20" y="62" width="374" height="44"/>
+                                        <rect key="frame" x="20" y="61" width="374" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dd9-2K-FtN" id="HhB-JI-Ngx">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rx-kx-SD8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rx-kx-SD8">
                                                     <rect key="frame" x="88" y="12" width="198" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5rx-kx-SD8" firstAttribute="bottom" secondItem="HhB-JI-Ngx" secondAttribute="bottomMargin" id="BMw-zP-4Kv"/>
+                                                <constraint firstItem="5rx-kx-SD8" firstAttribute="leading" secondItem="HhB-JI-Ngx" secondAttribute="leadingMargin" constant="68" id="Ogm-0q-Yz5"/>
+                                                <constraint firstItem="5rx-kx-SD8" firstAttribute="centerY" secondItem="HhB-JI-Ngx" secondAttribute="centerY" id="PAW-Ib-FDq"/>
+                                                <constraint firstItem="5rx-kx-SD8" firstAttribute="centerX" secondItem="HhB-JI-Ngx" secondAttribute="centerX" id="wRu-tZ-W3a"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -501,7 +511,6 @@ Miscellaneous: These Terms constitute the entire agreement between you and the A
         <!--User Settings-->
         <scene sceneID="ec9-Rc-dzG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4lj-2d-Euk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="3wr-Sh-acj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="User Settings" image="gearshape.fill" catalog="system" id="mcx-Tx-HeG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7g8-wr-aTb">
@@ -512,6 +521,7 @@ Miscellaneous: These Terms constitute the entire agreement between you and the A
                         <segue destination="DWz-KG-qBS" kind="relationship" relationship="rootViewController" id="CCy-JN-U9H"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lj-2d-Euk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-730" y="-242"/>
         </scene>
