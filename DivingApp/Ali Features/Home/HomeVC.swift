@@ -22,6 +22,11 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // load sample trips or load trips from file and assign them to the trips array
         if let savedTrips = Trip.loadTrips(){
             trips = savedTrips
@@ -36,22 +41,8 @@ class HomeVC: UIViewController {
         }
          
 
-        // update the number of trips label
-        //numberOfTrips(trips: trips)
-        //updateNoOfTrips()
-        
-        // update the number of dives label
-       // numberOfDives(dives: dives)
-       // updateNoOfDives()
+        // updates all the labels
         refreshData()
-        // update the average maximum depth label
-        updatLastLabel()
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-            refreshData()
         
     }
      
@@ -100,15 +91,6 @@ class HomeVC: UIViewController {
 
     // updates the noOfDives label with the number of dives in the trips array
     func numberOfDives(dives :[Dive]){
-        // number of dives
-        //var noDives : Int = 0
-
-        // iterate through each trip and add the number of dives in each trip to noDives
-        /*
-        for trip in trips {
-            noDives += trip.dives.count
-        }
-         */
         
         let noDives = dives.count
 
@@ -117,16 +99,20 @@ class HomeVC: UIViewController {
     }
     
     func updateNoOfTrips(){
+        // update the number of trips
         numberOfTrips(trips: trips)
 
     }
     
     func updateNoOfDives(){
+        // update the number of dives
         numberOfDives(dives: dives)
     }
+    
     
     func refreshData(){
         updateNoOfTrips()
         updateNoOfDives()
+        updatLastLabel()
     }
 }
