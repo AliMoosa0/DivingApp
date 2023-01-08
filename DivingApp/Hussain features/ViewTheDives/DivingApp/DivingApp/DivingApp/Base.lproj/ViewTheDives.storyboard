@@ -138,7 +138,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wl-Lg-PWP">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xD-Pg-a3v">
                                                                             <rect key="frame" x="0.0" y="520" width="200" height="20.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -466,7 +466,7 @@
                         <outlet property="AirTempLbl" destination="AAu-rX-iSY" id="fHI-Mb-vqh"/>
                         <outlet property="AvgDepth" destination="hrI-2U-E10" id="SdP-dr-j3A"/>
                         <outlet property="BottomTimeLbl" destination="RjE-HZ-UX8" id="Zy8-aV-QLt"/>
-                        <outlet property="CameraLbl" destination="1wl-Lg-PWP" id="BPU-AO-PK1"/>
+                        <outlet property="CameraLbl" destination="8xD-Pg-a3v" id="fIZ-Lv-Gsa"/>
                         <outlet property="CapacityLbl" destination="Ife-xB-hqq" id="Gwp-Zd-TKn"/>
                         <outlet property="ComputerLbl" destination="G6P-TJ-6Li" id="eZm-Mq-Iyx"/>
                         <outlet property="DiveNoLbl" destination="R95-QV-V9O" id="hEK-zN-zgg"/>

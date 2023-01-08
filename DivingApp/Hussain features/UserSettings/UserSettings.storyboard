@@ -3,9 +3,89 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="bHH-LV-gAd">
+            <objects>
+                <tableViewController id="t9O-5I-bSz" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="zfN-VJ-FSB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="kIZ-GP-x2L">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="974" id="7nt-Rc-TO4">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="974"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7nt-Rc-TO4" id="qC5-fW-Mcv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="974"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ng-3Y-Azp">
+                                                    <rect key="frame" x="20" y="11" width="374" height="952"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <mutableString key="text">Q: What is this app for?
+
+A: This app is for diving enthusiasts and professionals. It allows you to plan and track your diving activities, including dive sites, equipment, and logs.
+
+Q: Can I use this app if I am not a certified diver?
+
+A: While this app is primarily designed for certified divers, it may still be useful for those who are interested in learning to dive. However, it is important to note that diving can be a dangerous activity, and proper training and certification is required for your own safety and the safety of those around you.
+
+Q: How do I log a dive?
+
+A: To log a dive, simply select the "Log book" button from the navigation bar. From there, you can enter details about the trip, enter the required details and then select the "+" button to add a new dive and details such as the dive site, depth, duration, and any notes you wish to include.
+
+Q: Can I export my dive logs?
+
+A: Yes, you can export your dive logs as a CSV file, which can be opened in a spreadsheet program such as Microsoft Excel or Google Sheets. To export your logs, go to the "Logs" tab and select the "Export" button.
+
+Q: Is this app compatible with dive computers?
+
+A: Yes, this app is compatible with most dive computers that support Bluetooth connectivity. Simply pair your dive computer with your device and you will be able to import your dive data directly into the app.
+
+Q: Is this app available for both iOS and Android?
+
+A: No, currently the application is only available on iOS and will soon be released on android devices.
+
+Q: Is there a web version of this app?
+
+A: No, currently this app is only available as a mobile app. However, we may consider developing a web version in the future.
+
+Q: I am having trouble with the app. Who can I contact for support?
+
+A: If you are experiencing any issues with the app, please don't hesitate to contact our support team by selecting the "contact us" button or at support@divingapp.com. We will do our best to assist you and resolve any issues you may be experiencing.</mutableString>
+                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3ng-3Y-Azp" firstAttribute="trailing" secondItem="qC5-fW-Mcv" secondAttribute="trailingMargin" id="Ccv-l5-A00"/>
+                                                <constraint firstItem="3ng-3Y-Azp" firstAttribute="bottom" secondItem="qC5-fW-Mcv" secondAttribute="bottomMargin" id="Mwy-wC-5Hp"/>
+                                                <constraint firstItem="3ng-3Y-Azp" firstAttribute="top" secondItem="qC5-fW-Mcv" secondAttribute="topMargin" id="sfh-f1-jY3"/>
+                                                <constraint firstItem="3ng-3Y-Azp" firstAttribute="leading" secondItem="qC5-fW-Mcv" secondAttribute="leadingMargin" id="tEV-Ax-Xuv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="t9O-5I-bSz" id="n06-UW-zZE"/>
+                            <outlet property="delegate" destination="t9O-5I-bSz" id="uu4-Fn-0h5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="k7q-ZC-bQZ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbi-F6-4c5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1510.144927536232" y="533.70535714285711"/>
+        </scene>
         <!--User Settings-->
         <scene sceneID="l3V-L2-IAi">
             <objects>
@@ -211,6 +291,56 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="featuresCell" rowHeight="42" id="NbJ-PJ-sSG">
+                                        <rect key="frame" x="0.0" y="608" width="414" height="42"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NbJ-PJ-sSG" id="Bvg-2P-JMc">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsB-IV-4e0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="gray" title="Terms and Conditions"/>
+                                                    <connections>
+                                                        <action selector="referralCodeButtonTapped:" destination="DWz-KG-qBS" eventType="touchUpInside" id="2gE-ex-AMb"/>
+                                                        <segue destination="95C-eH-mun" kind="show" id="DvV-89-OVg"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SsB-IV-4e0" firstAttribute="leading" secondItem="Bvg-2P-JMc" secondAttribute="leading" id="FwV-f1-jev"/>
+                                                <constraint firstAttribute="bottom" secondItem="SsB-IV-4e0" secondAttribute="bottom" id="Ob6-vL-Dt2"/>
+                                                <constraint firstItem="SsB-IV-4e0" firstAttribute="top" secondItem="Bvg-2P-JMc" secondAttribute="top" id="c0x-nr-snQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="SsB-IV-4e0" secondAttribute="trailing" id="sRZ-Tz-JSx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="featuresCell" rowHeight="42" id="MO0-Lm-xeE">
+                                        <rect key="frame" x="0.0" y="650" width="414" height="42"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MO0-Lm-xeE" id="fps-BC-VG1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wk-Wh-ddb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="gray" title="FAQ"/>
+                                                    <connections>
+                                                        <action selector="referralCodeButtonTapped:" destination="DWz-KG-qBS" eventType="touchUpInside" id="1pD-mH-WVy"/>
+                                                        <segue destination="t9O-5I-bSz" kind="show" id="znD-kT-YPc"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="6Wk-Wh-ddb" secondAttribute="bottom" id="KLz-ES-Ys7"/>
+                                                <constraint firstItem="6Wk-Wh-ddb" firstAttribute="top" secondItem="fps-BC-VG1" secondAttribute="top" id="fvc-Bp-67v"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Wk-Wh-ddb" secondAttribute="trailing" id="k5W-qg-MIz"/>
+                                                <constraint firstItem="6Wk-Wh-ddb" firstAttribute="leading" secondItem="fps-BC-VG1" secondAttribute="leading" id="y63-YN-hRd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -229,6 +359,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQB-hs-G2E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-730.43478260869574" y="533.70535714285711"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="35Y-Nb-b23">
+            <objects>
+                <tableViewController id="95C-eH-mun" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="vZC-Yj-rlL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="tVn-NY-o12">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="1332" id="iFB-DP-Gjs">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="1332"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iFB-DP-Gjs" id="aBc-ie-zg6">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="1332"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms and conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxU-Vp-DeL">
+                                                    <rect key="frame" x="93" y="26" width="229" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWa-Qr-ybj">
+                                                    <rect key="frame" x="20" y="64" width="374" height="1252.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <mutableString key="text">Welcome to the diving logbook app (the "App"). By accessing or using the App, you agree to be bound by these terms and conditions (the "Terms"). If you do not agree to all of the Terms, do not use the App.
+
+Eligibility: The App is intended for use by certified divers who are at least 18 years old. If you are under 18 or do not have a valid diving certification, you are not permitted to use the App.
+
+Use of the App: You agree to use the App only for lawful purposes and in a manner that does not violate the rights of, or restrict or inhibit the use and enjoyment of, the App by any third party. You may not use the App to transmit or post any illegal, fraudulent, or inappropriate content.
+
+Account Registration: In order to use certain features of the App, you will need to create an account. You are responsible for maintaining the confidentiality of your account login information and for all activities that occur under your account.
+
+Dive Logs: You are solely responsible for the accuracy and completeness of your dive logs. The App is intended for personal use only, and you may not use it for any commercial or business purpose.
+
+Intellectual Property: The App and all content and materials included on it, including but not limited to text, graphics, logos, images, and software, are the property of the App or its licensors and are protected by copyright and trademark laws. You may not use any content or materials on the App for any commercial purpose without the express written consent of the App.
+
+Disclaimer of Warranties: The App is provided on an "as is" and "as available" basis. The App makes no representations or warranties of any kind, express or implied, as to the operation of the App or the information, content, materials, or products included on the App.
+
+Limitation of Liability: The App shall not be liable for any damages of any kind arising from the use of the App, including but not limited to direct, indirect, incidental, punitive, and consequential damages.
+
+Governing Law: These Terms and your use of the App shall be governed by and construed in accordance with the laws of the State of California, without giving effect to any principles of conflicts of law.
+
+Changes to the Terms: The App reserves the right to update and change the Terms at any time without notice. Any changes to the Terms will be effective immediately upon posting on the App. By continuing to access or use the App after any such changes, you agree to be bound by the revised Terms.
+
+Termination: The App reserves the right to terminate or suspend your access to the App at any time, without notice, for any reason, including but not limited to violation of the Terms.
+
+Miscellaneous: These Terms constitute the entire agreement between you and the App and govern your use of the App. If any provision of these Terms is found to be invalid or unenforceable, that provision shall be enforced to the maximum extent possible, and the remaining provisions shall remain in full force and effect. The failure of the App to exercise or enforce any right or provision of these Terms shall not constitute a waiver of such right or provision.</mutableString>
+                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YxU-Vp-DeL" firstAttribute="top" secondItem="aBc-ie-zg6" secondAttribute="topMargin" constant="15" id="9qi-lH-iDb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YxU-Vp-DeL" secondAttribute="trailing" constant="72" id="LDU-iH-iea"/>
+                                                <constraint firstItem="YxU-Vp-DeL" firstAttribute="leading" secondItem="aBc-ie-zg6" secondAttribute="leadingMargin" constant="73" id="gAr-NF-47Q"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="95C-eH-mun" id="17B-Ae-FAN"/>
+                            <outlet property="delegate" destination="95C-eH-mun" id="mhe-pP-Aci"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="VVw-ot-tFq"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tIz-ws-PRV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-730.43478260869574" y="1474.5535714285713"/>
         </scene>
         <!--ReferralTVC-->
         <scene sceneID="11q-i0-Lx5">
@@ -294,6 +501,7 @@
         <!--User Settings-->
         <scene sceneID="ec9-Rc-dzG">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lj-2d-Euk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="3wr-Sh-acj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="User Settings" image="gearshape.fill" catalog="system" id="mcx-Tx-HeG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7g8-wr-aTb">
@@ -304,12 +512,17 @@
                         <segue destination="DWz-KG-qBS" kind="relationship" relationship="rootViewController" id="CCy-JN-U9H"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4lj-2d-Euk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2146" y="534"/>
+            <point key="canvasLocation" x="-730" y="-242"/>
         </scene>
     </scenes>
     <resources>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

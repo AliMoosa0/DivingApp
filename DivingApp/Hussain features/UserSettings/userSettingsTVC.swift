@@ -38,7 +38,7 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
         content.sound = .default
         content.badge = 0
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 15, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 7, repeats: false)
        
         let request = UNNotificationRequest(identifier: "diving_reminder", content: content, trigger: trigger)
 
@@ -51,11 +51,7 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
     @IBOutlet weak var NameTxt: UITextField!
     
     
-    @IBAction func editName(_ sender: UITextField) {
-        
-        self.navigationItem.rightBarButtonItem=UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(rightBtn))
-        
-    }
+    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(rightBtn))
