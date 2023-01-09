@@ -286,7 +286,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         let camera = cameraTF.text ?? "None"
         let weatherSelectedRow = weatherPickerView.selectedRow(inComponent: 0)
         let weatherTemp = Double(weatherTempTF.text!)
-        let airTemp = Double(airTempTF.text!)
+        let airTemp = Double(airTempTF.text ?? "not set")
         let visibility = Double(visibilyTF.text!)
         let swellSelectedRow = swellPickerView.selectedRow(inComponent: 0)
         let notes = notesTF.text

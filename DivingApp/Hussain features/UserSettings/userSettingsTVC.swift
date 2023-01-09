@@ -13,6 +13,28 @@ import MessageUI
 class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate,UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     
+    let defaults = UserDefaults()
+    
+    func saving() {
+        // Save values to UserDefaults
+        defaults.setValue(NameTxt.text, forKey: "Name")
+        if let image = imageView.image {
+            if let imageData = image.pngData() {
+                defaults.set(imageData, forKey: "Picture")
+               
+            }
+        }
+    
+        defaults.setValue(bioTxt.text, forKey: "Bio")
+
+        NameTxt.resignFirstResponder()
+    }
+   
+
+
+
+
+
     
     @IBAction func Notif(_ sender: UISwitch) {
         if sender.isOn {
@@ -66,7 +88,7 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
     
     
     @objc func rightBtn(){
-        
+        saving()
         input = NameTxt.text
         bio = bioTxt.text
         // Dismiss the cursor
@@ -93,7 +115,7 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
     @IBAction func ShareBtn(_ sender: Any) {
         
         // Create an array of items to share
-        let itemsToShare = ["Check out this great app!", URL(string: "https://itunes.apple.com/app/polytechnic.bh.DivingApp")] as [Any]
+        let itemsToShare = ["Check out this great Diving app!", URL(string: "https://itunes.apple.com/app/polytechnic.bh.DivingApp") ?? ""] as [Any]
            
            // Create the activity view controller
            let activityViewController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
@@ -181,24 +203,22 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
     
     
     
-    
-    
-    
-    
-    
-    
-override func viewDidLoad() {
-    super.viewDidLoad()
-    NameTxt.delegate = self
-    bioTxt.delegate = self
-
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NameTxt.delegate = self
+        bioTxt.delegate = self
+
+        // Retrieve saved values
+        NameTxt.text = defaults.value(forKey: "Name") as? String
+        bioTxt.text = defaults.value(forKey: "Bio") as? String
+        if let imageData = defaults.data(forKey: "Picture") {
+            imageView.image = UIImage(data: imageData)
+        }
     }
 
 }

@@ -122,6 +122,16 @@ A: If you are experiencing any issues with the app, please don't hesitate to con
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="RDp-GW-LzR" firstAttribute="top" secondItem="eAR-Tn-4XD" secondAttribute="bottom" id="7g5-RP-ts4"/>
+                                                                <constraint firstItem="eAR-Tn-4XD" firstAttribute="leading" secondItem="RTY-qJ-3hq" secondAttribute="leading" id="9jp-wB-H4g"/>
+                                                                <constraint firstItem="RDp-GW-LzR" firstAttribute="leading" secondItem="RTY-qJ-3hq" secondAttribute="leading" id="JYw-AQ-MSR"/>
+                                                                <constraint firstItem="RDp-GW-LzR" firstAttribute="top" secondItem="eAR-Tn-4XD" secondAttribute="bottom" id="N4t-UQ-wV8"/>
+                                                                <constraint firstItem="eAR-Tn-4XD" firstAttribute="top" secondItem="RTY-qJ-3hq" secondAttribute="top" id="iFP-0I-lN0"/>
+                                                                <constraint firstAttribute="trailing" secondItem="RDp-GW-LzR" secondAttribute="trailing" id="j94-rv-094"/>
+                                                                <constraint firstAttribute="bottom" secondItem="RDp-GW-LzR" secondAttribute="bottom" id="kyk-la-dAh"/>
+                                                                <constraint firstAttribute="trailing" secondItem="eAR-Tn-4XD" secondAttribute="trailing" id="oVK-zk-6OE"/>
+                                                            </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Omp-fH-SEs">
                                                             <rect key="frame" x="207" y="0.0" width="207" height="153"/>
@@ -388,7 +398,7 @@ A: If you are experiencing any issues with the app, please don't hesitate to con
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="x38-KO-p41">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="1878"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <mutableString key="text">Welcome to the diving logbook app (the "App"). By accessing or using the App, you agree to be bound by these terms and conditions (the "Terms"). If you do not agree to all of the Terms, do not use the App.
+                                                    <string key="text">Welcome to the diving logbook app (the "App"). By accessing or using the App, you agree to be bound by these terms and conditions (the "Terms"). If you do not agree to all of the Terms, do not use the App.
 
 Eligibility: The App is intended for use by certified divers who are at least 18 years old. If you are under 18 or do not have a valid diving certification, you are not permitted to use the App.
 
@@ -410,7 +420,7 @@ Changes to the Terms: The App reserves the right to update and change the Terms 
 
 Termination: The App reserves the right to terminate or suspend your access to the App at any time, without notice, for any reason, including but not limited to violation of the Terms.
 
-Miscellaneous: These Terms constitute the entire agreement between you and the App and govern your use of the App. If any provision of these Terms is found to be invalid or unenforceable, that provision shall be enforced to the maximum extent possible, and the remaining provisions shall remain in full force and effect. The failure of the App to exercise or enforce any right or provision of these Terms shall not constitute a waiver of such right or provision.</mutableString>
+Miscellaneous: These Terms constitute the entire agreement between you and the App and govern your use of the App. If any provision of these Terms is found to be invalid or unenforceable, that provision shall be enforced to the maximum extent possible, and the remaining provisions shall remain in full force and effect. The failure of the App to exercise or enforce any right or provision of these Terms shall not constitute a waiver of such right or provision.</string>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
