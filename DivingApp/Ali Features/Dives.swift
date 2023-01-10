@@ -14,7 +14,7 @@ struct Dive : Equatable, Codable {
     var id = UUID()
     
     // Dive number
-    var diveNumber : Int?
+    var diveNumber : Int
     
     // Surface interval in hours
     var surfaceInterval : Double?

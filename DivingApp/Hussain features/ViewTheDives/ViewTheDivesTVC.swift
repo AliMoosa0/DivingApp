@@ -60,7 +60,7 @@ class ViewTheDivesTVC: UITableViewController {
     
     
     func upadteLabels(){
-        DiveNoLbl.text = String("\(dive.diveNumber ?? 0)")
+        DiveNoLbl.text = String("\(dive.diveNumber )")
                 SurfaceLbl.text = String("\(dive.surfaceInterval ?? 0.0)")
                 TimeOutLbl.text = String("\(dive.timeOut ?? .none)")
                 TimeInLbl.text = String("\(dive.timeIn ?? .none)")

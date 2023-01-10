@@ -16,83 +16,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aNs-mJ-LT0">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vw5-cl-D6l">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="300" verticalHuggingPriority="200" textAlignment="center" lineBreakMode="clip" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fK-Tb-wc9">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
-                                                <color key="tintColor" systemColor="systemTealColor"/>
-                                                <rect key="contentStretch" x="1" y="1" width="0.40000000000000002" height="1"/>
-                                                <string key="text">Welcome to your favorite 
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="300" verticalHuggingPriority="200" textAlignment="center" lineBreakMode="clip" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fK-Tb-wc9">
+                                <rect key="frame" x="20" y="91" width="367" height="111"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <rect key="contentStretch" x="1" y="1" width="0.40000000000000002" height="1"/>
+                                <string key="text">Welcome to your favorite 
 diving app!
 </string>
-                                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="37"/>
-                                                <color key="textColor" red="0.086779959499835968" green="0.13628432154655457" blue="0.39066091179847717" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                                <size key="shadowOffset" width="14" height="-1"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="J7h-Zb-ZrW">
-                                                <rect key="frame" x="0.0" y="224" width="414" height="224"/>
-                                            </imageView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="414" id="11X-Hg-wX6"/>
-                                            <constraint firstAttribute="height" constant="448" id="Xcf-1Y-yeP"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ER3-JJ-QBS">
-                                        <rect key="frame" x="0.0" y="448" width="414" height="448"/>
+                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="37"/>
+                                <color key="textColor" red="0.086779959499835968" green="0.13628432154655457" blue="0.39066091179847717" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="14" height="-1"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" image="homePic" translatesAutoresizingMaskIntoConstraints="NO" id="J7h-Zb-ZrW">
+                                <rect key="frame" x="103" y="252" width="219" height="219"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WGw-Jf-wg0">
+                                <rect key="frame" x="0.0" y="444" width="414" height="418"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhL-iH-wHX">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="209"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="24U-0I-5u3">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Trips" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAp-IV-Rtd">
-                                                        <rect key="frame" x="0.0" y="102" width="207" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of dives" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qC-27-sO3">
-                                                        <rect key="frame" x="207" y="102" width="207" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="OAf-ds-TET">
-                                                <rect key="frame" x="0.0" y="224" width="414" height="224"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max depth" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxu-AH-3ba">
-                                                        <rect key="frame" x="0.0" y="4.5" width="207" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlG-C1-ukI">
-                                                        <rect key="frame" x="207" y="0.0" width="207" height="31"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Check your equipment "/>
-                                                        <connections>
-                                                            <segue destination="cAe-9Y-JtM" kind="presentation" id="rU5-Ia-tne"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAp-IV-Rtd">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="209"/>
+                                                <string key="text">Number of Trips
+
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qC-27-sO3">
+                                                <rect key="frame" x="207" y="0.0" width="207" height="209"/>
+                                                <string key="text">Number of dives
+
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="414" id="7OJ-du-AUe"/>
-                                            <constraint firstAttribute="height" constant="448" id="oxC-ns-um0"/>
-                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bn0-z5-ggg">
+                                        <rect key="frame" x="0.0" y="209" width="414" height="209"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxu-AH-3ba">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="209"/>
+                                                <string key="text">Max depth:
+
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlG-C1-ukI">
+                                                <rect key="frame" x="207" y="0.0" width="207" height="209"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Check your equipment "/>
+                                                <connections>
+                                                    <segue destination="cAe-9Y-JtM" kind="presentation" id="rU5-Ia-tne"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7fK-Tb-wc9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2La-8H-YIl"/>
+                            <constraint firstItem="J7h-Zb-ZrW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="31P-8W-zwg"/>
+                            <constraint firstItem="WGw-Jf-wg0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3xk-mL-wk0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7fK-Tb-wc9" secondAttribute="trailing" constant="27" id="L1d-3d-3sI"/>
+                            <constraint firstItem="WGw-Jf-wg0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Rz9-t3-fk7"/>
+                            <constraint firstItem="WGw-Jf-wg0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XZM-EM-beZ"/>
+                            <constraint firstItem="J7h-Zb-ZrW" firstAttribute="top" secondItem="7fK-Tb-wc9" secondAttribute="bottom" constant="50" id="Ydt-a3-5gC"/>
+                            <constraint firstItem="7fK-Tb-wc9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="47" id="c7D-AM-eZI"/>
+                            <constraint firstItem="WGw-Jf-wg0" firstAttribute="top" secondItem="J7h-Zb-ZrW" secondAttribute="bottom" constant="8" symbolic="YES" id="dHf-eF-go3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="J7h-Zb-ZrW" secondAttribute="bottom" constant="426" id="mzs-Up-muZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J7h-Zb-ZrW" secondAttribute="trailing" constant="110" id="uja-QH-Q6t"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house" id="ob0-cL-63X"/>
                     <connections>
@@ -117,7 +121,7 @@ diving app!
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="1024" height="1024"/>
+        <image name="homePic" width="505" height="494"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
