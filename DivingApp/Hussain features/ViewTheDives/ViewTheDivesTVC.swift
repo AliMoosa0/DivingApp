@@ -14,22 +14,19 @@ class ViewTheDivesTVC: UITableViewController {
     
     
     
-    var unitsAreCelsius: Bool = true
-
-    
     @IBOutlet weak var editDiveButton: UIButton!
     
     
-    
+    // Property to hold the dive object
     var dive = Dive(id: UUID(), diveNumber: 0, surfaceInterval: 0.0, timeIn: Date(), timeOut: Date(), maxDepth: 0.0, avgDepth: 0.0, buttomTime: 0.0, tankType: .none, tankCap: .none, airIn: 0.0, airOut: 0.0, suiteType: .none, wieght: 0.0, gasMix: 0.0, computer: "", camera: "", wetherType: .none, swell: .none, airTemp: 0.0, waterTemp: 0.0, visibility: 0.0, notes: "")
     
     
-    
+    // Outlet for the done button
+
     @IBAction func doneButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-
     
     //Outlet for labels
     @IBOutlet weak var DiveNoLbl: UILabel!
@@ -54,11 +51,9 @@ class ViewTheDivesTVC: UITableViewController {
     @IBOutlet weak var VisibilityLbl:UILabel!
     @IBOutlet weak var wetherLbl: UILabel!
     
-    
-    
     @IBOutlet weak var NotesLbl: UILabel!
     
-    
+    // Method to update the labels
     func upadteLabels(){
         DiveNoLbl.text = String("\(dive.diveNumber )")
                 SurfaceLbl.text = String("\(dive.surfaceInterval ?? 0.0)")
@@ -109,30 +104,40 @@ class ViewTheDivesTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // call function to update the labels with current dive data
         upadteLabels()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print(dive)
-        upadteLabels()
+        
     }
 
-    
-    @IBSegueAction func editDive(_ coder: NSCoder, sender: Any?) -> AddEditDivesTableViewController? {
-        let editDiveController =
-        AddEditDivesTableViewController(coder: coder)
+    override func viewWillAppear(_ animated: Bool) {
+        // print dive data for debugging purposes
+        print(dive)
+        // call function to update the labels with current dive data
+        upadteLabels()
+        //format the dates
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm"
+        TimeInLbl.text = dateFormatter.string(from: dive.timeIn!)
+        TimeOutLbl.text = dateFormatter.string(from: dive.timeOut!)
+
         
+    }
+
+
+    @IBSegueAction func editDive(_ coder: NSCoder, sender: Any?) -> AddEditDivesTableViewController? {
+        let editDiveController = AddEditDivesTableViewController(coder: coder)
+        
+        // check if the edit button was pressed
         if (sender as? UIButton == editDiveButton){
+            // set the dive data for the edit screen
             editDiveController?.dive = dive
             return editDiveController
         }else{
-        
-        
+            // return the edit dive controller in any other case
             return editDiveController
-            
-            
         }
     }
+
     
     
     

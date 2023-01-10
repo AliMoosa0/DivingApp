@@ -9,33 +9,24 @@ import UIKit
 import MessageUI
 
 
-
 class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate,UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    
-    
+
+    // Declare UserDefaults object to save and retrieve values for certain keys
     let defaults = UserDefaults()
-    
+
+    // Save values to UserDefaults
     func saving() {
-        // Save values to UserDefaults
         defaults.setValue(NameTxt.text, forKey: "Name")
         if let image = imageView.image {
             if let imageData = image.pngData() {
                 defaults.set(imageData, forKey: "Picture")
-               
             }
         }
-    
         defaults.setValue(bioTxt.text, forKey: "Bio")
-
         NameTxt.resignFirstResponder()
     }
-   
 
-
-
-
-
-    
+    // IBAction method called when the switch is changed
     @IBAction func Notif(_ sender: UISwitch) {
         if sender.isOn {
             UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert]) { granted, error in
@@ -52,47 +43,44 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
         }
     }
 
+    // scheduleNotif called when switch is turned on, it schedule a notification with the specified content
     func scheduleNotif() {
-        let content = UNMutableNotificationContent(
-        )
+        let content = UNMutableNotificationContent()
         content.title = "Diving App"
         content.body = "It's time to log your dive!"
         content.sound = .default
         content.badge = 0
-        
+
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 7, repeats: false)
-       
+
         let request = UNNotificationRequest(identifier: "diving_reminder", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request) { (error) in
 
         }
     }
-    
-    
+
+    // Declare IBOutlet
     @IBOutlet weak var NameTxt: UITextField!
-    
-    
-    
-    
+    @IBOutlet weak var bioTxt: UITextField!
+
+    // delegate method when text field is begin editing
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(rightBtn))
-        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(leftBtn))
     }
+
+    // Declare variable to save input text
     var input : String?
-    
-    @IBOutlet weak var bioTxt: UITextField!
     var bio : String?
-    
-    
-    
+
+    // rightBtn save the text, dismiss cursor, and hide the "Done" button
     @objc func rightBtn(){
         saving()
         input = NameTxt.text
         bio = bioTxt.text
-        // Dismiss the cursor
-          NameTxt.resignFirstResponder()
+        NameTxt.resignFirstResponder()
+
         bioTxt.resignFirstResponder()
 
           // Hide the "Done" button
@@ -149,7 +137,7 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
         
         present(imagePickerController, animated: true, completion: nil)
     }
-
+//function to access the camera roll
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         dismiss(animated: true, completion: nil)
