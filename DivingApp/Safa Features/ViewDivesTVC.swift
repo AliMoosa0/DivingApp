@@ -116,9 +116,9 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     func sortTable(){
         switch sortSegmentedControl.selectedSegmentIndex{
         case 0:
-            dives.sort(by: {$0.diveNumber ?? 0 > $1.diveNumber ?? 0})
+            dives.sort(by: {$0.diveNumber > $1.diveNumber })
         case 1:
-            dives.sort(by: {$0.diveNumber ?? 0 < $1.diveNumber ?? 0})
+            dives.sort(by: {$0.diveNumber < $1.diveNumber })
         case 2:
             dives.sort(by: {$0.maxDepth ?? 0.0 > $1.maxDepth ?? 0.0})
         default:
@@ -179,11 +179,11 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
         
         if searching{
             let dive = searchDive[indexPath.row]
-            cell.diveNumberLabel.text = "Dive number \(dive.diveNumber ?? 0)"
+            cell.diveNumberLabel.text = "Dive number \(dive.diveNumber )"
             cell.descriptionLabel.text = "Max depth: \(dive.maxDepth ?? 0.0)"
         }else{
             let dive = dives[indexPath.row]
-            cell.diveNumberLabel.text = "Dive number \(dive.diveNumber ?? 0)"
+            cell.diveNumberLabel.text = "Dive number \(dive.diveNumber )"
             cell.descriptionLabel.text = "Max depth: \(dive.maxDepth ?? 0.0)"
         }
         
@@ -257,7 +257,7 @@ class ViewDivesTVC: UITableViewController, UISearchBarDelegate {
     // search bar functions
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchDive = dives.filter({String($0.diveNumber ?? 0) == searchText})
+        searchDive = dives.filter({String($0.diveNumber ) == searchText})
         searching = true
         tableView.reloadData()
     }

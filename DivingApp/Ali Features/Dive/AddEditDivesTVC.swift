@@ -224,7 +224,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             navigationItem.title = "Editing the Dive"
             diveNumberError.text = ""
             //set each dive component to their text fields and pickers
-            numOfDivesLabel.text = String("\(dive.diveNumber ?? 0)")
+            numOfDivesLabel.text = String("\(dive.diveNumber)")
             surfaceIntervalTF.text = String("\(dive.surfaceInterval ?? 0.0)")
             timeInLabel.text = String("\(dive.timeIn ?? .none)")
             timeOutLabel.text = String("\(dive.timeOut ?? .none)")
@@ -304,7 +304,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             print("updating the dive")
             
             // Update the dive object with the new values
-            dive?.diveNumber = noOfDives
+            dive?.diveNumber = noOfDives!
             dive?.surfaceInterval = surfaceIntreval
             dive?.timeIn = timeInThePicker
             dive?.timeOut = timeOutThePicker
@@ -332,7 +332,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             // Dive is nil, so we need to create a new dive object
               
 
-               dive = Dive(id: UUID(), diveNumber: noOfDives, surfaceInterval: surfaceIntreval, timeIn: timeInThePicker, timeOut: timeOutThePicker, maxDepth: maxDepth, avgDepth: avgDepth, buttomTime: bottomTime, tankType: tankType, tankCap: tankCap, airIn: airIn, airOut: airOut, suiteType: suiteType, wieght: weight, gasMix: gasMix, computer: computer, camera: camera, wetherType: weatherType, swell: swell, airTemp: airTemp, waterTemp: weatherTemp, visibility: visibility, notes: notes)
+               dive = Dive(id: UUID(), diveNumber: noOfDives!, surfaceInterval: surfaceIntreval, timeIn: timeInThePicker, timeOut: timeOutThePicker, maxDepth: maxDepth, avgDepth: avgDepth, buttomTime: bottomTime, tankType: tankType, tankCap: tankCap, airIn: airIn, airOut: airOut, suiteType: suiteType, wieght: weight, gasMix: gasMix, computer: computer, camera: camera, wetherType: weatherType, swell: swell, airTemp: airTemp, waterTemp: weatherTemp, visibility: visibility, notes: notes)
            }
 
     }
