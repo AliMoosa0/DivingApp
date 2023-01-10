@@ -17,13 +17,26 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
     // Save values to UserDefaults
     func saving() {
         defaults.setValue(NameTxt.text, forKey: "Name")
-        if let image = imageView.image {
-            if let imageData = image.pngData() {
-                defaults.set(imageData, forKey: "Picture")
-            }
-        }
         defaults.setValue(bioTxt.text, forKey: "Bio")
         NameTxt.resignFirstResponder()
+        
+        if let image = imageView.image {
+            // Create a unique file name for the image
+            let fileName = UUID().uuidString
+            // Create a path to the documents directory
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            // Create the full path to the image file
+            let fileURL = documentsURL.appendingPathComponent("\(fileName).png")
+            // Save the image data to the file system
+            do {
+                try image.pngData()?.write(to: fileURL)
+                // Save the file path to UserDefaults
+                defaults.set(fileURL.path, forKey: "Picture")
+            } catch {
+                print("Error saving image: \(error)")
+            }
+        }
+
     }
 
     // IBAction method called when the switch is changed
@@ -80,7 +93,6 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
         input = NameTxt.text
         bio = bioTxt.text
         NameTxt.resignFirstResponder()
-
         bioTxt.resignFirstResponder()
 
           // Hide the "Done" button
@@ -197,16 +209,25 @@ class userSettingsTVC: UITableViewController, MFMailComposeViewControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NameTxt.delegate = self
-        bioTxt.delegate = self
+        //
+        if let path = defaults.string(forKey: "Picture") {
+                let fileURL = URL(fileURLWithPath: path)
+                do {
+                    let data = try Data(contentsOf: fileURL)
+                    if let image = UIImage(data: data) {
+                        imageView.image = image
+                    }
+                } catch {
+                    print("Error loading image: \(error)")
+                }
+            }
+        NameTxt.delegate = self;
+        bioTxt.delegate = self;
 
         // Retrieve saved values
         NameTxt.text = defaults.value(forKey: "Name") as? String
         bioTxt.text = defaults.value(forKey: "Bio") as? String
-        if let imageData = defaults.data(forKey: "Picture") {
-            imageView.image = UIImage(data: imageData)
-        }
+        
     }
 
 }
