@@ -64,10 +64,14 @@ class AddEditTableViewController: UITableViewController, UITextFieldDelegate {
 
             nameTextField.text = trip.title
             locationTextField.text = trip.location
-            theDateLabel.text = String("\(trip.tripDate)")
+            theDateLabel.text = String("\(trip.tripDate.formatted(.dateTime.month(.abbreviated).day().year(.defaultDigits)))")
+        
         } else {
             // If no trip object is provided, set the navigation item title to "Adding a Trip"
             navigationItem.title = "Adding a Trip"
+           let date = Date()
+                theDateLabel.text = date.formatted(.dateTime.month(.abbreviated).day().year(.defaultDigits))
+            
         }
     }
 

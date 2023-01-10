@@ -254,7 +254,7 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
                 timeOutLabel.text = String("\(timeOut)")
             }
            
-            
+            updateDateViews()
         }else{
             //else set the title to a new dive
             navigationItem.title = "New Dive"
