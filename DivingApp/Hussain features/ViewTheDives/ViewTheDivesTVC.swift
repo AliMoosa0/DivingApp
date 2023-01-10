@@ -27,7 +27,6 @@ class ViewTheDivesTVC: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
     
     //Outlet for labels
     @IBOutlet weak var DiveNoLbl: UILabel!
@@ -107,6 +106,7 @@ class ViewTheDivesTVC: UITableViewController {
         super.viewDidLoad()
         // call function to update the labels with current dive data
         upadteLabels()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -114,6 +114,13 @@ class ViewTheDivesTVC: UITableViewController {
         print(dive)
         // call function to update the labels with current dive data
         upadteLabels()
+        //format the dates
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy h:mm"
+        TimeInLbl.text = dateFormatter.string(from: dive.timeIn!)
+        TimeOutLbl.text = dateFormatter.string(from: dive.timeOut!)
+
+        
     }
 
 
