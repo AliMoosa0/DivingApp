@@ -116,7 +116,7 @@ class ViewTheDivesTVC: UITableViewController {
         upadteLabels()
         //format the dates
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy h:mm"
+        dateFormatter.dateFormat = "h:mm"
         TimeInLbl.text = dateFormatter.string(from: dive.timeIn!)
         TimeOutLbl.text = dateFormatter.string(from: dive.timeOut!)
 
