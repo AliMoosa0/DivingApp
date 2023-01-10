@@ -33,6 +33,11 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     @IBOutlet weak var visibilyTF: UITextField!
     @IBOutlet weak var notesTF: UITextField!
     
+    @IBOutlet weak var timeInTitleLabel: UILabel!
+    
+    @IBOutlet weak var timeOutTitleLabel: UILabel!
+    
+    
     //MARK: - View did load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -211,10 +216,13 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
     // funxtion to updatge the dive
     // funxtion to updatge the dive
     func updateDive(){
+      
+
         //if the dive exist
         if let dive = dive {
             //set the title to editing dive
             navigationItem.title = "Editing the Dive"
+            diveNumberError.text = ""
             //set each dive component to their text fields and pickers
             numOfDivesLabel.text = String("\(dive.diveNumber ?? 0)")
             surfaceIntervalTF.text = String("\(dive.surfaceInterval ?? 0.0)")
@@ -230,9 +238,9 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
             slectedSuiteType.text = dive.suiteType
             wieghtTF.text = String("\(dive.wieght ?? 0.0)")
             gassMixTF.text = String("\(dive.gasMix ?? 0.0)")
-            computerTF.text = String("\(dive.computer ?? "")")
+            computerTF.text = String("\(dive.computer ?? "None")")
             weatherTempTF.text = String("\(dive.waterTemp ?? 0.0)")
-            cameraTF.text = String("\(dive.camera ?? "")")
+            cameraTF.text = String("\(dive.camera ?? "None")")
             slectedWeather.text = dive.wetherType
             airTempTF.text = String("\(dive.airTemp ?? 0.0)")
             visibilyTF.text = String("\(dive.visibility ?? 0.0)")
@@ -246,10 +254,13 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
                 timeOutLabel.text = String("\(timeOut)")
             }
            
-            
+            updateDateViews()
         }else{
             //else set the title to a new dive
             navigationItem.title = "New Dive"
+            updateDateViews()
+           
+
         }
     }
     //MARK: - Prepare
@@ -271,11 +282,11 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         let suiteTypeSelectedRow = suiteTypePickerView.selectedRow(inComponent: 0)
         let weight = Double(wieghtTF.text!)
         let gasMix = Double(gassMixTF.text!)
-        let computer = computerTF.text!
-        let camera = cameraTF.text!
+        let computer = computerTF.text ?? "None"
+        let camera = cameraTF.text ?? "None"
         let weatherSelectedRow = weatherPickerView.selectedRow(inComponent: 0)
         let weatherTemp = Double(weatherTempTF.text!)
-        let airTemp = Double(airTempTF.text!)
+        let airTemp = Double(airTempTF.text ?? "not set")
         let visibility = Double(visibilyTF.text!)
         let swellSelectedRow = swellPickerView.selectedRow(inComponent: 0)
         let notes = notesTF.text
@@ -290,7 +301,6 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
         
         // Dive is not nil, so we can safely access its properties and methods
         if dive != nil {
-           
             print("updating the dive")
             
             // Update the dive object with the new values
@@ -372,10 +382,14 @@ class AddEditDivesTableViewController: UITableViewController, UIPickerViewDataSo
 
 
     //when a pciker is changed call the updateDateView method
-    @IBAction func pickerValueChanged(_ sender: Any) {
+    @IBAction func inPickerValueChanged(_ sender: Any) {
         updateDateViews()
+        timeInTitleLabel.text = "Time In"
     }
-    
+    @IBAction func outPickerValueChanged(_ sender: Any) {
+        updateDateViews()
+        timeOutTitleLabel.text = "Time Out"
+    }
     // MARK: - hide unhide the pickers a
     // Index path for the time in label cell
     let timeInCellIndexPath = IndexPath(row: 1, section: 1)
