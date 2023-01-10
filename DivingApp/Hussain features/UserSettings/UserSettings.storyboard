@@ -201,7 +201,7 @@ A: If you are experiencing any issues with the app, please don't hesitate to con
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recieve Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJ9-85-Sk6">
-                                                    <rect key="frame" x="20" y="21" width="175" height="24"/>
+                                                    <rect key="frame" x="20" y="21" width="242" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -214,13 +214,13 @@ A: If you are experiencing any issues with the app, please don't hesitate to con
                                                 </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="vJ9-85-Sk6" firstAttribute="top" secondItem="c5K-g0-v4p" secondAttribute="topMargin" constant="10" id="CWD-sR-MG3"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BMh-HV-xfg" secondAttribute="trailing" id="O8B-zN-1vJ"/>
                                                 <constraint firstItem="BMh-HV-xfg" firstAttribute="top" secondItem="c5K-g0-v4p" secondAttribute="topMargin" constant="10" id="RpS-sR-9Zy"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="vJ9-85-Sk6" secondAttribute="bottom" constant="10" id="Ti5-h0-mmY"/>
-                                                <constraint firstItem="BMh-HV-xfg" firstAttribute="leading" secondItem="vJ9-85-Sk6" secondAttribute="trailing" constant="150" id="V9Q-cK-mBm"/>
+                                                <constraint firstItem="vJ9-85-Sk6" firstAttribute="centerY" secondItem="c5K-g0-v4p" secondAttribute="centerY" id="VFE-nU-HhH"/>
+                                                <constraint firstItem="vJ9-85-Sk6" firstAttribute="leading" secondItem="c5K-g0-v4p" secondAttribute="leadingMargin" id="WQk-VU-qbb"/>
+                                                <constraint firstItem="vJ9-85-Sk6" firstAttribute="top" secondItem="BMh-HV-xfg" secondAttribute="top" id="oRd-0d-VgC"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="BMh-HV-xfg" secondAttribute="bottom" constant="10" id="qlJ-Tk-Chd"/>
-                                                <constraint firstItem="vJ9-85-Sk6" firstAttribute="leading" secondItem="c5K-g0-v4p" secondAttribute="leadingMargin" id="w7S-Mv-ab8"/>
+                                                <constraint firstItem="BMh-HV-xfg" firstAttribute="leading" secondItem="vJ9-85-Sk6" secondAttribute="trailing" constant="83" id="uKH-3U-avJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
