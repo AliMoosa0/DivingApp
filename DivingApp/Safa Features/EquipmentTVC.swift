@@ -11,7 +11,7 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     
     
     @IBOutlet weak var clearButton: UIBarButtonItem!
-    @IBOutlet weak var searchBar: UISearchBar!
+    //@IBOutlet weak var searchBar: UISearchBar!
     
     var searchEquipment = [Equipment]()
     var searching = false
@@ -24,9 +24,10 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
-        //Equipment.saveEquipment(equipment)
-        //equipment = Equipment.loadEquipment()!
+        //searchBar.delegate = self
+        //Equipment.saveEquipment(equipmentToLoad)
+       //equipment = Equipment.loadEquipment()!
+        
         
         if let savedEquipment = Equipment.loadEquipment(){
             equipment = savedEquipment
@@ -34,6 +35,10 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
             Equipment.saveEquipment(equipmentToLoad)
              equipment = Equipment.loadEquipment()!
         }
+        
+         
+        
+         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -55,7 +60,7 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     }
     
     
-    
+    /*
     // search bar functions
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchEquipment = equipment.filter({$0.title.lowercased().prefix(searchText.count) == searchText.lowercased()})
@@ -68,6 +73,7 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
         searchBar.text = ""
         tableView.reloadData()
     }
+     */
     
     
     // MARK: - Table view data source
@@ -81,11 +87,15 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        return equipment.count
+        
+        /*
         if searching{
             return searchEquipment.count
         }else{
             return equipment.count
         }
+         */
     }
 
     
@@ -94,6 +104,11 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
 
         // Configure the cell...
 
+        let item = equipment[indexPath.row]
+        cell.equipmentLabel?.text = item.title
+        cell.accessoryType = item.isChecked ? .checkmark : .none
+        
+        /*
         if searching{
             let item = searchEquipment[indexPath.row]
             cell.equipmentLabel?.text = item.title
@@ -104,6 +119,7 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
             cell.equipmentLabel?.text = item.title
             cell.accessoryType = item.isChecked ? .checkmark : .none
         }
+         */
         
         
         // return the cell
@@ -111,6 +127,14 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let item = equipment[indexPath.row]
+        item.isChecked = !item.isChecked
+        Equipment.saveEquipment(equipment)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+        //tableView.reloadData()
+        
+        /*
         if searching{
             let indexPathForSearched = tableView.indexPathForSelectedRow
             let searchedItem = searchEquipment[indexPathForSearched!.row]
@@ -121,8 +145,10 @@ class EquipmentTVC: UITableViewController, UISearchBarDelegate {
             let item = equipment[indexPath.row]
             item.isChecked = !item.isChecked
             Equipment.saveEquipment(equipment)
-            tableView.reloadRows(at: [indexPath], with: .automatic)
+            //tableView.reloadRows(at: [indexPath], with: .automatic)
+            tableView.reloadData()
         }
+         */
     }
     
 
