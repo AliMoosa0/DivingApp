@@ -14,7 +14,6 @@
   
   Extra Features: 
 
-  Extra Feature 1: Home Page >> page design >> Ali Moosa
-                             >> Functions   >> Ali Moosa & Safa Husain
-                             >> equipment checklist >> Safa Husain 
-  Extra Feature 1: Home Page >> page design >> Ali Moosa
+  Extra Feature 1: Home Page >> page design >> Ali Moosa                             
+  Extra Feature 1: Home Page >> >> Functions   >> Ali Moosa & Safa Husain
+  Extra Feature 1: Home Page >> equipment checklist >> Safa Husain 
